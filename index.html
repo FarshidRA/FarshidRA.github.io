@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="KiAFJ1cIa2YFCwVUIB4NejoyMwhYNHJ2DTgwnp21LFadsVXKTXtl4PEE"> 
+	<link rel="stylesheet" href="style.css" as="style">
+	<title>ME </title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/fontawesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">   
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css" integrity="sha512-vebUliqxrVkBy3gucMhClmyQP9On/HAWQdKDXRaAlb/FKuTbxkjPKUyqVOxAcGwFDka79eTF+YXwfke1h3/wfg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="loadContent.js"></script>
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+<!---------------------------------------------navbar--------->
+	<div class="overlay" id="overlay"></div>
+	<div class="navbar">
+		<div class="logo">	
+			<a href="index">
+				<img  src="logo.png" alt="My Logo" >
+			</a>
+		</div>
+		<div class="navbar-center">
+			<a href="about">About</a>
+			<a href="contact">Contact</a>
+			<a href="help">Help</a>
+		</div>
+	<div class="search-bar">
+    <input type="text" placeholder="Srearch...">
+    <button type="submit"><svg id="tnb-google-search-icon" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.8153 10.3439C12.6061 9.2673 13.0732 7.9382 13.0732 6.5C13.0732 2.91015 10.163 0 6.57318 0C2.98333 0 0.0731812 2.91015 0.0731812 6.5C0.0731812 10.0899 2.98333 13 6.57318 13C8.01176 13 9.3412 12.5327 10.4179 11.7415L10.4171 11.7422C10.4466 11.7822 10.4794 11.8204 10.5156 11.8566L14.3661 15.7071C14.7566 16.0976 15.3898 16.0976 15.7803 15.7071C16.1708 15.3166 16.1708 14.6834 15.7803 14.2929L11.9298 10.4424C11.8936 10.4062 11.8553 10.3734 11.8153 10.3439ZM12.0732 6.5C12.0732 9.53757 9.61075 12 6.57318 12C3.53561 12 1.07318 9.53757 1.07318 6.5C1.07318 3.46243 3.53561 1 6.57318 1C9.61075 1 12.0732 3.46243 12.0732 6.5Z" fill="black"></path>
+          </svg>
+	</button>
+	
+	
+	</div>
+
+	<div class="login-container" id="login-container">
+        <form class="login-form">
+            <h2>Login</h2>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            
+            <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+            
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <button id="loginButton">Login</button>
+    
+	
+	<div class="SignUp-container" id="SignUp-container">
+        <form class="SignUp-form">
+            <h2>SignUp</h2>
+            <label for="username">Email</label>
+            <input type="text" id="username" name="username" required>
+			<label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <label for="password">Re-Password</label>
+            <input type="password" id="password" name="password" required>
+            
+            <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+            
+            <button type="submit">SignUp</button>
+        </form>
+    </div>
+	<button id="SignUpButton">SignUp</button>
+    <script src="script.js"></script>  
+	    <div class="date" id="currentDate"></div>
+	</div>
+<!-------------------------------------body        ------------------->
+<div class="container">
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="SUN FLOWER.jpg" >
+<div class="front-text"> </div>					
+                </div>
+				<div class="flip-card-back">
+                   <img src="SUN FLOWER.jpg" alt="ORANGE">
+				   <div class="back-text">SUN FLOWER</div>
+				   </div>
+            </div>
+        </div>
+		<div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="CARROT.jpg" >
+                </div>
+				<div class="flip-card-back">
+                   <img src="CARROT.jpg" >
+				   				   <div class="back-text">CARROT</div>
+
+				   </div>
+            </div>
+        </div>
+		<div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="ALIZARIN.jpg" >
+                </div>
+				<div class="flip-card-back">
+                   <img src="ALIZARIN.jpg" >
+				   <div class="back-text">ALIZARIN</div>
+				   </div>
+            </div>
+        </div>
+<div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="ORANGE.jpg" >	
+                </div>
+				<div class="flip-card-back">
+                   <img src="ORANGE.jpg" >
+				   <div class="back-text">ORANGE</div>
+				   </div>
+            </div>
+        </div>
+		<div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="PUMPKIN.jpg" >
+                </div>
+				<div class="flip-card-back">
+                   <img src="PUMPKIN.jpg" >
+				   <div class="back-text">PUMPKIN</div>
+				   </div>
+            </div>
+        </div>
+		<div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="POMEGRANATE.jpg" >
+                </div>
+				<div class="flip-card-back">
+                   <img src="POMEGRANATE.jpg" >
+				   <div class="back-text">POMEGRANATE</div>
+				   </div>
+            </div>
+        </div>
+   
+<div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <div class="rectangle" style="background-color: #CD5C5C;"></div>	
+                </div>
+				<div class="flip-card-back">
+                   <div class="rectangle" style="background-color: #CD5C5C;">IndianRed</div>
+				   
+				   </div>
+            </div>
+        </div>
+		<div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <div class="rectangle" style="background-color: #F08080;"></div>	
+                </div>
+				<div class="flip-card-back">
+                   <div class="rectangle" style="background-color: #F08080;">LightCoral</div>
+				   
+				   </div>
+            </div>
+        </div>
+		<div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="POMEGRANATE.jpg" >
+                </div>
+				<div class="flip-card-back">
+                   <img src="POMEGRANATE.jpg" >
+				   <div class="back-text">POMEGRANATE</div>
+				   </div>
+            </div>
+        </div>
+    </div>
+	 
+	
+    <div class="marquee-container">
+		<div class="marquee-content">this is news bar and new news you can see</div>
+	</div>
+	
+<div class="footer">
+		
+		
+		    <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+			<a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+			<a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+			<a href="https://www.discord.com" target="_blank"><i class="fab fa-discord"></i></a>
+		
+			<div class="copyright" ><i class="fa-regular fa-copyright"></i>2024 ME DEVELOPERS. ALL RIGHTS RESERVED.</div>
+</div>
+		
+	
+	
+	
+</body>
+</html>

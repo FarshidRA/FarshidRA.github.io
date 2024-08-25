@@ -277,7 +277,7 @@ margin-right:auto;}.w3-content{max-width:980px}.w3-auto{max-width:1140px}
 .contact__form-field-input {
   display: block;
   padding: 0.2rem;
-  width: 50%;
+  width: 100%;
   border: 1px solid rgba(225, 225, 225, 1);
   font-size: 1rem;
   resize: none;
@@ -339,7 +339,7 @@ margin-right:auto;}.w3-content{max-width:980px}.w3-auto{max-width:1140px}
 .contact__form-submit {
 	text-align:center;
 	align-items:center;
-	width: 50%;
+	width: 100%;
 	font-size: 20px;
 	border: none;
 	font-family: calibri;
@@ -426,3 +426,38 @@ a:visited { text-decoration: none;
 color:#009688;}
 a:hover { text-decoration: underline; }
 a:active { text-decoration: underline; }
+
+.footer-container {
+  display: flex; /* استفاده از Flexbox برای تقسیم‌بندی */
+  flex-direction: row; /* نمایش در حالت عادی (دسکتاپ) به صورت ردیفی */
+}.footer-left{width:50%}.footer-right{width:50%}.footer-container a{color:white;}
+@media (max-width: 768px) {  .footer-container {    flex-direction: column; /* نمایش به صورت ستونی در موبایل */
+  }  .footer-left {    order: 1; /* فرم اول نمایش داده می‌شود */
+  }  .footer-right {    order: 2; /* محتوای دیگر دوم نمایش داده می‌شود */
+  }  .footer-left{width:100%}.footer-right{width:100%}
+}
+
+#news-container {
+  width: 100%; /* عرض پنجره */
+  height: 25rem; /* ارتفاع پنجره */
+  overflow-y: scroll; /* اسکرول عمودی */
+  background-color: rgb(0, 174, 157)	; /* حاشیه برای مشخص کردن مرز پنجره */
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* سایه برای بهبود ظاهر */
+}
+
+.news-item {
+}
+
+.news-item img {
+  max-width: 100%; /* تصویر به اندازه پنجره نمایش داده می‌شود */
+  height: auto;
+}
+
+.news-item h3 a {
+  text-decoration: none;
+  color: rgb(0, 81, 81);
+}
+
+.news-item h3 a:hover {
+  text-decoration: underline;
+}

@@ -31,7 +31,8 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/fontawesome.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">   
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css" integrity="sha512-vebUliqxrVkBy3gucMhClmyQP9On/HAWQdKDXRaAlb/FKuTbxkjPKUyqVOxAcGwFDka79eTF+YXwfke1h3/wfg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
+    <script src="assets/js/javascript.js"></script>
+	<style>
     html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
     </style>
@@ -49,7 +50,7 @@
     
       <div class="w3-white w3-text-grey w3-card-4">
         <div class="w3-display-container" >
-          <img class="w3-display-container3d" src="images\logo.jpg" style="  max-width:100%; height:auto;  border-radius: 50%; " alt="Farshid Ryahi">
+          <img class="w3-display-container3d" src="images/logo.jpg" style="  max-width:100%; height:auto;  border-radius: 50%; " alt="Farshid Ryahi">
           <div class="w3-display-bottomleft w3-container w3-text-black" style="height:2rem;">
             <h2 >Farshid Ryahi</h2>
           </div>
@@ -115,7 +116,9 @@ I am passionate about technology and committed to delivering high-quality soluti
 <footer class="w3-container w3-teal w3-center w3-margin-top" style="position: relative; ">
 <!--div class="footercontainer"-->
 	<div class="mypara"  ><p >Feel free to Contact me by submitting the form. I will get back to you as soon as possible.</p></div>
-		<form class="contact__form" action="https://formspree.io/f/xanwdwzn" method="POST" >
+		<div class="footer-container">
+    <div class="footer-left">
+	<form class="contact__form" action="https://formspree.io/f/xanwdwzn" method="POST" >
             <div class="contact__form-field">
 				<label for="name" class="contact__form-field-label">Name</label>
 				<input placeholder="Enter Your Name" type="text" name="name" class="contact__form-field-input">
@@ -130,6 +133,15 @@ I am passionate about technology and committed to delivering high-quality soluti
             </div>
             <button type="submit" class="contact__form-submit">Submit</button>
         </form>
+		</div>
+    <div class="footer-right">
+      <!-- محتوای دیگر --><p>
+      NEWS</p>
+    <div id="news-container">
+    <!-- تیتر روز در اینجا نمایش داده می‌شود -->
+  </div>
+  </div>
+  </div>
 	<div class="copyright" ><i class="fa-regular fa-copyright"></i>Farshid Ryahi. ALL RIGHTS RESERVED.</div>		  		  
    <!-- End footer -->
 </footer>

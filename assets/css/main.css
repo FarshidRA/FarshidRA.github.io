@@ -254,155 +254,53 @@ margin-right:auto;}.w3-content{max-width:980px}.w3-auto{max-width:1140px}
 	 
 	
 }.contactbar_item:hover{transform: scale(1.1) rotateY(10deg) rotateX(5deg);}
-.contact__form {
-	
-    padding: 0.5rem;
-	text-align:left;
-	align-items:center;
-  }
 
 
-.contact__form-field {
-  margin-bottom: 0.5rem;
-  }
-
-.contact__form-field-label {
-  font-size: 1rem;
-  text-transform: uppercase;
-  
-  display: block;
-  margin-bottom: 0.2rem;;
-}
-
-.contact__form-field-input {
-  display: block;
-  padding: 0.2rem;
-  width: 100%;
-  border: 1px solid rgba(225, 225, 225, 1);
-  font-size: 1rem;
-  resize: none;
-  border-radius: 5px;	
-  font-weight: 100;
-   
-}
-
-/* Code for Modern Browsers */
-/* Code for WebKit, Blink, Edge */
-/* Code for Internet Explorer 10-11 */
-/* Code for Microsoft Edge */
-/* Code for Mozilla Firefox 4 to 18 */
-/* Code for Mozilla Firefox 19+ */
-
-
-.contact__form-field-input::placeholder {
-  color: rgb(175, 175, 175);
-  font-weight: 400;
-  font-size: 20px;
-}
-
+.contact__form {    padding: 0.5rem;	text-align:left;	align-items:center;
+  }.contact__form-field {  margin-bottom: 0.5rem;  }.contact__form-field-label {
+  font-size: 1rem;  text-transform: uppercase;  display: block;  margin-bottom: 0.2rem;;
+}.contact__form-field-input {  display: block;  padding: 0.2rem;  width: 100%;  border: 1px solid rgba(225, 225, 225, 1);
+  font-size: 1rem;  resize: none;  border-radius: 5px;	  font-weight: 100;}
+.contact__form-field-input::placeholder {  color: rgb(175, 175, 175);
+  font-weight: 400;  font-size: 20px;}
 .contact__form-field-input::-webkit-input-placeholder {
-  color: rgb(175, 175, 175);
-  font-weight: 400;
-  font-size: 20px;
-}
-
-.contact__form-field-input:-ms-input-placeholder {
-  color: rgb(175, 175, 175);
-  font-weight: 400;
-  font-size: 20px;
-}
-
+  color: rgb(175, 175, 175);  font-weight: 400;  font-size: 20px;
+}.contact__form-field-input:-ms-input-placeholder {
+  color: rgb(175, 175, 175);  font-weight: 400;
+  font-size: 20px;}
 .contact__form-field-input::-ms-input-placeholder {
-  color: rgb(175, 175, 175);
-  font-weight: 400;
-  font-size: 20px;
-}
-
+  color: rgb(175, 175, 175);  font-weight: 400;
+  font-size: 20px;}
 .contact__form-field-input:-moz-placeholder {
-  opacity: 1;
-  color: rgb(175, 175, 175);
-  font-weight: 400;
-  font-size: 20px;
-}
-
+  opacity: 1;  color: rgb(175, 175, 175);  font-weight: 400;
+  font-size: 20px;}
 .contact__form-field-input::-moz-placeholder {
-  opacity: 1;
-  color: rgb(175, 175, 175);
-  font-weight: 400;
-  font-size: 20px;
-}
-
+  opacity: 1;  color: rgb(175, 175, 175);  font-weight: 400;
+  font-size: 20px;}
 .contact__form-field-input:focus {
-  outline: none;
-}
+  outline: none;}
+.contact__form-submit {	text-align:center;	align-items:center;
+	width: 100%;	font-size: 20px;	border: none;
+	font-family: calibri;	font-weight: 700;
+	background: rgba(var(--themeColor), 1);	color: white;
+	background-color:gray;	border-radius: 5px;
+	cursor: pointer;}.contact__form-submit:hover {
+    color: black;	background-color:white;
+}.contact__form-visual {  background-position: bottom;  background-size: cover;
+  background-repeat: no-repeat;  position: relative;  z-index: 1;}
+.contact__form-visual::after {  content: '';  position: right;
+  z-index: 20;  background: rgba(var(--themeColor), 0.5);
+  width: 100%;  height: 100%;  top: 0;  left: 0;}
 
-.contact__form-submit {
-	text-align:center;
-	align-items:center;
-	width: 100%;
-	font-size: 20px;
-	border: none;
-	font-family: calibri;
-	font-weight: 700;
-	background: rgba(var(--themeColor), 1);
-	color: white;
-	background-color:gray;
-	border-radius: 5px;
-	cursor: pointer;
-}
-.contact__form-submit:hover {
-    color: black;
-	background-color:white;
-}
-
-
-
-.contact__form-visual {
-  background-position: bottom;
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
-  z-index: 1;
-  
-}
-
-
-.contact__form-visual::after {
-  content: '';
-  position: right;
-  z-index: 20;
-  background: rgba(var(--themeColor), 0.5);
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
-@media(max-width:600px){
-	.contact__form-field-input {
-  display: block;
-  padding: 0.2rem;
-  width: 100%;
-  border: 1px solid rgba(225, 225, 225, 1);
-  font-size: 1rem;
-  resize: none;
-  border-radius: 5px;	
-font-weight: 100;}
-.contact__form-submit {
-	text-align:center;
-	align-items:center;
-	width: 100%;
-	font-size: 20px;
-	border: none;
-	font-family: calibri;
-	font-weight: 700;
-	background: rgba(var(--themeColor), 1);
-	color: white;
-	background-color:gray;
-	border-radius: 5px;
-	cursor: pointer;
-}
-.w3-card{height:72.45rem;
-}}
+@media(max-width:600px){	.contact__form-field-input {  display: block;
+  padding: 0.2rem;  width: 100%;  border: 1px solid rgba(225, 225, 225, 1);
+  font-size: 1rem;  resize: none;  border-radius: 5px;	
+font-weight: 100;}.contact__form-submit {	text-align:center;
+	align-items:center;	width: 100%;	font-size: 20px;
+	border: none;	font-family: calibri;	font-weight: 700;
+	background: rgba(var(--themeColor), 1);	color: white;
+	background-color:gray;	border-radius: 5px;	cursor: pointer;}
+.w3-card{height:72.45rem;}}
 
 .mypara{
 	font-family:calibri;
@@ -430,34 +328,17 @@ a:active { text-decoration: underline; }
 .footer-container {
   display: flex; /* استفاده از Flexbox برای تقسیم‌بندی */
   flex-direction: row; /* نمایش در حالت عادی (دسکتاپ) به صورت ردیفی */
-}.footer-left{width:50%}.footer-right{width:50%}.footer-container a{color:white;}
+}.footer-left{width:50%}.footer-right{padding-top:0.7rem; width:50%}.footer-container a{color:white;}
+
 @media (max-width: 768px) {  .footer-container {    flex-direction: column; /* نمایش به صورت ستونی در موبایل */
   }  .footer-left {    order: 1; /* فرم اول نمایش داده می‌شود */
   }  .footer-right {    order: 2; /* محتوای دیگر دوم نمایش داده می‌شود */
   }  .footer-left{width:100%}.footer-right{width:100%}
 }
 
-#news-container {
-  width: 100%; /* عرض پنجره */
-  height: 25rem; /* ارتفاع پنجره */
-  overflow-y: scroll; /* اسکرول عمودی */
-  background-color: rgb(0, 174, 157)	; /* حاشیه برای مشخص کردن مرز پنجره */
+#news-container {  width: 100%; /* عرض پنجره */  height: 26.6rem; /* ارتفاع پنجره */
+  overflow-y: scroll; /* اسکرول عمودی */  background-color: rgb(0, 174, 157)	; /* حاشیه برای مشخص کردن مرز پنجره */
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* سایه برای بهبود ظاهر */
-}
-
-.news-item {
-}
-
-.news-item img {
-  max-width: 100%; /* تصویر به اندازه پنجره نمایش داده می‌شود */
-  height: auto;
-}
-
-.news-item h3 a {
-  text-decoration: none;
-  color: rgb(0, 81, 81);
-}
-
-.news-item h3 a:hover {
-  text-decoration: underline;
-}
+}.news-item {}.news-item img {  max-width: 100%; /* تصویر به اندازه پنجره نمایش داده می‌شود */
+  height: auto;}.news-item h3 a {  text-decoration: none;  color: rgb(0, 81, 81);
+}.news-item h3 a:hover {  text-decoration: underline;}

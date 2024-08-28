@@ -170,6 +170,19 @@ let weatherIcon = '';
 displayWeather();
 
 
+function today() {
+  try {
+    const d = new Date();
+    document.getElementById("mytoday").innerHTML = d.toDateString();
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+today();
 
 
-
+ window.addEventListener('load', function() {
+            var audio = document.getElementById('welcomeMusic');
+            audio.play();
+        });

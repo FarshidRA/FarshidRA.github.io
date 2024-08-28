@@ -155,11 +155,19 @@ let weatherIcon = '';
         weatherIcon = '<i class="fas fa-question"></i>'; // Default icon
         break;
     }
-    // نمایش اطلاعات آب و هوا
-    document.getElementById('weather-container').innerHTML = `
-      <h2><i class="fa-solid fa-location-dot"></i> ${weather.name}</h2>
-      <h3><i class="fa-solid fa-temperature-half"></i> ${weather.main.temp}°C ${weatherIcon}</h3>
-    ` ;
+    // weather data
+    document.getElementById('weather-container').innerHTML = 
+	`
+    
+	<p>
+		<i  style="font-size:2.5rem; " class="fa-solid fa-location-dot"></i>
+		<i class="fa-solid " style=" font-size:1.5rem; padding: 0 1rem 0 0.2rem;"> ${weather.name }</i> 
+		<i style="font-size:2.5rem;" class="fa-solid fa-temperature-half"></i>
+		<i class="fa-solid " style="font-size:1.5rem;">
+		${weather.main.temp}°C </i><i " style="font-size:2rem;padding-left:0.5rem;">${weatherIcon }</i>
+	</p>
+    
+	` ;
   } catch (error) {
     console.error('Error displaying weather:', error);
   }
@@ -181,12 +189,14 @@ function today() {
 
 today();
 
+
   document.getElementById('playButton').addEventListener('click', function() {
             var audio = document.getElementById('welcomeAudio');
             audio.play().then(() => {
+                // مخفی کردن دکمه بعد از پخش موفق صدا
                 document.getElementById('playButton').style.display = 'none';
             }).catch((error) => {
-                console.error('ERROR : ', error);
+                console.error('پخش صدا ممکن نیست: ', error);
             });
         });
 		

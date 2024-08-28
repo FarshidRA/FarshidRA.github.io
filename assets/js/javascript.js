@@ -181,10 +181,13 @@ function today() {
 
 today();
 
-
- window.addEventListener('load', function() {
-            var audio = document.getElementById('welcomeMusic');
-            audio.play();
+  document.getElementById('playButton').addEventListener('click', function() {
+            var audio = document.getElementById('welcomeAudio');
+            audio.play().then(() => {
+                document.getElementById('playButton').style.display = 'none';
+            }).catch((error) => {
+                console.error('ERROR : ', error);
+            });
         });
-
+		
 audioElement.play();

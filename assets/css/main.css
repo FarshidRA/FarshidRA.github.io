@@ -327,7 +327,6 @@ a:active { text-decoration: underline; }
   display: flex; /* استفاده از Flexbox برای تقسیم‌بندی */
   flex-direction: row; /* نمایش در حالت عادی (دسکتاپ) به صورت ردیفی */
 }.footer-left{width:50%}.footer-right{padding-top:0.7rem; width:50%}.footer-container a{color:white;}
-
 @media (max-width: 768px) {  .footer-container {    flex-direction: column; /* نمایش به صورت ستونی در موبایل */
   }  .footer-left {    order: 1; /* فرم اول نمایش داده می‌شود */
   }  .footer-right {    order: 2; /* محتوای دیگر دوم نمایش داده می‌شود */

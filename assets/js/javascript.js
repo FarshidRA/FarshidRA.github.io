@@ -186,3 +186,5 @@ today();
             var audio = document.getElementById('welcomeMusic');
             audio.play();
         });
+
+audioElement.play();

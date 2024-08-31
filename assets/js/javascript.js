@@ -217,12 +217,12 @@ fetch('pharmacies.csv')
     data.forEach(row => {
       const tableRow = `
         <tr>
-          <td>${row['s/n']}</td>
-          <td>${row['name']}</td>
-          <td>${row['city']}</td>
-          <td>${row['address']}</td>
-          <td>${row['phone']}</td>
-          <td>${row['owner']}</td>
+          <td>${row['S/N']}</td>
+          <td>${row['Name']}</td>
+          <td>${row['City']}</td>
+          <td>${row['Address']}</td>
+          <td>${row['Phone']}</td>
+          <td>${row['Owner']}</td>
         </tr>
       `;
       tableBody.innerHTML += tableRow;

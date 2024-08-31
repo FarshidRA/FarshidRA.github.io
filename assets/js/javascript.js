@@ -201,3 +201,33 @@ today();
         });
 		
 audioElement.play();
+
+
+
+fetch('pharmacies.csv')
+  .then(response => response.text())
+  .then(csvText => {
+    // استفاده از PapaParse برای تبدیل CSV به داده‌های JSON
+    const data = Papa.parse(csvText, { header: true }).data;
+    
+    // پیدا کردن بدنه جدول
+    const tableBody = document.querySelector('#pharmacyTable tbody');
+
+    // اضافه کردن داده‌ها به جدول
+    data.forEach(row => {
+      const tableRow = `
+        <tr>
+          <td>${row['s/n']}</td>
+          <td>${row['name']}</td>
+          <td>${row['city']}</td>
+          <td>${row['address']}</td>
+          <td>${row['phone']}</td>
+          <td>${row['owner']}</td>
+        </tr>
+      `;
+      tableBody.innerHTML += tableRow;
+    });
+
+    // فعال کردن DataTables
+    $('#pharmacyTable').DataTable();
+  });

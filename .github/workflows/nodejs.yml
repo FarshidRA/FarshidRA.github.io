@@ -19,8 +19,8 @@ jobs:
       with:
         node-version: '16'
 
-    - name: Install dependencies
-      run: npm install
+    - name: Install cheerio
+      run: npm install cheerio --save
 
     - name: Run tests
       run: npm test

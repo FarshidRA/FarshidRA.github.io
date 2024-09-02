@@ -327,6 +327,7 @@ a:active { text-decoration: underline; }
   display: flex; /* استفاده از Flexbox برای تقسیم‌بندی */
   flex-direction: row; /* نمایش در حالت عادی (دسکتاپ) به صورت ردیفی */
 }.footer-left{width:50%}.footer-right{padding-top:0.7rem; width:50%}.footer-container a{color:white;}
+
 @media (max-width: 768px) {  .footer-container {    flex-direction: column; /* نمایش به صورت ستونی در موبایل */
   }  .footer-left {    order: 1; /* فرم اول نمایش داده می‌شود */
   }  .footer-right {    order: 2; /* محتوای دیگر دوم نمایش داده می‌شود */
@@ -339,4 +340,23 @@ a:active { text-decoration: underline; }
 }.news-item {}.news-item img {  max-width: 100%; /* تصویر به اندازه پنجره نمایش داده می‌شود */
   height: auto;}.news-item h3 a {  text-decoration: none;  color: rgb(0, 81, 81);
 }.news-item h3 a:hover {  text-decoration: underline;}
+
+/*search table */
+
+* {
+  box-sizing: border-box;
+}
+
+#myInput{ margin:0 0 0 0.5rem  ; position: absolute;   left: 1rem;  color:#444;}
+#cityFilter{height:1.7rem; width:12.7rem;  margin:0.1rem 0 0 0.5rem  ; position: absolute;  left: 14rem; background-color:white; color:#444; 
+	appearance: none;  -webkit-appearance: none; 	-moz-appearance: none; outline: none; box-shadow: none; border-radius:0; border:0;}
+#myInputAddress{ margin:0 0 0 0.5rem  ; position: absolute;  left: 27rem;  color:#444;}
+
+#myTable {margin:3rem 0 0.5rem  ;  border-collapse: collapse;  width: 100%;  border: 1px solid #ddd;  font-size: 1rem;}
+
+#myTable th, #myTable td {  text-align: left;  padding: 0.1rem;}
+#myTable tr {  border-bottom: 1px solid #ddd;}
+
+#myTable tr.header, #myTable tr:hover {  background-color: gray;}
+
 

@@ -1,4 +1,3 @@
-
 async function fetchNews() {
   try {
     const response = await fetch('https://rss.dw.com/rdf/rss-en-all');
@@ -19,7 +18,6 @@ async function fetchNews() {
       const link = items[i].getElementsByTagName('link')[0].textContent;
       const description = items[i].getElementsByTagName('description')[0].textContent;
       const image = items[i].getElementsByTagName('media:content')[0]?.getAttribute('url') || '';
-
       newsHtml += `
         <div class="news-item">
           <h3><a href="${link}" target="_blank">${title}</a></h3>
@@ -28,16 +26,13 @@ async function fetchNews() {
         </div>
       `;
     }
-
     newsContainer.innerHTML = newsHtml;
   } catch (error) {
     console.error('Error fetching news:', error);
   }
 }
-
 fetchNews();
 
-	
 async function getLocation() {
   try {
     const response = await fetch('https://ipinfo.io/json?token=f5764955a47b14');
@@ -47,8 +42,6 @@ async function getLocation() {
     console.error('Error fetching location:', error);
   }
 }
-
-
 
 async function getWeather(lat, lon) {
   try {
@@ -174,7 +167,6 @@ let weatherIcon = '';
 
 
 }
-
 displayWeather();
 
 
@@ -186,7 +178,6 @@ function today() {
     console.error('Error:', error);
   }
 }
-
 today();
 
 
@@ -199,35 +190,85 @@ today();
                 console.error('پخش صدا ممکن نیست: ', error);
             });
         });
-		
 audioElement.play();
 
 
 
-fetch('pharmacies.csv')
-  .then(response => response.text())
-  .then(csvText => {
-    // استفاده از PapaParse برای تبدیل CSV به داده‌های JSON
-    const data = Papa.parse(csvText, { header: true }).data;
-    
-    // پیدا کردن بدنه جدول
-    const tableBody = document.querySelector('#pharmacyTable tbody');
 
-    // اضافه کردن داده‌ها به جدول
-    data.forEach(row => {
-      const tableRow = `
-        <tr>
-          <td>${row['S/N']}</td>
-          <td>${row['Name']}</td>
-          <td>${row['City']}</td>
-          <td>${row['Address']}</td>
-          <td>${row['Phone']}</td>
-          <td>${row['Owner']}</td>
-        </tr>
-      `;
-      tableBody.innerHTML += tableRow;
-    });
+//search table 
 
-    // فعال کردن DataTables
-    $('#pharmacyTable').DataTable();
-  });
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+	
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+  
+}
+function myFunctionCity() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInputCity");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+	
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+  
+}
+
+function myFunctionAddress() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInputAddress");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[3];
+	
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+  
+}
+
+function filterTable() {
+            var filter = document.getElementById("cityFilter").value.toLowerCase();
+            var rows = document.getElementById("myTable").getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+
+            for (var i = 0; i < rows.length; i++) {
+                var city = rows[i].getElementsByTagName("td")[2].textContent.toLowerCase();
+                if (filter === "all" || city === filter) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }

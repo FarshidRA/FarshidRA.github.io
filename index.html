@@ -196,24 +196,3220 @@ I am passionate about technology and committed to delivering high-quality soluti
 <!-- TradingView Widget END -->  
  
  
- <table id="pharmacyTable" class="display">
-    <thead>
-        <tr>
-            <th>S/N</th>
-            <th>Name</th>
-            <th>City</th>
-            <th>Address</th>
-            <th>Phone</th>
-            <th>Owner</th>
-        </tr>
-    </thead>
-    <tbody>
-        <!-- داده‌ها در اینجا اضافه خواهند شد -->
-    </tbody>
+<h3> 
+	<img alt="Flag of Northern Cyprus" src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Flag_of_the_Turkish_Republic_of_Northern_Cyprus.svg"  width="30" height="auto">
+	 Turkish Cyprus Pharmacies 
+	 <img alt="Flag of Northern Cyprus" src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Flag_of_the_Turkish_Republic_of_Northern_Cyprus.svg"  width="30" height="auto">
+	</h3>
+	
+ <!--label for="cityFilter" >Select City:</label-->
+    <select id="cityFilter" onchange="filterTable()">
+        <option value="all">All Cities</option>
+        <option value="LEFKOŞA">LEFKOŞA</option>
+        <option value="GİRNE">GİRNE</option>
+        <option value="GAZİMAĞUSA">GAZİMAĞUSA</option>
+        <option value="GÜZELYURT">GÜZELYURT</option>
+        <option value="LEFKE">LEFKE</option>
+        <option value="ÜST MESARYA">ÜST MESARYA</option>
+        <option value="ALT MESARYA">ALT MESARYA</option>
+        <option value="İSKELE">İSKELE</option>
+        <option value="KARPAZ">KARPAZ</option>
+    </select>
+	
+	<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+	<!--input type="text" id="myInputCity" onkeyup="myFunctionCity()" placeholder="Search for city.." title="Type in a city"-->
+	<input type="text" id="myInputAddress" onkeyup="myFunctionAddress()" placeholder="Search for address.." title="Type in a address">	
+<table id="myTable" >
+	 <thead>
+	 <tr class="header">
+		<th> </th>
+        <th>Name</th>
+        <th>City</th>
+		<th>Address</th>
+		<th style="min-width:130px!important">Phone</th>
+		<th>Owner</th>
+	</tr>
+	 </thead>
+  <tbody>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">1</td>
+  <td>ABBASOĞLU ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>ŞhT.Mustafa Ruso Cad. N0:112 /D Yarim Gelinlik yanı Küçük
+  Kaymaklı Lefkoşa</td>
+  <td >(0392) 227 16 64</td>
+  <td>Ecz. İsmet Abbasoğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">2</td>
+  <td>ADAHAN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Gaz.Kemal Aşık Cad. N0:17 Terminal Yolu Royal Hotel Yanı
+  Yar Plus yanı Küçük Kaymaklı Lefkoşa</td>
+  <td>(0392) 227 37 00</td>
+  <td>Ecz. Duygu Adahan Kuran</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">3</td>
+  <td>AHMET MISIRLI ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Gaz.Hasan Tahisn Cad. 42/6 Lemar Yolu Serena Butik karşısı
+  Kermiya</td>
+  <td>(0392) 223 93 93</td>
+  <td>Ecz. İldem Mısırlı</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">4</td>
+  <td>AKDENİZ ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Atatürk Cad. N0:106 Belça Market yanı Yenişehir Lefkoşa</td>
+  <td>(0392) 228 82 77</td>
+  <td>Ecz. Zehra Öksüz</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">5</td>
+  <td>AKDORA ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Mumcu Tepe Sos. Anıttepe Hamitköy</td>
+  <td>(0392) 225 33 55</td>
+  <td>Ecz. Meliz Akdora</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">6</td>
+  <td>ALİ ERSOY ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Kemal Şemiler Cad. N0:65 Ünsaldı Apt. Aydemet Metehan Zephyir
+  Café yanı</td>
+  <td>(0392) 330 12 77</td>
+  <td>Ecz. Ali Ersoy</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">7</td>
+  <td>ALPDOĞAN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Nazım Hikmet Cad. No: 124/4 Metehan Çemberi, yeni kulliye
+  karşısı, Metehan Kermiya Lefkoşa</td>
+  <td>(0392) 330 10 36</td>
+  <td>Ecz. Nejmi Alpdoğan</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">8</td>
+  <td>APAYDIN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>2. Selim Cad. Arabacıoğlu Apt. Köşlüçiftlik, Lefkoşa</td>
+  <td>(0392) 227 51 59</td>
+  <td>Ecz. Duygu Akova</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">9</td>
+  <td>ARASTA ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht. Eybil H. Çetin Sokak. No: 14, Lefkoşa (Surlariçi Arasta
+  Çarşısı Büyük Han Yanı)</td>
+  <td>(0392) 229 11 12</td>
+  <td>Ecz. Simge Sonap</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">10</td>
+  <td>ARDA ULUPINAR ECZANESI</td>
+  <td>LEFKOŞA</td>
+  <td>Bedrettin caddesi, Kızılay Münür Dilaver sokak, kuzey
+  kavşağı No: 4, Lefkoşa</td>
+  <td>(0533) 824 00 64</td>
+  <td>Ecz. Arda Ulupınar</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">11</td>
+  <td>ARZUM DAVULCU ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht. Mustafa Yusuf Hacı Sok. No:3, Polis Genel Müdürlüğü
+  Yolu, Chıchen Planeti geçince, Vakıflar Bankası
+  karşısı ara yolu, B1 Market yanı, Yenişehir,
+  Lefkoşa</td>
+  <td>(0392) 227 14 57</td>
+  <td>Ecz. Arzum Davulcu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">12</td>
+  <td>AŞAN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Selçuk Avkıran Sok. No: 1, Derya butik ve Metropol süpermarket
+  arası, Taşkınköy, Lefkoşa</td>
+  <td>(0392) 225 57 30</td>
+  <td>Ecz. Salih Aşan</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">13</td>
+  <td>ATAER ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht. Zehra Mustafa Sokak No: 5, Gönyeli, Lefkoşa</td>
+  <td>(0392) 223 24 85</td>
+  <td>Ecz. İlayda Sebatlı</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">14</td>
+  <td>AYŞE BIYIKOĞLU ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht.Hüseyin Amca Cad. N0:77 Dükkan 2 Gönyeli</td>
+  <td>(0392) 223 67 50</td>
+  <td>Ecz. Ayşe Bıyıkoğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">15</td>
+  <td>AYŞE KAPTAN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Girne Cad. No: 50, Saray Hotel karşısı, Lefkoşa</td>
+  <td>(0392) 227 45 96</td>
+  <td>Ecz. Meliz Emel</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">16</td>
+  <td>AYŞE KETEN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Sakarya Sok. No:18 Alayköy Lefkoşa</td>
+  <td>(0392) 235 77 22</td>
+  <td>Ecz. Ayşe Keten</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">17</td>
+  <td>BAHAR NURLUÖZ ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Hacet Sok.N0:8 Din Sitesi Karşısı İş
+  Bankası yanı Hamitköy</td>
+  <td>(0392) 225 61 61</td>
+  <td>Ecz. Bahar Nurluöz</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">18</td>
+  <td>BALIN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Dr. Burhan Nalbantoğlu Cad. Devlet Hastanesi ve Çember Restorant
+  yanı, Lefkoşa</td>
+  <td>(0392) 223 18 13</td>
+  <td>Ecz. Eda Tülek</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">19</td>
+  <td>BEHAYİ YILMABAŞAR ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Okullar Yolu Sokak. No: 66A Dış Kapı, Küçük Kaymaklı,
+  Lefkoşa</td>
+  <td>(0392) 227 11 16</td>
+  <td>Ecz. Behayi Yılmabaşar</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">20</td>
+  <td>BERİL ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Müftü Ziayi Efendi Sok.Bekiroğlu İşHanı 28 B
+  Leflkoşa</td>
+  <td>(0392) 227 73 10</td>
+  <td>Ecz. Beril Çakır</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">21</td>
+  <td>BERİLAL ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Atatürk Cad. No:21 Muhtar Yusuf Galeria Lefkoşs</td>
+  <td>(0392) 228 00 16</td>
+  <td>Ecz. Alev Çakır</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">22</td>
+  <td>BİLGE TÜRKSEVEN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Bolu Sok. Sosyal Konutlar 10. Blok Dük.No: 2 KüçükKaymaklı Stadyumu
+  yolu Lefkoşa</td>
+  <td>(0392) 228 55 15</td>
+  <td>Ecz. Bilge Türkseven</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">23</td>
+  <td>BİRGÜN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Kemal Aksay Cad. No:36 Lastikçi Yusuf Çocuk Ltd. Karşısı
+  Taşkınköy Lefkoşa</td>
+  <td>(0392) 225 24 12</td>
+  <td>Ecz. Fatma Şentürk</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">24</td>
+  <td>BUSE KARŞILI ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Demir Sok.Vedat Benzinci sonrası alt geçit yolu üzeri Cranberry-s
+  Dans Okulu yanı Yenikent</td>
+  <td>(0392) 224 15 45</td>
+  <td>Ecz. Buse Karşılı</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">25</td>
+  <td>ÇAĞANSOY ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Kenan Evren Cad. Mustafa Dereli İş Merkezi NO:4 Yenikent
+  Gönyeli</td>
+  <td>(0392) 223 67 66</td>
+  <td>Ecz. Zehra Çağansoy</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">26</td>
+  <td>ÇAĞIN KORKMAZER ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Atatürk Cad. N0:17/A Yenişehir Lefkoşa (1001 Çeşit
+  yanı)</td>
+  <td>(0392) 228 09 09</td>
+  <td>Ecz. Çağın Korkmazer</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">27</td>
+  <td>ÇAĞLAYAN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>İffet Oruz Sok. Dük.A/B Çağlayan Lefkoşa</td>
+  <td>(0392) 227 61 81</td>
+  <td>Ecz. Mine Akkoyun</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">28</td>
+  <td>CANEŞ ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht.Mustafa Mehmet Sok.Yenergalı Plaza N0:3 Life Hospital
+  yanı Taşkınköy</td>
+  <td>(0392) 225 52 20</td>
+  <td>Ecz. Caneş Tatlıcıoğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">29</td>
+  <td>ÇELER ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Hazar Sok. N0:19 SOS Çocuk Köyü yanı Kıbrıs Gaztesi
+  karşısı</td>
+  <td>(0392) 225 75 05</td>
+  <td>Ecz. Bahire Çeler</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">30</td>
+  <td>CEMALİYE AĞAOĞLU ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Raif Denktaş Cad. No: 37 Dük. No: 1, Behiye Apt. Göçmenköy,
+  Lefkoşa</td>
+  <td>(0392) 223 36 63</td>
+  <td>Ecz. Cemaliye Ağaoğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">31</td>
+  <td>CEMİL BEY ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Atatürk Cad. N0:85 B-C Alayköy</td>
+  <td>(0533) 838 01 45</td>
+  <td>Ecz. Ali Şensoy</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">32</td>
+  <td>CEMİLE FIRINCIOĞLULARI ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht. Gaz. Hasan Tahsin Cad. 81/C No: 9, China-Bazaar
+  karşısı, Lemar (Molto) yolu, Ortaköy</td>
+  <td>(0392) 223 82 22</td>
+  <td>Ecz. Cemile Fırıncıoğluları</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">33</td>
+  <td>CEMRE ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Maramara Bölgesi 30. Sok. No: 1, Devpa Süpermarket arkası,
+  Lefkoşa</td>
+  <td>(0392) 227 65 49</td>
+  <td>Ecz. Cemil Fahrioğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">34</td>
+  <td>CEVHER ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Mehmet Akif Cad. 101 /E Pascucci Café karşısı Dereboyu
+  Lefkoşa</td>
+  <td>(0392) 227 72 51</td>
+  <td>Ecz. Cevher Cem</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">35</td>
+  <td>ÇINARLI ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Güven Sok. 21 A Hamitköy (Ekin Adademir Yurtları arkası)</td>
+  <td>(0392) 225 23 60</td>
+  <td>Ecz. Nezire Çınarlı</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">36</td>
+  <td>DAĞMAN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Burhan Nalbantoğlu Devlet Hastanesi Yolu, Ortaköy Camii
+  Sırası, Aliriza Efendi Cad. Vakıflar İşhanı,
+  Gülşenoğulları Baklava Karşısı, Ortaköy,
+  Lefkoşa</td>
+  <td>(0392) 330 10 22</td>
+  <td>Ecz. Gökcen Dağman</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">37</td>
+  <td>DAMLA KARDÜZ ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Atatürk Cad. Kolan British karşısı, Gönyeli, Lefkoşa</td>
+  <td>(0392) 223 45 65</td>
+  <td>Ecz.Damla Kardüz Özalkın</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">38</td>
+  <td>DENİZ ÇORBA ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Belediye Bulvarı 91/B, Miraje Restorant çaprazı, KIB-ET
+  yanı, ŞAŞA karşısı Yenikent, Lefkoşa</td>
+  <td>(0392) 223 72 72</td>
+  <td>Ecz. Deniz Çorba</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">39</td>
+  <td>DEREBOYU ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Mehmet Akif Cad. Dış Kapı No: 51/2, Köşklüçiftlik,
+  Lefkoşa</td>
+  <td>(0533) 839 14 14</td>
+  <td>Ecz. Elif Ebru Koyuncu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">40</td>
+  <td>DERYA ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Mehmet Akif Cad. 53/3 Dereboyu Lefkoşa</td>
+  <td>(0392) 227 61 98</td>
+  <td>Ecz. Derya Akbatur</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">41</td>
+  <td>DİDEM ÖZKAYALI ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>2. Selim Caddesi, Mustafa Hacıali 20 Apartmanı No: 9,
+  Köşklüçiftlik, Lefkoşa</td>
+  <td>(0392) 227 71 11</td>
+  <td>Ecz. Didem Özkayalı</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">42</td>
+  <td>DİLAY KILÇIK ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht. Cumhur Yüzlü Sokak, Hacıali Apt. Blok B No: 27, Ortaköy,
+  Lefkoşa</td>
+  <td>(0533) 830 08 79</td>
+  <td>Ecz. Dilay Kılçık</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">43</td>
+  <td>DİLEK ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht.Evcet Yusuf Cad. N0:37/A Kızılbaş Lefkoşa</td>
+  <td>(0392) 228 18 67</td>
+  <td>Ecz. Dilek Taçoy</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">44</td>
+  <td>DİMAY KAĞCAN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>9. Yavuz Konnolu sok. Ortaköy, Lefkoşa</td>
+  <td>(0392) 223 86 75</td>
+  <td>Ecz. Dimay Kağcan</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">45</td>
+  <td>EBRU BAŞAY ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Mehmet Akif Cad. No:78/3, Dereboyu, Lefkoşa</td>
+  <td>(0392) 227 02 42</td>
+  <td>Ecz. Ebru Başay</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">46</td>
+  <td>ECEGÜL ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht.Kemal Ünal Cad. N0:118 /B Metropol Yolu Taşkınköy
+  Lefkoşa</td>
+  <td>(0392) 225 58 47</td>
+  <td>Ecz. Nevil Saadetoğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">47</td>
+  <td>ECEM ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Bedrettin Demirel Cad.No: 127 Lefkoşa</td>
+  <td>(0392) 228 89 56</td>
+  <td>Ecz. Ece Ünsal Soyer</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">48</td>
+  <td>EDA ENVER ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht.Arseven Sk.No:6 Devlet Hast.Karşısı Lefkoşa</td>
+  <td>(0392) 223 48 10</td>
+  <td>Ecz. Eda Enver Zaim</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">49</td>
+  <td>EMEL ATAÇAĞ ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Atatürk Cad. Şakir Apt.7 Zemin Kat No:65 Gönyeli</td>
+  <td>(0392) 224 06 11</td>
+  <td>Ecz. Emel Ataçağ</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">50</td>
+  <td>EMİNE KESKİN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Atatürk Cad. Yasemin Apt. Dük. No:1, Gönyeli İlkokulu
+  karşısı, Meyhane Müzeyyen yanı, Lefkoşa</td>
+  <td>(0533) 879 81 93</td>
+  <td>Ecz. Emine Keskin</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">51</td>
+  <td>ENVER ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>74 Atatürk Meydanı Lefkoşa</td>
+  <td>(0392) 227 25 67</td>
+  <td>Ecz. Enver Emin Özbeşer</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">52</td>
+  <td>EREN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht.Kemal Ünal Cad. N0:53 Lefkoşa Metropol yolu
+  Taşkınköy</td>
+  <td>(0392) 225 24 74</td>
+  <td>Ecz. Ceyda Neriman Eren</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">53</td>
+  <td>ERSAĞ ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Fuar Yolu üzeri Elysium Düğün Salonu karşısı Piron
+  Restorant yanı Lefkoşa</td>
+  <td>(0392) 223 62 17</td>
+  <td>Ecz. Hasan Özerk</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">54</td>
+  <td>ERTUNGA ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Marmara Bölgesi 4, Sokak No: 19, Eski Ayko Ayakkabı Fabrikası
+  karşısıLefkoşa</td>
+  <td>(0533) 880 82 22</td>
+  <td>Ecz. Çağla Ertunga</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">55</td>
+  <td>FATMA AŞİNA ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Aliriza Efendi Cad. Dük.4 No: 38/D Ortaköy Telsim Karşısı
+  - Turcell Yanı Lefkoşa</td>
+  <td>(0533) 883 22 96</td>
+  <td>Ecz. Fatma Aşina</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">56</td>
+  <td>FATMA TAHSİN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Atatürk Cd 107 B Gönyeli Lefkoşa</td>
+  <td>(0392) 224 09 00</td>
+  <td>Ecz. Sevgi Karabekir</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">57</td>
+  <td>FATMA YÜRÜN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Bolu Sok. Dük. 74/C Küçük Kaymaklı Lefkoşa</td>
+  <td>(0392) 227 10 80</td>
+  <td>Ecz. Fatma Yürün</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">58</td>
+  <td>FERİN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Cebeci Sok.N0:35 Arda Market yanı İş Bankası
+  sırası Yenikent, Gönyeli</td>
+  <td>(0392) 223 42 82</td>
+  <td>Ecz. Dicle Tekiner</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">59</td>
+  <td>FİRUZ ERGİL ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Yakındoğu Bulvarı 40/D Taşkınköy Lefkoşa</td>
+  <td>(0392) 223 19 02</td>
+  <td>Ecz. Firuz Ergil</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">60</td>
+  <td>FULDEN DONANGİL ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Osman Paşa Cad. N0:29/B K.Çiftlik Lefkoşa- Mardo
+  karşısı</td>
+  <td>(0392) 228 25 72</td>
+  <td>Ecz. Fulden Donangil</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">61</td>
+  <td>GALEN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Kemal Aşık Cad. 62/1 Otobüs Terminali karşısı
+  Küçük Kaymaklı Lefkoşa</td>
+  <td>(0392) 227 26 03</td>
+  <td>Ecz. Bahire Turganer</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">62</td>
+  <td>GİZEM BEHLÜL ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>N0:29 Saykal Apt. Atatürk Cad. Deniz Shop karşısı Gönyeli</td>
+  <td>(0392) 223 45 75</td>
+  <td>Ecz. Gizem Behlül</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">63</td>
+  <td>GÖNÜL ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht.Gaz.Hasan Tahsin Cad. Hacı Ali Apt. No:13 Kermiya Ortaköy</td>
+  <td>(0392) 227 84 61</td>
+  <td>Ecz. Gönül Akça</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">64</td>
+  <td>GÖNYELİ ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Ünveren Sok. Ahmet Dereli Apt. Dük. No:13, Concorde Tower Hotel
+  karşısı, Mr. Pound yolu üzeri, Yenikent, Gönyeli</td>
+  <td>(0533) 856 64 44</td>
+  <td>Ecz. Kezban Doygunel</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">65</td>
+  <td>GÜLİSTAN ARICI ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Hasane Ilgaz 13/C, Pegasus Hava Yolları yanı,
+  Köşlüçiftlik, Lefkoşa</td>
+  <td>(0533) 841 28 39</td>
+  <td>Ecz. Gülistan Arıcı</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">66</td>
+  <td>GÜLİZAR ÖZTEKNİK ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht. Mustafa Ruso Cad. Yusuf Galeria 2 Dük. 45/2, Eski Lemar
+  karşısı, Ekor karşısı, Kücük Kaymaklı,
+  Lefkoşa</td>
+  <td>(0392) 227 91 55</td>
+  <td>Ecz. Gülizar Özteknik</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">67</td>
+  <td>GÜLNUR ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>N0:48 /B Kemal Şemiler Cad. Kalın Yol üzeri Güvenir Göz
+  Hastanesi yanı Köseoğlu market sırası Metehan
+  Lefkoşa</td>
+  <td>(0392) 223 66 30</td>
+  <td>Ecz. Gülnur Çelık</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">68</td>
+  <td>GÜNEY ENGİNOL ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Yzb. Tekin Yurdabak Caddesi No: 25, Aroğlu karşısı,
+  Ortaköy, Lefkoşa</td>
+  <td>(0392) 227 66 95</td>
+  <td>Ecz. Güney Enginol</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">69</td>
+  <td>HALKSEVER ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht.Hüseyin Amca Cad. N0:97 Gönyeli</td>
+  <td>(0392) 223 10 50</td>
+  <td>Ecz. Enver Halksever</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">70</td>
+  <td>HARİKA OTAĞ ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Cebeci Sok. 25 İş Bankasi yanı Yenikent Gönyeli
+  Lefkoşa</td>
+  <td>(0392) 224 04 15</td>
+  <td>Ecz. Harika Otağ</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">71</td>
+  <td>HAYAT ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Girne Cad.Vakıflar Çarşısı No:2 Lefkoşa</td>
+  <td>(0392) 227 51 26</td>
+  <td>Ecz. Ersel Tüccaroğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">72</td>
+  <td>HAZAL REİS ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>İplik Pazarı Lefkoşa</td>
+  <td>(0392) 228 65 05</td>
+  <td>Ecz. Hazal Reis</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">73</td>
+  <td>HÜSEYİN KERİM SAKALLI ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht. Yzb. Tekin Yurdabak Cad. Mardo Göçmenköy yolu, Yeni Yüzyıl
+  Anaokulu yanı, Ortaköy, Lefkoşa</td>
+  <td>(0392) 228 46 00</td>
+  <td>Ecz. Hüseyin Kerim Sakallı</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">74</td>
+  <td>İMGE ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Yaman Bey Sokak No: 8, Göçmenköy, Lefkoşa (Şht. Yalçın
+  İlkokulu Karşısı)</td>
+  <td>(0392) 223 59 51</td>
+  <td>Ecz. Halit Kavçın</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">75</td>
+  <td>İNANLI ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht.Mustafa Ruso Cad.Dev.Sosyal K.Apt.Altı K.Kaymaklı</td>
+  <td>(0392) 227 23 90</td>
+  <td>Ecz. Ali İnanlı</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">76</td>
+  <td>İNCİRLİ ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>46/A Kemal Şemiler Cad. Aydemet - Kermiya, Lefkoşa</td>
+  <td>(0392) 330 20 22</td>
+  <td>Ecz. Gülçin İncirli</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">77</td>
+  <td>İSMET ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Bedreddin Demirel Caddesi No: 92 Önder AVM karşısında
+  Ticaret Odası yanı, Lefkoşa</td>
+  <td>(0392) 228 15 40</td>
+  <td>Ecz. İsmet Abohorlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">78</td>
+  <td>İZEM ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>İsmail Beyoğlu Cad. 44 / A Küçük Kaymaklı Lefkoşa
+  Eray Garaj yanı</td>
+  <td>(0392) 228 00 40</td>
+  <td>Ecz. İzem Özvurulmuş</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">79</td>
+  <td>KAPTAN CAN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Dokuz Yavuz Konnolu Sokak No: 11 B, Lefkoşa</td>
+  <td>(0392) 224 06 66</td>
+  <td>Ecz. Can Kaptan</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">80</td>
+  <td>KERMİYA ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Kemal Şemiler Cad. N0:24 Kiler Market Çaprazı Zeyphyr Café yolu
+  Metehan Kermiya</td>
+  <td>(0392) 223 34 83</td>
+  <td>Ecz. Mehmet Dümenci</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">81</td>
+  <td>KEZİBAN TİLKİ ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Atatürk Cad. Yalçın park karşısı Gönyeli</td>
+  <td>(0392) 223 12 10</td>
+  <td>Ecz. Keziban Tilki</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">82</td>
+  <td>KIVANÇ UFUK ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Salih Mecit Sokak Mustafa Tunçbilek Apt. No: 10/A, Lefkoşa</td>
+  <td>(0533) 830 90 50</td>
+  <td>Ecz. Kıvanç Ufuk</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">83</td>
+  <td>KIZILBAŞ ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Kemal Aksay Cad. No: 43/2, Taşkınköy, Lefkoşa</td>
+  <td>(0392) 225 32 59</td>
+  <td>Dr. Ecz. Hasan İsfendiyaroğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">84</td>
+  <td>KUZEY ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Raif Denktaş Cad.No:35/5 Göçmenköy Lefkoşa</td>
+  <td>(0392) 223 19 81</td>
+  <td>Ecz. Dilek Bulut</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">85</td>
+  <td>LA PHARMA ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht.Mustafa Mehmet Sok. 71/C Göçmenköy / Lefkoşa (Adıgüzel
+  lastik servisi yanı Erel ahşap karşısı)</td>
+  <td>(0392) 223 14 14</td>
+  <td>Ecz. Arda Özyol</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">86</td>
+  <td>LADEN AKBATUR ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Bakanlıklar yolu Başbakanlık önü Selçuklu Cad. N0:46
+  Adıgüzel Apt. Zemin Kat Lefkoşa</td>
+  <td>(0392) 227 25 75</td>
+  <td>Ecz. Laden Akbatur</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">87</td>
+  <td>LAİKA GÖKÇEKUŞ ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Belediye Bulvarı No:3713 Yenikent Gönyeli</td>
+  <td>(0392) 224 09 88</td>
+  <td>Ecz. Laika Gökçekuş</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">88</td>
+  <td>MALEK ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Yzb. Tekin Yurdabak Cad. Marmara Dış Kapı No: 16 A,
+  İstanbul Perde yanı Marmara Bölgesi, Lefkoşa</td>
+  <td>(0392) 227 92 70</td>
+  <td>Ecz. Yağmur Malek</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">89</td>
+  <td>MERVE BİLLUR ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Atatürk Cad. Mustafa Billur Apt. No:142 Gönyeli</td>
+  <td>(0392) 223 43 50</td>
+  <td>Ecz. Merve Billur</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">90</td>
+  <td>MİEL ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Aydemet Mahallesi, Nazım Himet Caddedi No: 46/B Blok F2,
+  Lefkoşa</td>
+  <td>(0542) 889 00 09</td>
+  <td>Ecz. Selma Soylukal</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">91</td>
+  <td>MUSTAFA GÜRMAN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Kemal Şemiler Cad. No: 6/B, Kermiya, Lefkoşa</td>
+  <td>(0392) 330 08 30</td>
+  <td>Ecz. Mustafa Gürman</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">92</td>
+  <td>MUSTAFA PEHLİVAN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht. Ecvet Yusuf Cad. No: 88, Kızılbaş, Lefkoşa</td>
+  <td>(0392) 228 71 07</td>
+  <td>Ecz. Mustafa Pehlivan</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">93</td>
+  <td>NECATİBEY ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Osman Paşa Cad. No: 9/7, Domino Pizza yanı ve Hangover
+  karşısı, Köşlüçiftlik, Lefkoşa</td>
+  <td>(0392) 228 14 78</td>
+  <td>Ecz. Ayfer Uzman</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">94</td>
+  <td>NERGİS ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht.Mustafa Mehmet Sok.No:3 Yöntem Laboratuvar ve Trafik
+  Işıkları yanı Göçmenköy Lefkoşa</td>
+  <td>(0392) 225 50 75</td>
+  <td>Ecz. Nazife Taşker</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">95</td>
+  <td>NERİMAN KARATAÇ ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Mimar Mehmet Vahip Cad. No: 39/2, Hamitköy ışıkları
+  üzeri, Dumlupınar yolu, Küçük Kaymaklı, Lefkoşa</td>
+  <td>(0392) 225 45 00</td>
+  <td>Ecz. Neriman Karataç</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">96</td>
+  <td>NİLCAN YAVUZCAN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Gazetesci Hasan Tahsin Caddesi Erönene İş merkezi Dükkan No:
+  36/4, Ortaköy, Lefkoşa</td>
+  <td>(0392) 223 23 33</td>
+  <td>Ecz. Nilcan Emine Avcın</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">97</td>
+  <td>OBA 2 ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Dr. Necmettin Erbakan Cad. No: 49, Domuzcular Burnu yolu, Elite Hastanesi
+  önü, Küçük Kaymaklı, Lefkoşa</td>
+  <td>(0392) 227 13 11</td>
+  <td>Ecz. Enver Alibaba</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">98</td>
+  <td>OBA ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Gaz. Hasan Tahsin Cad. No: 79/D, Lemar (Molto) yolu, China-Bazaar
+  karşısı, Lefkoşa</td>
+  <td>(0392) 223 71 01</td>
+  <td>Ecz. Şerife Alibaba</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">99</td>
+  <td>ORHAN BERKE ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Öğretmenler Cad. Hacı Ali Sitesi 3, Belça süpermarket
+  arkası, Ateş kuruyemişleri arasından içeri, İrsen
+  Küçük ortaokulu arkası, Ortaköy, Lefkoşa</td>
+  <td>(0392) 223 31 21</td>
+  <td>Ecz. Orhan Berke Bilokçuoğu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">100</td>
+  <td>ORTAKÖY ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht.Gaz.Hasan Tahsn Cad. Lemar (Molto )Yolu - Severse Döner
+  Karşısı Ortaköy Lefkoşa</td>
+  <td>(0392) 330 32 00</td>
+  <td>Ecz. Didem Can</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">101</td>
+  <td>ÖZÇALIŞKAN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Kamelya Sok. Dış Kapı No: 3/B, Yenikent, Lefkoşa</td>
+  <td>(0533) 889 19 98</td>
+  <td>Ecz. İzge Özçalışkan</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">102</td>
+  <td>ÖZERÇAL ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Raif Dentaş Cad.Siyah Kuğu 1 Binaları Dük.N0:15/E
+  Göçmenköy Lefkoşa</td>
+  <td>(0392) 223 97 31</td>
+  <td>Ecz. Öznevir Erçal</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">103</td>
+  <td>ÖZNEM KILINÇKINI ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Mehmet Akif Cad.Golden Tulip Hotel karşısı Dereboyu
+  Lefkoşa</td>
+  <td>(0392) 227 11 10</td>
+  <td>Ecz. Öznem Kılınçkını</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">104</td>
+  <td>ÖZYOL ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şaziye Hacı Maltızlar Cad.No:2/ 4 Ortaköy Lefkoşa</td>
+  <td>(0392) 223 21 31</td>
+  <td>Ecz. Haldun Özyol</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">105</td>
+  <td>PAPATYAM ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht.Gültekin Şengör Sok. Dük.No:3/4 little İtaly Pizza
+  Karşısı Kumsal Lefkoşa</td>
+  <td>(0392) 228 23 30</td>
+  <td>Ecz. Hande Madi</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">106</td>
+  <td>PERVİN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Haydar Aliyev Cad. Berber Tarlası Dük. No: 12/C, Hz. Ebubekir Cami
+  Çaprazı, Türk Hava Yolları karşısı, Küçük
+  Kaymaklı, Lefkoşa</td>
+  <td>(0392) 225 28 18</td>
+  <td>Ecz. Pervin Ayrancıoğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">107</td>
+  <td>SABİHA BULDUK ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht. Ecvet Yusuf Cad. Bulduk Residence Apt. Dük. No: 3,
+  Yenişehir (Orman Dairesi Yolu), Lefkoşa</td>
+  <td>(0392) 228 65 65</td>
+  <td>Ecz. Sabiha Bulduk</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">108</td>
+  <td>SAFİYE ÇAĞANSEL ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht. İsmail Beyoğlu Cad. No:52A, Eski Zipps Market yolu,
+  Küçük Kaymaklı, Lefkoşa</td>
+  <td>(0392) 227 76 76</td>
+  <td>Uzm. Ecz. Safiye Çağansel</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">109</td>
+  <td>SAĞLIK 2 ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Cengiz Topel Sok.Levent Apt.Blok.38 No:19 K.Çiftlik</td>
+  <td>(0392) 229 24 66</td>
+  <td>Ecz. Orhan Aktunç</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">110</td>
+  <td>SENAL ATAÇAĞ ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Atatürk Cad. Şht.Zehra Mustafa Sk.No:5 Gönyeli</td>
+  <td>(0392) 223 19 97</td>
+  <td>Ecz. Senal Ataçağ</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">111</td>
+  <td>ŞERİFE ADEMOĞULLARI ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht.İsmail Dümenci Sok No: 2 C Lefkoşa Fenerium
+  Karşısı, Eski İştah Restorant yanı Karaca's
+  Corner Restorant ve Kamu Sen Karşısı Yenişehir
+  Lefkoşa</td>
+  <td>(0392) 228 17 67</td>
+  <td>Ecz. Şerife Ademoğulları</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">112</td>
+  <td>SERKAN KERVAN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Hürriyet Cad. N0:11/ B Hamitköy Lefkoşa</td>
+  <td>(0392) 225 80 91</td>
+  <td>Ecz. Serkan Kervan</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">113</td>
+  <td>SERNA ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Belediye Bulvarı No: 2, Yenikent, Lefkoşa</td>
+  <td>(0392) 224 12 10</td>
+  <td>Ecz. Serna İzel Kaya</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">114</td>
+  <td>SEROL ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Mustafa Ruso Cad. Muhtar Yusuf Galeria K.Kaymaklı</td>
+  <td>(0392) 227 20 64</td>
+  <td>Ecz. Safiye Taydaş</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">115</td>
+  <td>SERPİN ONAY ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht. Mustafa Ruso Cad. No: 84, Küçük Kaymaklı, Lefkoşa</td>
+  <td>(0392) 227 39 24</td>
+  <td>Ecz. Serpin Onay</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">116</td>
+  <td>SESİL ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Bolu Sok. Blok 9 Küçük Kaymaklı Lefkoşa</td>
+  <td>(0392) 228 89 63</td>
+  <td>Ecz. Nurten Özünalp</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">117</td>
+  <td>SEV ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Kemal Şemiler Cad. Akçın Plaza No: 2, Zephyr Cafe yolu üzeri,
+  Civisilli Gıda yanı, Metehan Kermiya, Lefkoşa</td>
+  <td>(0392) 223 44 14</td>
+  <td>Ecz. Seval Öztürk</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">118</td>
+  <td>SEVAL KAYMAK ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Prof.Dr.Necmettin Erbakan Cad. N0: 41/A Lefkoşa</td>
+  <td>(0392) 227 96 19</td>
+  <td>Ecz. Seval Kaymak</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">119</td>
+  <td>SEVCAN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Atatürk Cad. Emek Apt. Dükkan No: 3, Li̇masol Türk Koop Bankası
+  karşısı, Yeni̇şehi̇r, Lefkoşa</td>
+  <td>(0392) 227 60 71</td>
+  <td>Ecz. Sevcan Güvenir</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">120</td>
+  <td>SEVGİ KARABEKİR ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>20 Temmuz Sokak Suphi Hüdaoğlu Apt. No: 25 Kapı No: 1, Yenikent
+  - Gönyeli, Lefkoşa</td>
+  <td>(0533) 820 72 84</td>
+  <td>Ecz. Sevgi Dudu Karabekir</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">121</td>
+  <td>SEVGİ KIRBOĞA ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht. Ecvet Yusuf Cad. No: 33/C, Öztekiner Apt., Yenişehir,
+  Lefkoşa</td>
+  <td>(0392) 228 05 08</td>
+  <td>Ecz. Sevgi Kırboğa</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">122</td>
+  <td>SEYRANTEPE ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Atatürk Cad. 46 A Hamitköy Lefkoşa</td>
+  <td>(0392) 225 57 28</td>
+  <td>Ecz. Ferdiye Dorak</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">123</td>
+  <td>SEZER ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>79/B Gz.Hasan Tahsin Cad.Kermiya Ortaköy Kermiya</td>
+  <td>(0392) 223 70 88</td>
+  <td>Ecz. Turan Ceyda</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">124</td>
+  <td>ŞİRİN BOLKAN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Atatürk Cad. Ersalıcı Atp. Hamitköy Lefkoşa</td>
+  <td>(0392) 225 40 20</td>
+  <td>Ecz. Şirin Bolkan</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">125</td>
+  <td>SONUÇ ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Atatürk Cad. No: 7/ B Yenişehir Lefkoşa</td>
+  <td>(0392) 227 32 70</td>
+  <td>Ecz. Ergin Sonuç</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">126</td>
+  <td>SÖZÜÖZ ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht. Mehmet Kemal Sok., Akasya Apt., Lemar arkası, Şht.
+  Doğan Ahmet İlkokulu sırası, Küçük Kaymaklı,
+  Lefkoşa</td>
+  <td>(0392) 229 33 00</td>
+  <td>Ecz. Umut Sözüöz</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">127</td>
+  <td>TÖRENAĞA ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Gaz. Kemal Aşık Cad. No: 60, Küçük Kaymaklı, Lefkoşa</td>
+  <td>(0392) 228 10 08</td>
+  <td>Ecz. Aygül Aygın</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">128</td>
+  <td>TUĞCAN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>İsmail Beyoğlu Cad.Atılgan Plaza Dük.No:8 K.Kaymaklı</td>
+  <td>(0392) 229 29 86</td>
+  <td>Ecz. Tuğcan Burukkan Akçın</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">129</td>
+  <td>TUNA ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht.Ecvet Yusuf Cad. HacıBulgur Apt.No:16 B Deniz Plaza ve
+  Mochachina yanı Yenişehir</td>
+  <td>(0392) 227 78 74</td>
+  <td>Ecz. Sunay Tuna</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">130</td>
+  <td>TÜRKAN ŞENTİP ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Belediye Bulvarı N0:75/C Damdelen Petrol karşısı
+  Yenikent Gönyeli</td>
+  <td>(0392) 223 93 40</td>
+  <td>Ecz. Türkan Şentip</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">131</td>
+  <td>ÜLKER POZAN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht.Gaz.Hasan Tahsin Cad. 28/2 Ortaköy Lefkoşa Lemar Yolu</td>
+  <td>(0392) 223 51 80</td>
+  <td>Ecz. Ülker Pozan</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">132</td>
+  <td>UMUT ÖKSÜZ ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht. Mustafa Ruso Cad. No:17, Küçük Kaymaklı Macro Süperarket
+  karşısı(Eski Lemar Süpermarket), Aras Kargo yanı,
+  Lefkoşa</td>
+  <td>(0392) 444 86 88</td>
+  <td>Ecz. Umut Öksüz</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">133</td>
+  <td>VAİZ ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Atatürk Caddesi No: 84/C, Yenişehir, Lefkoşa</td>
+  <td>(0392) 228 09 90</td>
+  <td>Ecz. Derviş Doğa Vaiz</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">134</td>
+  <td>YAPRAK POLAT ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Zafer Cad. 34A Haspolat, Lefkoşa</td>
+  <td>(0533) 879 93 23</td>
+  <td>Ecz. Yaprak Polat</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">135</td>
+  <td>YAZMAN ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Devlet Hastanesi Karşısı Akay Optik Plaza Ortaköy
+  Lefkoşa</td>
+  <td>(0392) 223 21 21</td>
+  <td>Ecz. Necat Yazman</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">136</td>
+  <td>YELİM ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Gültekin Şengör SOK.AKÜÇ Apt.Kumsal Lefkoşa</td>
+  <td>(0392) 228 78 66</td>
+  <td>Ecz. Tahir Kıbcak</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">137</td>
+  <td>YENİKENT ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Belediye Bulvarı Yenikent Gönyeli Zorlu Plaza karşısı</td>
+  <td>(0392) 223 93 78</td>
+  <td>Ecz. Düriye Musioğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">138</td>
+  <td>YENİŞEHİR ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Hüseyin İrfan Sok. Cankan Apt. No:1 Dük. 4, Lefkoşa Türk
+  Belediyesi arkası, Yenişehir, Lefkoşa</td>
+  <td>(0392) 227 23 63</td>
+  <td>Ecz. Ahenk Bilir</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">139</td>
+  <td>YEŞİM ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht. Kemal Ünal Cad. Eser Apt. B Blok, Metropol Süpermarket
+  karşısı, Taşkınköy, Lefkoşa</td>
+  <td>(0392) 225 69 18</td>
+  <td>Ecz. Yeşim Fidanboylu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">140</td>
+  <td>YONCA HATİPOĞLU ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Ecvet Yusuf Cad. Miniloy Dük.No:2 Kızılbaş Lefkoşa</td>
+  <td>(0392) 228 06 06</td>
+  <td>Ecz. Yonca Hatipoğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">141</td>
+  <td>YUSUF TANDOĞAN ECZANESİ (LEFKOŞA)</td>
+  <td>LEFKOŞA</td>
+  <td>Mehmet Akif Cad. HacıAli Apt., Gloria Jeans ara sokağı,
+  Toros beyaz eşya yanı, Dereboyu, Lefkoşa</td>
+  <td>(0392) 227 23 50</td>
+  <td>Ecz. Gizem Karagözlü</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">142</td>
+  <td>ZEHRA ECZANESİ</td>
+  <td>LEFKOŞA</td>
+  <td>Şht. Kemal Ünal Cad., No: 11, Metropol Süpermarket yolu, Mebel
+  Elektronik yanı, Taşkınköy, Lefkoşa</td>
+  <td>(0392) 225 59 47</td>
+  <td>Ecz. Şerife Çağansoy</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">143</td>
+  <td>ACARKAN ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Kordonboyu No: 38, Atatürk Heykeli, Girne</td>
+  <td>(0392) 816 00 08</td>
+  <td>Ecz. Erol Acarkan</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">144</td>
+  <td>ADAŞEHİR ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Ecevit Caddesi, Yeni Belediye Binası yanı, Avrasya Gold
+  Apartmanı, (Arçelik yanı, Yok Yoktur Market
+  karşısı), Girne</td>
+  <td>(0392) 815 01 88</td>
+  <td>Uzm. Ecz. Fatma Yücelen</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">145</td>
+  <td>AHMET ÇAĞER ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Ankara Cad. N0:50/ 2 A Alsancak Girne</td>
+  <td>(0392) 821 34 34</td>
+  <td>Ecz. Ahmet Çağer</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">146</td>
+  <td>ALENBAY ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Kurtuluş Cad. No: 53/1, Bellapais yolu, Ovis Coffees
+  karşısı, Bomond Bar yanı Girne</td>
+  <td>(0533) 886 12 24</td>
+  <td>Ecz. Peral Bayramoğulları</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">147</td>
+  <td>ALEV FARUK ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Şht. Sonay Özdayı Sok. No: 8, Boğazköy, Girne</td>
+  <td>(0392) 234 65 96</td>
+  <td>Ecz. Mustafa Faruk</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">148</td>
+  <td>ARDA ÇELİK ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Bellapais Yolu Zafer Cad. Bedel Plaza N0:4-5 Girne</td>
+  <td>(0392) 815 20 69</td>
+  <td>Ecz. Pervin Çelik</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">149</td>
+  <td>AŞAR ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Mustafa Çağatay Cad. Yetkili İş Merkezi No:32, Mahkemeler
+  yanı, Garanti Bankası karşısı, Girne</td>
+  <td>(0392) 815 70 75</td>
+  <td>Ecz. Aşar Ustaoğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">150</td>
+  <td>AŞAR KARAOĞLANOĞLU ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Karaoğlanoğlu cad. No:3 Storemax yanı, Girne</td>
+  <td>(0392) 822 38 85</td>
+  <td>Ecz. Duygu Ustaoğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">151</td>
+  <td>ASRIN ÜMİT ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Karaoğlanoğlu Cad. Yayla New Castle Plaza No: 2, Deniz
+  Kızı Hotel karşısı, Karaoğlanoğlu, Girne</td>
+  <td>(0533) 839 19 60</td>
+  <td>Ecz. Seyedeh Masha Hojjat Abi</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">152</td>
+  <td>AYDIN ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Karaoğlanoğlu Cad. Beyaz Plaza No:3 Alsancak Girne</td>
+  <td>(0392) 821 33 61</td>
+  <td>Ecz. Hatice Özalp</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">153</td>
+  <td>AYDIN LIFE ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Kurtuluş Cad. Minimal Plaza N0:6 Doğanköy (Bellapais yolu Uncle
+  Sam's Cafe yanı)</td>
+  <td>(0533) 888 56 66</td>
+  <td>Ecz. Nilhan Uzman</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">154</td>
+  <td>AYGÜL AYGIN ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Semih Sancar Cad. Nurel 21 Bee Tower Apt. Dük.No:2 Hürdeniz Market
+  karşı Çaprazı</td>
+  <td>(0533) 830 00 49</td>
+  <td>Ecz. Aygül Aygın</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">155</td>
+  <td>AYLAND ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Karaoğlanoğlu Cad. NDI HED BLUE No: 2, Girne</td>
+  <td>(0533) 866 49 42</td>
+  <td>Ecz. Shideh Rozhani</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">156</td>
+  <td>AYŞEN ALTAN ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Mareşal Fevzi Çakmak Cad. N0:121/1 Lapta Girne</td>
+  <td>(0533) 858 52 08</td>
+  <td>Ecz. Ayşen Altan</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">157</td>
+  <td>BARIŞ ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Şht.İbrahim Nidai Cad. N0:55 Lapta</td>
+  <td>(0392) 821 84 10</td>
+  <td>Ecz. Ali Öner</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">158</td>
+  <td>BAŞAK ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Ziya Rızkı Cad. No:31 Ocak Klubü karşısı
+  Barbaraslor Market yanı Girne</td>
+  <td>(0392) 815 36 20</td>
+  <td>Ecz. Erdoğan Başak</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">159</td>
+  <td>BEDEOĞLU ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Beşparmaklar Cad. N0:79 Dük.7 Çatalköy Girne</td>
+  <td>(0392) 824 47 94</td>
+  <td>Ecz. Evren Bedeoğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">160</td>
+  <td>BUĞÇE ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Templos Tower 2 Dük. Zeytinlik yolu, Nusmar Market yanı, Girne</td>
+  <td>(0392) 815 00 32</td>
+  <td>Ecz. Buğçe Yürüker</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">161</td>
+  <td>CENGİZ SOLMAZ ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Naci Talat Cad. Zeki Keçeli Apt. No:1, Defacto ve
+  Kığılı Mağazaları yanı, Girne</td>
+  <td>(0533) 844 03 72</td>
+  <td>Ecz. Cengiz Solmaz</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">162</td>
+  <td>DAMLA ÖNDER ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Laden Sok. No: 2A, Çamlıbel, Girne</td>
+  <td>(0533) 877 80 00</td>
+  <td>Ecz. Damla Önder</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">163</td>
+  <td>DEFNE ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Atatürk Cad. No:20 Girne</td>
+  <td>(0392) 815 35 16</td>
+  <td>Ecz. Nilgün Hekimoğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">164</td>
+  <td>DİLARA ÖZHAMİT ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Mete Adanır Cad. Yukarı Girne No:1 1/A, Kozan Döviz Yanı,
+  Girne</td>
+  <td>(0392) 815 11 88</td>
+  <td>Ecz. Dilara Özhamit</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">165</td>
+  <td>DÜNYA ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Salih Miroğlu Cad. Ataker İş Hanı No:1, Nusmar
+  sokağı - Şokmar, Zeytinlik yolu, Girne</td>
+  <td>(0392) 815 00 09</td>
+  <td>Ecz. Canan Çomunoğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">166</td>
+  <td>EDA ATAÇAĞ ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Dr.Salih Miroğlu Cad. 45/2 Zeytinlik Yolu Şokmar Süper Market
+  Karşısı Girne</td>
+  <td>(0548) 881 18 11</td>
+  <td>Ecz. Eda Ataçağ</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">167</td>
+  <td>EMİN ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Karaoğlanoğlu Cad. Hasem İşhanı No:1 Alsancak
+  Girne</td>
+  <td>(0533) 870 19 46</td>
+  <td>Ecz. Şerife Eminağa</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">168</td>
+  <td>EMİNAĞA ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Ziya Rızkı Cad. No:10 Girne</td>
+  <td>(0392) 815 22 48</td>
+  <td>Ecz. Ahmet Yöney</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">169</td>
+  <td>ENVER POLİLİ ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Şht. Kazım Ali Sokak No: 2, Değirmentaşı
+  Mahallesi Ertuğ Kader Apt. No: 2 ,Yukarı Girne</td>
+  <td>(0533) 860 63 96</td>
+  <td>Ecz. Enver Polili</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">170</td>
+  <td>ERDOĞAN ÖZİKİZ ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Karaoğlanoğlu Cad. Dükkan No: 160/3, Starlux Sinema yanı,
+  Girne</td>
+  <td>(0548) 870 84 42</td>
+  <td>Ecz. Ecem Tansoy</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">171</td>
+  <td>ESAT ÇELEBİ ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Dr. Fazıl Küçük Cad. No: 47, Dikmen, Girne</td>
+  <td>(0392) 237 27 78</td>
+  <td>Ecz. Esat Çelebi</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">172</td>
+  <td>FATMA SARAÇ ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>20 Temmuz Sok. No: 2 Esentepe, Girne</td>
+  <td>(0392) 823 63 84</td>
+  <td>Ecz. Fatma Saraç</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">173</td>
+  <td>GİRNE ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Işil Sok. Bayramoğlu Apt.D/3 Girne</td>
+  <td>(0392) 815 14 47</td>
+  <td>Ecz. Güzin Çağdan</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">174</td>
+  <td>GÜNAY VARIŞ ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Uğur Mumcu Cad. Bekir Paşa İşMerkezi N0:1 Karakum</td>
+  <td>(0392) 815 25 85</td>
+  <td>Ecz. Günay Arsoy Varış</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">175</td>
+  <td>GÜNDAL ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Altınör Apt. A Blok Dük.2 Uğur Mumcu Bulvarı Girne Karakum
+  ( Molto Süpermarket karşısı )</td>
+  <td>(0392) 816 05 43</td>
+  <td>Ecz. Ayşen Günsel Mehmetçik</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">176</td>
+  <td>GÜVEN ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Salih Miroğlu Cad. Ersoy 6 Apt. Yukarı Girne</td>
+  <td>(0392) 815 24 09</td>
+  <td>Ecz. Didem Güven</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">177</td>
+  <td>İBRAHİM BARDAK ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Sakarya Sok. Yukarı Girne Ayşan Keskinel Apt. No:5A, Girne</td>
+  <td>(0533) 851 76 08</td>
+  <td>Ecz. İbrahim Bardak</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">178</td>
+  <td>İLGEN ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Bedrettin Demirel Cad. Özyalçın 156 Apt. Yaprak Tantuni
+  çaprazı, Suvari mağazası yanı, Girne</td>
+  <td>(0392) 815 81 18</td>
+  <td>Ecz. İlgen Görgüner</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">179</td>
+  <td>İPEK YÖNEY ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Karaoğlanoğlu Cad. Faraçoğlu İşhanı No: 320
+  Karaoğlanoğlu Girne</td>
+  <td>(0533) 862 76 56</td>
+  <td>Ecz. İpek Yöney</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">180</td>
+  <td>KANDİL ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Karaoğlanoğlu Cad. E 48 Chichen Planet karşısı
+  GAÜ Işıkları yanı Karaoğlanoğlu</td>
+  <td>(0392) 822 38 42</td>
+  <td>Ecz. Kadriye Kandil</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">181</td>
+  <td>KARAOĞLANOĞLU ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Karaoğlanoğlu Caddesi Özaltın Dükkanları No: 2, Girne
+  (Zeytin yağı fabrikasını geçince solda, petshop
+  yanı)</td>
+  <td>(0533) 875 39 93</td>
+  <td>Ecz. Mürüde Musioğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">182</td>
+  <td>KARPUZOĞLU ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Uğur Mumcu Cad. Eren İş Hanı N0:1 Karakum Girne</td>
+  <td>(0392) 816 12 30</td>
+  <td>Ecz. İbrahim Karpuzoğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">183</td>
+  <td>KÜÇÜK ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Canbulat Sok.No:5/C Girne</td>
+  <td>(0392) 815 36 26</td>
+  <td>Ecz. Yusuf Küçük</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">184</td>
+  <td>MARYAM ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Ankara Cad. No: 1, Lotus Park Sitesi A Blok, Alsancak, Girne</td>
+  <td>(0533) 842 36 37</td>
+  <td>Ecz. Maryam Mohammed</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">185</td>
+  <td>MEHMET GAZİKÖYLÜ ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Uğur Mumcu Cad. Karakum Girne</td>
+  <td>(0392) 816 01 23</td>
+  <td>Ecz. Mehmet Gaziköylü</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">186</td>
+  <td>MEHMET KAMİLOĞLU ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Mustafa Çağatay Cad. No: 41/C, Dr. Akçiçek Hastanesi yolu, Girne</td>
+  <td>(0533) 887 44 88</td>
+  <td>Ecz. Mehmet Kamiloğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">187</td>
+  <td>MELİS UZUN ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Işıl Sokak, Uzun Apt. No: 4, Kamiloğlu Hastanesi
+  yanı, Girne</td>
+  <td>(0533) 862 11 72</td>
+  <td>Ecz. Melis Uzun</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">188</td>
+  <td>MELİZ 2 ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Beyoğlu Sok. No:11 Ordu Pazarı karşısı 4 C Girne</td>
+  <td>(0533) 862 28 82</td>
+  <td>Ecz. Melis Emek</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">189</td>
+  <td>MUCİZEM ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Naci Talat Cad. N0:26 A Bücürük yanı Ship İnn Otel
+  karşısı Girne</td>
+  <td>(0548) 851 11 50</td>
+  <td>Ecz. Çağın Eseri</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">190</td>
+  <td>NAZIM VARIŞ ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Karaoğlanoğlu Cad. Yayla Mah. No:149 Alsancak Girne</td>
+  <td>(0392) 821 30 88</td>
+  <td>Ecz. Nazım Varış</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">191</td>
+  <td>NEJLA ERÇAL ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Üniversite Yolu Sok.N0:63//B Karaoğlanoğlu Girne Amerikan
+  Üniversitesi yanı Girne</td>
+  <td>(0392) 822 32 02</td>
+  <td>Ecz. Nejla Erçal</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">192</td>
+  <td>NURÇAĞ ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Şht. Dursun Özsaraç Sok. No: 6/2, Eski Passport restorant
+  sokağı, Girne</td>
+  <td>(0392) 815 10 25</td>
+  <td>Ecz. Nurçağ Madi</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">193</td>
+  <td>ÖMRÜM AKI ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>İstiklal Cad. Dük. No:1, Esentepe, Girne</td>
+  <td>(0533) 882 32 39</td>
+  <td>Ecz. Ömrüm Akı</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">194</td>
+  <td>ÖMRÜM ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Karaoğlanoğlu Cad. No:256 Girne</td>
+  <td>(0392) 822 22 87</td>
+  <td>Ecz. Sergül Akı</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">195</td>
+  <td>ÖNAL AKTOLGA ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Karaoğlanoğlu Cad. N0:33 Girne</td>
+  <td>(0392) 822 41 42</td>
+  <td>Ecz. Önal Akotlga</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">196</td>
+  <td>ÖNCEL MAHMUTOĞLU ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Ecevit Cad. Fuzuli Sok.Öncel Çerkez Apt.Dük. 1 Girne</td>
+  <td>(0392) 815 08 50</td>
+  <td>Ecz. Öncel Mahmutoğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">197</td>
+  <td>ORÇUN ÖZKASAP ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Karaoğlanoğlu Caddesi Zeytinlik Kesimi Atilla Çankaya Apt. 92 B
+  No: 4, Karaoğlanoğlu, Girne</td>
+  <td>(0533) 870 21 22</td>
+  <td>Ecz. Orçun Özkasap</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">198</td>
+  <td>ÖZENİR ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Mareşal Fevzi Çakmak Cad. Kocatepe No: 69, Manolya hotel
+  karşısı, Lapta, Girne</td>
+  <td>(0542) 876 06 60</td>
+  <td>Ecz. Emine Türk</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">199</td>
+  <td>ÖZGE ÖZÇINAR ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Mete Adanır Cad. Cyprus Pools Apt. N0:28 C Girne</td>
+  <td>(0392) 815 90 90</td>
+  <td>Ecz. Özge Özçınar</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">200</td>
+  <td>PINAR KEKLİK ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Karaoğlanoğlu Cad. 198/A, Teknogold yanı, Alsancak, Girne</td>
+  <td>(0533) 857 54 94</td>
+  <td>Ecz. Pınar Keklik</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">201</td>
+  <td>POSTACIOĞLU ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Mustafa Çağatay Cad. Postacıoğlu Apt. 1, Girne</td>
+  <td>(0392) 815 11 00</td>
+  <td>Ecz. Dilek Postacıoğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">202</td>
+  <td>RIZKI 2 ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Mülk Plaza No:11 Çatalköy Girne</td>
+  <td>(0392) 824 56 06</td>
+  <td>Ecz. Mediha Keleşoğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">203</td>
+  <td>RIZKI ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>NaciTalat Cad. N0:3 Foto Berkenat yanı Girne</td>
+  <td>(0392) 815 34 96</td>
+  <td>Ecz. Zehra Keleşoğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">204</td>
+  <td>SALİM KARABEKİR ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Karaoğlanoğlu Cad., Yayla Mahallesi No: 213/B, Sky Plaza Apt.
+  Dükkan No: 2, Alsancak, Girne</td>
+  <td>(0533) 845 98 36</td>
+  <td>Ecz. Salim Karabekir</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">205</td>
+  <td>SELİN ESER ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Dr.Fazıl Küçük Cad. Yeni Liman Yolu High Life Tower No:23 B Girne</td>
+  <td>(0392) 815 06 66</td>
+  <td>Ecz. Selin Eser</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">206</td>
+  <td>SERTAÇ ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Osman Örek Caddesi Öğretmen evi karşısı, Bektaş
+  gıda pazarı ilerisi Hocanın Apt.3/B Girne</td>
+  <td>(0392) 815 90 67</td>
+  <td>Ecz. Kıvanç İlter</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">207</td>
+  <td>SETENAY BENGİSU ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Bellapais Trafik Işıkları Yolu Ardıç Yanı
+  Doğanköy -Girne</td>
+  <td>(0392) 816 00 82</td>
+  <td>Ecz. Setenay Bengisu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">208</td>
+  <td>SEVİN ÇAĞAY ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Ecevit Cad. No: 67/B, Yeni Girne Belediyesi karşısı, Yok
+  Yoktur Market yanı, Girne</td>
+  <td>(0392) 815 20 25</td>
+  <td>Ecz. Sevin Çağay</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">209</td>
+  <td>SHİMA ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Karaoğlanoğlu Cad. No: 62, Terkan Plaza No: 4, Oğuz Veli
+  Ortaokulu Karşı Çaprazı, TAYF (Marshall) ve Magarına
+  Bulli Restorant Sırası, Karaoğlanoğlu, Girne.</td>
+  <td>(0548) 822 02 72</td>
+  <td>Ecz. Shima Abdihagh Gezer</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">210</td>
+  <td>ŞİFALI ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Karaoğlanoğlu Cad. Yayla Mah. Dük. No: 5, Alsancak, Girne</td>
+  <td>(0533) 846 33 30</td>
+  <td>Ecz. Ayşe Türk</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">211</td>
+  <td>SOYERLER 1 ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Naci Talat Caddesi Şapka Cafe Yanı Aşağı Girne
+  Atlantıc Avenue B Blok Dış Kapı No: 42/ C</td>
+  <td>(0533) 833 07 17</td>
+  <td>Ecz. Selçuk Soyer</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">212</td>
+  <td>SOYERLER ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Karaoğlanoğlu Cad. Side Plaza No: 105, Dük. No: 2, İş
+  Bankası yanı, Alsancak, Girne</td>
+  <td>(0533) 830 07 17</td>
+  <td>Ecz. Göksel Soyer</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">213</td>
+  <td>ŞULE YILDIZDOĞAN ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Salih Miroğlu Cad. Alier Plaza 22 /B Girne</td>
+  <td>(0392) 816 12 13</td>
+  <td>Ecz. Şule Yıldızdoğan</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">214</td>
+  <td>TÖREN 2 ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Vakıflar Çarşısı A Blok No:1 Girne</td>
+  <td>(0392) 815 17 90</td>
+  <td>Ecz. Ahmet Eminağa</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">215</td>
+  <td>TÖREN ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Ziya Rızkı Cad. Yusuf Ziya Apt. No:262/B Girne</td>
+  <td>(0392) 815 89 79</td>
+  <td>Ecz. Ayça Eminağa İpekdal</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">216</td>
+  <td>TÖRENSEL ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Beşparmaklar Cad.Mah Ayhan Plaza Dükkan No:3 Çatalköy</td>
+  <td>(0392) 824 57 13</td>
+  <td>Ecz. Doğan Başak</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">217</td>
+  <td>TURGAY PARALI ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Semih Sancar Carrington 44 Apt., Sushico yanı - Rota Reklam
+  bitişiği, Girne</td>
+  <td>(0533) 837 61 26</td>
+  <td>Ecz. Turgay Paralı</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">218</td>
+  <td>VURAL ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Dr.Fazil Küçük Cad. N0:35/2 Dikmen Girne Dikmen</td>
+  <td>(0392) 237 30 19</td>
+  <td>Ecz. Kemal Vural</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">219</td>
+  <td>YUSUF TANDOĞAN ECZANESİ (GİRNE)</td>
+  <td>GİRNE</td>
+  <td>Beşparmaklar Cad. Ufuktan 1 Apt. Dük. No: 4, Çatalköy, Girne</td>
+  <td>(0548) 865 34 34</td>
+  <td>Ecz. Asrem Karagözlü</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">220</td>
+  <td>ZEHRA KELEBEK ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Mareşal Fevzi Çakmak Cad. Demirege Apt. 169 A Lapta Girne</td>
+  <td>(0392) 821 38 88</td>
+  <td>Ecz. Zehra Kelebek</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">221</td>
+  <td>ZİYA SENCER ECZANESİ</td>
+  <td>GİRNE</td>
+  <td>Mete Adanır Cad. No: 2, Magic Tower Apt. Sulu Çember
+  karşısı, Girne</td>
+  <td>(0533) 826 51 91</td>
+  <td>Ecz. Ziya Sencer</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">222</td>
+  <td>ADA ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Salamis yolu Sakarya Dük. No:3 Mağusa</td>
+  <td>(0392) 365 31 30</td>
+  <td>Ecz. Eylem Körceğez</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">223</td>
+  <td>ARAS ÖNCÜ ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>15 Ağustos Bulvarı No: 46, İlama Market
+  karşısı, Çanakkale, Gazimağusa</td>
+  <td>(0392) 366 29 99</td>
+  <td>Ecz. Aras Öncü</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">224</td>
+  <td>ARKAN ADIŞANLI ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Yalı Mah. Metran Plaza No: 2, Tatlısu, Gazimağusa</td>
+  <td>(0548) 853 15 53</td>
+  <td>Ecz. Arkan Adışanlı</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">225</td>
+  <td>ASLI EREN ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Ziya Gökalp Cad.Eski Belça Süpermarket Yolu Bitirim Ayakkabı
+  yanı GaziMağusa</td>
+  <td>(0392) 366 47 47</td>
+  <td>Ecz. Aslı Eren</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">226</td>
+  <td>ASYA TEKBIYIK ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>İsmet İnönü Bulvarı Hasipoğlu Residance B Blok N0:3
+  Şık Prenses yanı Çelikkaya Klinik Altı Gazimağusa</td>
+  <td>(0392) 365 13 38</td>
+  <td>Ecz. Asya Tekbıyık</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">227</td>
+  <td>AYBENK ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Gülseren yolu Reflex Plaza 5, dükkan 4, Karakol bölgesi̇, Lancet
+  laboratuvar, eski̇ Pınar market ve Puzzle travel yanı,
+  Gazimağusa</td>
+  <td>(0533) 870 37 88</td>
+  <td>Ecz. Abdullah Aybenk</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">228</td>
+  <td>AYŞE EMİROĞLULARI ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Yenikent Bulvarı İstiklal Cad. N0:39 Yeniboğaziçi
+  Mağusa</td>
+  <td>(0533) 841 98 13</td>
+  <td>Ecz. Hasibe Emiroğluları</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">229</td>
+  <td>AYŞE ÖZBEYCAN ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Topcu Bulvarı GaziMağusa Deniz Plaza ve Mr.Pound
+  karşısı GaziMağusa</td>
+  <td>(0392) 365 68 38</td>
+  <td>Ecz. Ayşe Özbeycan</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">230</td>
+  <td>AYŞEM ÇİL ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>15 Ağustos Namık Kemal Bulvarı, Halken Tower Apt. No: 5,
+  Güder Kasap yolu üzeri, Dr. Şerife Zorba Kliniği yanı,
+  Gazimağusa</td>
+  <td>(0392) 366 20 26</td>
+  <td>Ecz. Ayşem Çil</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">231</td>
+  <td>BAHAR ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>İsmet İnönü Bulvarı No: 45, Ateş Kuruyemişleri
+  yanı, Gazimağusa</td>
+  <td>(0392) 365 51 26</td>
+  <td>Ecz. Bahar Kilim</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">232</td>
+  <td>BARIŞER ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Mustafa Kemal Bulvarı, Newlife Apt. No: 1, Yaşam Hastanesi
+  yanı, Gazimağusa</td>
+  <td>(0392) 365 60 40</td>
+  <td>Ecz. Ali Barışer</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">233</td>
+  <td>BUĞÇE BAYRAM ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Döveç Apt. No:8 Mustafa Kemal Bulvarı Uluçam Yolu Mağusa</td>
+  <td>(0392) 365 25 25</td>
+  <td>Ecz. Buğçe Bayram</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">234</td>
+  <td>BURCU GÖKALP ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Kaliland Bölgesi Halil Hamza Yolu Ece Apt.Dük.3 GaziMağusa</td>
+  <td>(0392) 365 69 39</td>
+  <td>Ecz. Burcu Gökalp</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">235</td>
+  <td>ÇAĞKAN AKSOY ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>N0:28 15 Ağustos Bulvarı Larnaka Yolu GaziMağusa</td>
+  <td>(0392) 366 95 55</td>
+  <td>Ecz. Çağkan Aksoy</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">236</td>
+  <td>ÇAĞLAN ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>15 Ağustos Bulvarı N0:34 P.K: 194 Mağusa</td>
+  <td>(0392) 366 64 47</td>
+  <td>Ecz. Behiye Zorlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">237</td>
+  <td>CEREN ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Papatya Apt.No:2 Larnaka Yolu Anıt Çemberi yanı</td>
+  <td>(0392) 366 33 74</td>
+  <td>Ecz. Aliye Kürüm</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">238</td>
+  <td>ÇİSE SEZEREL ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Ziya Gökalp Cad. N0:34 Belça yolu Göçmen Petrol istasyonu
+  karşısı Mağusa</td>
+  <td>(0392) 366 39 15</td>
+  <td>Ecz. Çise Sezerel</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">239</td>
+  <td>ÇİSEM ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Halil Hamza Yolu Kaliland Bölgesi Alasya park sitesi
+  karşısı - Gazimağusa</td>
+  <td>(0392) 365 40 04</td>
+  <td>Ecz. Çisem Tacel</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">240</td>
+  <td>DEMET ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>New Castle No:1 Bayraktar yolu Lemar Yanı Mağusa</td>
+  <td>(0392) 366 33 50</td>
+  <td>Ecz. Demet İlerici</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">241</td>
+  <td>ECE ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Mustafa Kemal Bulvarı, Özel Yaşam Hastanesi yanı,
+  Gazimağusa</td>
+  <td>(0392) 366 38 46</td>
+  <td>Ecz. Zakire Kaleli</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">242</td>
+  <td>EMİR ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Gülseren Yolu Şafak Pazarlama No:2/ A Karakol Bölgesi Mağusa</td>
+  <td>(0392) 365 54 54</td>
+  <td>Ecz. Emir Akşahoğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">243</td>
+  <td>EREL ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Salamis yolu Salamis Hotel Karşısı</td>
+  <td>(0392) 864 93 85</td>
+  <td>Ecz. Nazife Sağlamer</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">244</td>
+  <td>ERGİN ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Mağusa Tıp Merkezi Hastanesi Acil Servis Karşısı
+  Mağusa</td>
+  <td>(0392) 365 47 35</td>
+  <td>Ecz. Ergin İlktaç</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">245</td>
+  <td>ERTUĞ EMİN ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Ismet İnönü Bulvarı Reflex Apt. No:104, Mardo ve
+  Dağlı Sigorta yanı, Sakarya, Gazimağusa</td>
+  <td>(0392) 365 60 60</td>
+  <td>Ecz. Ertuğ Emin</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">246</td>
+  <td>FAYDALI ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Devlet Hastanesi Yolu Zabitler Petrol 100 m öncesi DAÜ Bankamatik
+  yanı</td>
+  <td>(0392) 365 69 22</td>
+  <td>Ecz. Olcay Faydalı</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">247</td>
+  <td>GİZEM KARAHASAN ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Yeni Hastane yolu, Karting yanı, Tuzla, Gazimağusa</td>
+  <td>(0392) 364 84 94</td>
+  <td>Ecz. Gizem Karahasan</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">248</td>
+  <td>GİZEMGÜL ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Yeniknet Mah.Kadife Sok Yeni Boğaziçi</td>
+  <td>(0392) 378 98 98</td>
+  <td>Ecz. Gizemgül Beşergil</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">249</td>
+  <td>GÖKCEN İLKTAÇ ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>İsmet İnönü Bulvarı No: 145, Güder Apt. No: 5,
+  Birleşmiş Milletler karşısı, Gazimağusa</td>
+  <td>(0392) 365 68 20</td>
+  <td>Ecz. Parandis İlktaç</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">250</td>
+  <td>GÜLFİDAN ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Istiklal Cad. N0:195/2 Yeniboğaziçi</td>
+  <td>(0392) 378 94 14</td>
+  <td>Ecz. Gülfidan Köseoğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">251</td>
+  <td>GÜLOĞLU ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Mustafa Kemal Bulvarı Notherland Alasya Park sitesi, Eski Kaliland
+  karşısı Dük. 4, Mağusa</td>
+  <td>(0392) 365 38 68</td>
+  <td>Ecz. Fisun Güloğlu Beşergil</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">252</td>
+  <td>GÜZER ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>City Mall AVM yanı (arka yol), Dersaneler yolu, Golden Car Wash
+  çaprazı, Çanakkale, Gazimağusa</td>
+  <td>(0533) 874 03 74</td>
+  <td>Ecz. Bahar Güzer</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">253</td>
+  <td>HACER BALIKÇI ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Mustafa Kemal Bulvarı. Döveç Elite Life Apt.:3. Mağusa</td>
+  <td>(0392) 365 55 18</td>
+  <td>Ecz. Hacer Balıkçı</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">254</td>
+  <td>HAKAN ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Kocatepe Sok.N0:1 GaziMağusa</td>
+  <td>(0392) 366 27 13</td>
+  <td>Ecz. Nurten Göksan</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">255</td>
+  <td>HALİL HAMZALAR ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Halil Hamza Yolu Ece Apt. Dükkan3 Zizzi Pizza &amp; Dünya Oto Galeri
+  arası / Kaliland Bölgesi Gazimağusa</td>
+  <td>(0392) 365 55 94</td>
+  <td>Ecz. Halil Hamzalar</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">256</td>
+  <td>HALK ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Namık Kemal Meydanı Kışla Yolu 2-D, Suriçi,
+  Gazimağusa</td>
+  <td>(0392) 366 53 33</td>
+  <td>Ecz. Ayten Bayram</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">257</td>
+  <td>HALKIN ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>2. Uluçam Yolu Erbatu Apt. Evleri B Blok, Dük.1, Pakduş ve Çocuk
+  Dünyası yolu, Noterland Primer Park karşısı, Sakarya,
+  Gazimağusa</td>
+  <td>(0392) 365 01 12</td>
+  <td>Ecz. Esra Halkın</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">258</td>
+  <td>HANDE BESMEL ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Gülseren Yolu Cahit Sıtkı Tarancı Sokak Şafak Plaza
+  No:10 Karakol Bölgesi Mağusa</td>
+  <td>(0392) 365 34 50</td>
+  <td>Ecz. Hande Besmel</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">259</td>
+  <td>HİÇKORKMAZ ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Tünay İrfanoğlu sok. Northerland Premier, Dış
+  Kapı No: 8, Sakarya, Gazimağusa</td>
+  <td>(0533) 832 24 03</td>
+  <td>Ecz. Laika Hiçkorkmaz</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">260</td>
+  <td>İÇTEN ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Eşref Bitlis Cad. İsmet Erel Apt. Dukkan No: 1 (Tıp
+  Merkezi Girişi), Gazimağusa</td>
+  <td>(0392) 365 22 00</td>
+  <td>Ecz. Hüsniye Öztoprak</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">261</td>
+  <td>İNEM MİMAR ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Hasan Barbaçolli Sok. Uzun Apt. 11, Yeni Lemar akra yolu - Burçin
+  Bestamil kuaför karşısı, Sakarya, Gazimağusa</td>
+  <td>(0548) 842 27 95</td>
+  <td>Ecz. İnem Mimar</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">262</td>
+  <td>KAĞAN KANDEMİR ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Samanyolu Sokak Çanakkale Ayten 2 Apt. No: 3, Gazimağusa</td>
+  <td>(0533) 881 66 26</td>
+  <td>Ecz. Kağan Kandemir</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">263</td>
+  <td>KARAKOL ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Gülseren yolu Nilgün uzun Apt.N0:2 Karakol Mağusa</td>
+  <td>(0392) 365 65 19</td>
+  <td>Ecz. Sevtap Zeki</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">264</td>
+  <td>KUNTER GÜVEN ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Karakız Sokak No: 2, Baykal Kunter Güven Hastanesi
+  Karşısı, Gazimağusa</td>
+  <td>(0392) 366 19 09</td>
+  <td>Ecz. Ahmet Kunter</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">265</td>
+  <td>LARNAKA YOLU ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>15 Ağustos Bulvarı Dük. 2, No:136/B, 2,5 mil yolu, Çanakkale,
+  Gazimağusa</td>
+  <td>(0533) 860 59 65</td>
+  <td>Ecz. Sibel Kösedağ</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">266</td>
+  <td>MEHMET ARTER ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>15 Ağustos Bulvarı Piyale Paşa Mah. İlhan Apt. No:1,
+  Larnaka Yolu, Gazimağusa</td>
+  <td>(0392) 366 00 02</td>
+  <td>Ecz. Mehmet Arter</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">267</td>
+  <td>MEHMETALİ BEYAZ ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Eşref Bitlis Cad., Topcu Bulvarı, Beyzade Apt., No: 3, Garanti
+  Bankası Karşısı Polis Müdürlüğü önü Gazimağusa</td>
+  <td>(0392) 365 06 50</td>
+  <td>Ecz. Mehmetali Beyaz</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">268</td>
+  <td>MELİKE BARBAROS ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Şht.İbrahim Hasan Cad.City Mall yolu üzeri (Tözün Kuru
+  Temizleme'den, City Mall istikametine giderken solda,Akol İnş
+  Şirketi yanı)</td>
+  <td>(0392) 365 42 40</td>
+  <td>Ecz. Melike Barbaros</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">269</td>
+  <td>MEVA ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>15A Ordu Sok. Açık Pazar Karşısı, Mağusa</td>
+  <td>(0548) 837 23 23</td>
+  <td>Ecz. Meva Arter</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">270</td>
+  <td>NASİM ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Colins yanında, Ozkoç Plaza, Calıforıan Restorant
+  karşısında, Salamis Yolu Mağusa</td>
+  <td>(0392) 365 03 40</td>
+  <td>Ecz. Faysal Zeki</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">271</td>
+  <td>NİLHAN SOYSAL ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Silahlı Kuvvetler Cad. Pertur Apt. No: 29A, The Europen Hotel (Sema)
+  - Adaş Bebe karşısı, Gazimağusa</td>
+  <td>(0392) 366 03 53</td>
+  <td>Ecz. Nilhan Soysal</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">272</td>
+  <td>ÖREN ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Cengizhan yolu No: 91. Maraş bölgesi, Gazimağusa (Öztemur
+  hırdavat ve Fidan marketin karşısı. Kombos meydanı)</td>
+  <td>(0392) 366 34 57</td>
+  <td>Ecz. Cem Ören</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">273</td>
+  <td>OSMANKAN ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Hüseyin Durmuş Sok. 50/ A Dük.No:2 Larnaka Yolu</td>
+  <td>(0392) 366 92 97</td>
+  <td>Ecz. Emre Osmankan</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">274</td>
+  <td>ÖZAY ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Altay Sok. Baykal Mağusa</td>
+  <td>(0392) 366 48 36</td>
+  <td>Ecz. Özay Atamözlü</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">275</td>
+  <td>ÖZÇAĞ ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>411 İsmet İnönü Bulvarı Salamis Yolu</td>
+  <td>(0392) 365 08 76</td>
+  <td>Ecz. Nalan Kansu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">276</td>
+  <td>ÖZGE KALE ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Şht.İbrahim Hasan Sok, Dükkan 4 China-Bazaar yanı - Günay
+  taksi sırası, Ayluga Gazimağusa</td>
+  <td>(0392) 366 88 66</td>
+  <td>Ecz. Özge Kale</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">277</td>
+  <td>ÖZNERGİS ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Salamis Yolu Şıkm Prenses Karşısı</td>
+  <td>(0392) 365 24 92</td>
+  <td>Ecz. Necla Öznergis</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">278</td>
+  <td>PETEK ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Zafer Anıtı Ticaret Merkezi 3/4 Mağusa</td>
+  <td>(0392) 366 29 28</td>
+  <td>Ecz. Semra Gani</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">279</td>
+  <td>PHARMATOWN ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>İsmet İnönü Sok. N0:12 Yeniboğaziçi</td>
+  <td>(0392) 378 95 06</td>
+  <td>Ecz. Himmet Soner</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">280</td>
+  <td>RANA YONTAR ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Şht. İbrahim Hasan sok. no:14 AK - UN Market yanı
+  Çanakkale bölgesi. Gazimağusa</td>
+  <td>(0392) 366 19 19</td>
+  <td>Ecz. Rana Yontar</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">281</td>
+  <td>REZAN ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>İsmet İnönü bulvarı Presidental Bulding Dük.N0:6
+  Gazimağusa</td>
+  <td>(0392) 365 69 11</td>
+  <td>Ecz. Rezan Mevlit</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">282</td>
+  <td>SAKARYA ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Narli Sok., Mağusa Tıp Merkezi Hastanesi yanı, Sakarya,
+  Gazimağusa</td>
+  <td>(0392) 365 29 89</td>
+  <td>Ecz. Tijen Coşar</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">283</td>
+  <td>SEMAHAT ATAYOL ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Üç Çakırlar Cad. Canbulat Özgürlük Orta Okulu Yanı No: 4A
+  Maraş, Gazimağusa</td>
+  <td>(0392) 366 91 93</td>
+  <td>Ecz. Semahat Atayol</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">284</td>
+  <td>SÜAY SEVİNÇ ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Salamis Yolu No: 168A, Akay Saat yanı, Gazimağusa</td>
+  <td>(0392) 365 42 80</td>
+  <td>Ecz. Süay Sevinç</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">285</td>
+  <td>SÜMER 2 ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Otobüs Terminali B Blok N0:1 GaziMağusa</td>
+  <td>(0392) 366 37 93</td>
+  <td>Ecz. Ülfet Bilgekul</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">286</td>
+  <td>SÜMER ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>İsmet İnönü Bulvarı 258/A, DAÜ çemberi
+  karşısı, Gazimağusa</td>
+  <td>(0392) 365 49 69</td>
+  <td>Ecz. Banu Tuzlalı</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">287</td>
+  <td>TANYA SALİMER ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>15 Ağustos Bulvarı, Canova Benzin istasyonu yanı, Baykal,
+  Gazimağusa</td>
+  <td>(0392) 366 99 88</td>
+  <td>Ecz. Tanya Salimer</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">288</td>
+  <td>TARABYA ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>15 Ağustos Bulvarı No: 25A, Larnaka Yolu, Altuner
+  Sağlık Merkezi ve Oykan petrol yanı, Gazimağusa</td>
+  <td>(0392) 366 36 07</td>
+  <td>Ecz. Yüksel Altuner</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">289</td>
+  <td>ULUÇAY ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Mağusa Tıp Merkezi Hastanesi (Cyprus Central Hospital) Acil
+  Servis giriş karşısı, Sivil Savunma yanı,
+  Gazimağusa</td>
+  <td>(0392) 365 24 24</td>
+  <td>Ecz. Tezer Uluçay</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">290</td>
+  <td>UMUT ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Salamis yolu, Çetin Alkan Apt. No: 2, Dumlupınar Spor Klübü
+  yanı, Sulu Çember - Zafer Anıtı arası, Gazimağusa</td>
+  <td>(0392) 366 23 69</td>
+  <td>Ecz. Ayşe Ayman</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">291</td>
+  <td>UZAY ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>İsmet İnönü Bulvarı Halken 8 Apt No: 2, Zi̇raat
+  Bankası karşısı - Özdi̇lek yanı,
+  Gazimağusa</td>
+  <td>(0392) 365 56 56</td>
+  <td>Ecz. Çisem İçten</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">292</td>
+  <td>VELİ ATEŞ ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Adsız Asker Sok. Noyan Apt. No:1, Salamis Yolu, Shoe For Me
+  ayakkabı mağazasından içeri dönünce Merve kuaför yanı,
+  Gazimağusa</td>
+  <td>(0932) 365 04 19</td>
+  <td>Ecz. Sema Ateş</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">293</td>
+  <td>VELİ NURLUÖZ ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Döveç (48) Corner Park binası, Macro Süpermarket (yeni Lemar)
+  arkası, Mağusa Arena Spor Kompleksi yanı, Sakarya,
+  Gazimağusa</td>
+  <td>(0392) 365 36 31</td>
+  <td>Ecz. Veli Nurluöz</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">294</td>
+  <td>VEZİROĞLU ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>Anafartalar Cad. Alibey Apt.N0:2 Karakol İlkokulu Yolu Karakol
+  Gazimağusa</td>
+  <td>(0392) 365 69 77</td>
+  <td>Ecz. Fatma Veziroğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">295</td>
+  <td>ZERİN VOLKAN ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>İsmet İnönü Bulvarı Sosyal Konut Apt.Gazi Mağusa</td>
+  <td>(0392) 365 59 59</td>
+  <td>Ecz. Zerin Volkan</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">296</td>
+  <td>ZEYNEP ECZANESİ</td>
+  <td>GAZİMAĞUSA</td>
+  <td>İsmet İnönü Bulvarı No: 7, Salamis Yolu, Sulu Çember
+  yanı, Gazimağusa</td>
+  <td>(0392) 365 18 47</td>
+  <td>Ecz. Zeynep İlktaç</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">297</td>
+  <td>AKÇAY ECZANESİ</td>
+  <td>GÜZELYURT</td>
+  <td>Naci Talat Caddesi No: 1, Akçay, Güzelyurt</td>
+  <td>(0392) 725 84 77</td>
+  <td>Ecz. Dilek Kara</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">298</td>
+  <td>AŞAR ECZANESİ (GÜZELYURT)</td>
+  <td>GÜZELYURT</td>
+  <td>Ecevit Cad.18/B, Güzelyurt</td>
+  <td>(0392) 714 21 93</td>
+  <td>Dr. Ecz. Özgür Karataşlı</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">299</td>
+  <td>AYCAN ECZANESİ</td>
+  <td>GÜZELYURT</td>
+  <td>Ecevit Cad. 4J Güzelyurt</td>
+  <td>(0392) 714 23 16</td>
+  <td>Ecz. Aycan Eşrefoğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">300</td>
+  <td>CAMCIOĞLU ECZANESİ</td>
+  <td>GÜZELYURT</td>
+  <td>Şht.Mümür Dilaver Sok No:24 C Güzelyurt</td>
+  <td>(0392) 714 24 57</td>
+  <td>Ecz. Perin Camcıoğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">301</td>
+  <td>DOĞA ECZANESİ</td>
+  <td>GÜZELYURT</td>
+  <td>Piyale Paşa Mah.No:121</td>
+  <td>(0392) 714 46 40</td>
+  <td>Ecz. Doğa Ünlüyol</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">302</td>
+  <td>DOĞUŞ TÜRKBAYOĞLU ECZANESİ</td>
+  <td>GÜZELYURT</td>
+  <td>Şht. Hasan Cafer Sk. Dış Kapı No: 1, Güzelyurt</td>
+  <td>(0533) 836 43 58</td>
+  <td>Ecz. Doğuş Türkbayoğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">303</td>
+  <td>EMİNE ŞENTÜRK ECZANESİ</td>
+  <td>GÜZELYURT</td>
+  <td>Büyük Ada Sok No: 22, Güzelyurt</td>
+  <td>(0533) 851 58 21</td>
+  <td>Ecz. Emine Şentürk</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">304</td>
+  <td>ERİN ECZANESİ</td>
+  <td>GÜZELYURT</td>
+  <td>Kutlu Adalı Bulvarı N0:41 Lemar Dük.Güzelyurt</td>
+  <td>(0392) 714 70 52</td>
+  <td>Ecz. Erin Egesoy Kamer</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">305</td>
+  <td>FAİKA COŞKUN ECZANESİ</td>
+  <td>GÜZELYURT</td>
+  <td>Kalkanlı Cad. No:61/ C Kalkanlı</td>
+  <td>(0533) 882 22 68</td>
+  <td>Ecz. Faika Coşkun</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">306</td>
+  <td>GİLANLI ECZANESİ</td>
+  <td>GÜZELYURT</td>
+  <td>Ecevit Cad. No: 120B, Güzelyurt</td>
+  <td>(0392) 714 47 90</td>
+  <td>Ecz. Ayten Gilanlıoğulları</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">307</td>
+  <td>GÜLSEN ECZANESİ</td>
+  <td>GÜZELYURT</td>
+  <td>Piyale Paşa Mahallesi Sanayi Sitesi No:7 Güzelyurt</td>
+  <td>(0392) 714 11 90</td>
+  <td>Ecz. Gülsen Ünlüyol</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">308</td>
+  <td>İLAYDA GÜLKAN ECZANESİ</td>
+  <td>GÜZELYURT</td>
+  <td>Şht. Celal Bekiroğlu Sokak (Yalova Spor Klübü
+  karşısı), Aşağı Bostancı</td>
+  <td>(0392) 714 60 22</td>
+  <td>Ecz. İlayda Gülkan</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">309</td>
+  <td>İLKİN SADRAZAM ECZANESİ</td>
+  <td>GÜZELYURT</td>
+  <td>Binatlıı Sok.N0:6 A/B Güzelyurt</td>
+  <td>(0392) 714 12 22</td>
+  <td>Ecz. İlkin Sadrazam</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">310</td>
+  <td>İNCİ ECZANESİ</td>
+  <td>GÜZELYURT</td>
+  <td>Kutlu Adalı Bulvarı N0: 1K Terminal karşısı
+  Güzelyurt</td>
+  <td>(0392) 714 32 52</td>
+  <td>Ecz. İnci Dizgin Nazım</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">311</td>
+  <td>MERVE GÜMÜŞOK ECZANESİ</td>
+  <td>GÜZELYURT</td>
+  <td>İzzet Kombos Bulvarı No:148 Yukarı Bostancı Güzelyurt</td>
+  <td>(0392) 714 44 48</td>
+  <td>Ecz. Merve Gümüşok</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">312</td>
+  <td>NİLGÜN ECZANESİ</td>
+  <td>GÜZELYURT</td>
+  <td>25 Ecevit Cad. Güzelyurt</td>
+  <td>(0392) 714 38 47</td>
+  <td>Ecz. Nilgün Faruk</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">313</td>
+  <td>RESMİYE ESE ECZANESİ</td>
+  <td>GÜZELYURT</td>
+  <td>Ecevit Cad. N0:75/1 Güzelyurt</td>
+  <td>(0392) 714 45 18</td>
+  <td>Ecz. Resmiye Ese</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">314</td>
+  <td>SERCAN AVCI ECZANESİ</td>
+  <td>GÜZELYURT</td>
+  <td>Şht.Raşit Osman Sok.No:2 /E Güzelyurt</td>
+  <td>(0392) 714 48 94</td>
+  <td>Ecz. Sercan Avci</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">315</td>
+  <td>SEVİL ECZANESİ</td>
+  <td>GÜZELYURT</td>
+  <td>55 Ecevit Cad. Beşyol Güzelyurt</td>
+  <td>(0392) 714 35 91</td>
+  <td>Ecz. Mustafa Zeybekoğulları</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">316</td>
+  <td>SÜREYYA ÖZCOŞKUN ECZANESİ</td>
+  <td>GÜZELYURT</td>
+  <td>Şht.Mehmet Sokollu Sok.Lala Mustafa Paşa Mah. No:14 -A
+  Güzelyurt</td>
+  <td>(0392) 714 20 00</td>
+  <td>Ecz. Süreyya Özcoşkun</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">317</td>
+  <td>UYUMSAL ECZANESİ</td>
+  <td>GÜZELYURT</td>
+  <td>Kutlu Adalı Bulvarı 3 A Güzelyurt</td>
+  <td>(0392) 714 30 05</td>
+  <td>Ecz.Ayşe Pilancı</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">318</td>
+  <td>ALTINCI ECZANESİ</td>
+  <td>LEFKE</td>
+  <td>ŞhT. Nejdet Levent Sok.Dük.No:4 A Denizli Lefke</td>
+  <td>(0548) 889 17 07</td>
+  <td>Ecz. Çağın Altıncı</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">319</td>
+  <td>AYŞE ALTINTUĞ ECZANESİ</td>
+  <td>LEFKE</td>
+  <td>Şht. Fuat Yakup Sok. No:7 Denizli Lefke</td>
+  <td>(0542) 872 69 74</td>
+  <td>Ecz. Ayşe Çizer</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">320</td>
+  <td>DERVİŞ KUTRET ECZANESİ</td>
+  <td>LEFKE</td>
+  <td>Dr.İzzet Salih Suphi Maydanı N0:5 Lefke</td>
+  <td>(0533) 882 94 56</td>
+  <td>Ecz. Derviş Kutret</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">321</td>
+  <td>DİLAN PUL ECZANESİ</td>
+  <td>LEFKE</td>
+  <td>Ecevit Cad. Şafak Apt. Dük. No:2 Yeşilyurt Lefke</td>
+  <td>(0392) 723 73 33</td>
+  <td>Ecz. Dilan Pul</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">322</td>
+  <td>HATİCE SOYER ECZANESİ</td>
+  <td>LEFKE</td>
+  <td>Cengizköy Lefke</td>
+  <td>(0548) 865 52 91</td>
+  <td>Ecz. Hatice Soyer</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">323</td>
+  <td>İLKSEN ECZANESİ</td>
+  <td>LEFKE</td>
+  <td>Belediye Dükkanları N0:18 Gemikonağı Lefke</td>
+  <td>(0392) 727 82 40</td>
+  <td>Ecz. İlksen Ahçıhoca</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">324</td>
+  <td>SADİYE TAŞAR ECZANESİ</td>
+  <td>LEFKE</td>
+  <td>Atatürk Cad. 26/A Lefke</td>
+  <td>(0392) 728 83 12</td>
+  <td>Ecz. Sadiye Taşar</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">325</td>
+  <td>SIDIKA UMAR ECZANESİ</td>
+  <td>LEFKE</td>
+  <td>Menekşe Sok. No: 2/B, Gaziveren, Lefke</td>
+  <td>(0392) 723 79 97</td>
+  <td>Ecz. Sıdıka Umar</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">326</td>
+  <td>ŞİFA BILDIR ECZANESİ</td>
+  <td>LEFKE</td>
+  <td>Fuat Yakup Sok. Denizli N0:1 / 1 Lefke</td>
+  <td>(0533) 841 95 78</td>
+  <td>Ecz. Şifa Bıldır</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">327</td>
+  <td>ULUS ECZANESİ</td>
+  <td>LEFKE</td>
+  <td>Ecevit cad. N0:11 Lefke</td>
+  <td>(0392) 727 76 49</td>
+  <td>Ecz. Ulus Sabit</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">328</td>
+  <td>ESER AVCI ECZANESİ</td>
+  <td>ÜST MESARYA</td>
+  <td>Ögürlük Cad. No: 11/B Cihangir</td>
+  <td>(0533) 855 06 04</td>
+  <td>Ecz. Eser Avcı</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">329</td>
+  <td>GÖNÜL GÜRDAĞ ECZANESİ</td>
+  <td>ÜST MESARYA</td>
+  <td>Dr.Fazıl küçük Cad. No 30 Demirhan</td>
+  <td>(0539) 105 48 88</td>
+  <td>Ecz. Gönül Gürdağ</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">330</td>
+  <td>GÜLTEN VELİ ECZANESİ</td>
+  <td>ÜST MESARYA</td>
+  <td>79/B Cumhuriyet Cad.Cihangir Lefkoşa Mesarya</td>
+  <td>(0392) 232 35 00</td>
+  <td>Ecz. Gülten Veli</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">331</td>
+  <td>KEZBAN DOYGUNEL ECZANESİ</td>
+  <td>ÜST MESARYA</td>
+  <td>Atatürk Cad. N0: 2/ A Geçitkale Mağusa</td>
+  <td>(0392) 373 33 60</td>
+  <td>Ecz.Başak Sabiha Oduncuoğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">332</td>
+  <td>MELİZ ECZANESİ</td>
+  <td>ÜST MESARYA</td>
+  <td>Lefkoşa Mağus Anayolu Demirhan</td>
+  <td>(0533) 872 42 62</td>
+  <td>Ecz. Bilgen Şimşek</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">333</td>
+  <td>ŞEHERLİOĞLU ECZANESİ</td>
+  <td>ÜST MESARYA</td>
+  <td>30/Dük:1, Zafer Caddesi, Haspolat, Lefkoşa</td>
+  <td>(0392) 233 55 33</td>
+  <td>Ecz. Barış İzzet</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">334</td>
+  <td>SERDARLI ECZANESİ</td>
+  <td>ÜST MESARYA</td>
+  <td>Serdarlı Mağusa</td>
+  <td>(0392) 376 70 06</td>
+  <td>Ecz. Özlem Toydemir</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">335</td>
+  <td>TUFAN ECZANESİ</td>
+  <td>ÜST MESARYA</td>
+  <td>Çelik iş Merkezi Demirhan Lefkoşa</td>
+  <td>(0392) 232 48 15</td>
+  <td>Ecz. İsmet Tufan</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">336</td>
+  <td>VİJDAN BAYSAL ECZANESİ</td>
+  <td>ÜST MESARYA</td>
+  <td>Mustafa Kemal Bulvarı Kıbrıslı Caddesi Lemon Country
+  34, Apt. No: 2, Minareliköy, Lefkoşa</td>
+  <td>(0548) 825 19 03</td>
+  <td>Ecz. Vijdan Baysal</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">337</td>
+  <td>YAPRAK POLAT ECZANESİ</td>
+  <td>ÜST MESARYA</td>
+  <td>Zafer Caddesi nOP:34 Haspolat Lefkoşa</td>
+  <td>(0533) 847 68 65</td>
+  <td>Ecz.Yaprak Polat</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">338</td>
+  <td>YÜKSEL ECZANESİ</td>
+  <td>ÜST MESARYA</td>
+  <td>Sevgi Sokak, Minareliköy Milli Homes 34 No: 4, Değirmenlik,
+  Akıncılar, Lefkoşa</td>
+  <td>(0542) 875 21 12</td>
+  <td>Ecz. Yüksel Esma Arslaner</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">339</td>
+  <td>BUĞRA ECZANESİ</td>
+  <td>ALT MESARYA</td>
+  <td>Dr. Fazıl Küçük Cad. Akdoğan, Gazimağusa</td>
+  <td>(0392) 377 88 25</td>
+  <td>Ecz. Buğra Cömert</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">340</td>
+  <td>DOĞUŞ ACARÖZ ECZANESİ</td>
+  <td>ALT MESARYA</td>
+  <td>Atatürk Cad. No:1 İnönü</td>
+  <td>(0548) 871 72 59</td>
+  <td>Ecz. Doğuş Acaröz</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">341</td>
+  <td>DÖRTYOL ECZANESİ</td>
+  <td>ALT MESARYA</td>
+  <td>Recep Tayip Erdoğan Cad. N0:C-1 Dörtyol Mağusa</td>
+  <td>(0542) 851 64 34</td>
+  <td>Ecz. Ediz Toydemir</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">342</td>
+  <td>GÜNER BİNBOĞA ECZANESİ</td>
+  <td>ALT MESARYA</td>
+  <td>Atatürk Cad. No: 4, Paşaköy, Alt Mesarya, Gazimağusa</td>
+  <td>(0392) 236 91 00</td>
+  <td>Ecz. Güner Binboğa</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">343</td>
+  <td>GÜRSOY ECZANESİ</td>
+  <td>ALT MESARYA</td>
+  <td>Akdoğan Mağusa</td>
+  <td>(0392) 377 90 69</td>
+  <td>Ecz. Ayberk Gürsoy</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">344</td>
+  <td>HERA AKESEN ECZANESİ</td>
+  <td>ALT MESARYA</td>
+  <td>Şht.Hüseyin Kafa Cad. No:2 Beyarmudu Pergama</td>
+  <td>(0542) 862 05 44</td>
+  <td>Ecz. Ceren Celal</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">345</td>
+  <td>HOCANIN ECZANESİ</td>
+  <td>ALT MESARYA</td>
+  <td>Belediye Dük No:1 Vadili</td>
+  <td>(0392) 397 82 22</td>
+  <td>Ecz. Türkay Hocanın</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">346</td>
+  <td>KINAY ECZANESİ</td>
+  <td>ALT MESARYA</td>
+  <td>Mersinli Sok. No: C/4, Türkmenköy, Gazimağusa</td>
+  <td>(0392) 377 70 70</td>
+  <td>Ecz. Gökcen Kınay</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">347</td>
+  <td>KUDRET ECZANESİ</td>
+  <td>ALT MESARYA</td>
+  <td>Vatan Cad. N0:95 Vadili Mağusa</td>
+  <td>(0392) 397 7 00</td>
+  <td>Ecz. Kardelen Varanoğluları</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">348</td>
+  <td>MEHMET HOCA ECZANESİ</td>
+  <td>ALT MESARYA</td>
+  <td>Özgürlük Cad. Türkmenköy No:2 Beyarmudu Belediyesi</td>
+  <td>(0533) 873 30 98</td>
+  <td>Ecz. Ali Hoca</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">349</td>
+  <td>SERVET GÖKŞİN ECZANESİ</td>
+  <td>ALT MESARYA</td>
+  <td>Atatürk Caddesi No:72 Dilekkaya Lefkoşa</td>
+  <td>(0533) 830 84 01</td>
+  <td>Ecz. Servet Gökşin</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">350</td>
+  <td>TURAN CEYDA ECZANESİ</td>
+  <td>ALT MESARYA</td>
+  <td>Alt Ekmekçi Sok. No: 8, Gaziköy, Alt Mesarya, Gazimağusa</td>
+  <td>(0392) 236 83 80</td>
+  <td>Ecz. Turan Ceyda</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">351</td>
+  <td>VADİLİ ECZANESİ</td>
+  <td>ALT MESARYA</td>
+  <td>Vatan Cad. No: 95, Vadili, Gazimağusa</td>
+  <td>(0392) 397 77 33</td>
+  <td>Ecz. Melek Tilki</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">352</td>
+  <td>AVİCENNA ECZANESİ</td>
+  <td>İSKELE</td>
+  <td>İskele Boğaz anayolu, Bereket Sokak, Petek pastanesi̇
+  yanı, İskele</td>
+  <td>(0542) 855 00 15</td>
+  <td>Ecz. Omar A. Hwaileh</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">353</td>
+  <td>BUSE ULUÇAY ECZANESİ</td>
+  <td>İSKELE</td>
+  <td>Şht. Karter Cad. Cevizli Dış Kapı 30A, İskele</td>
+  <td>(0533) 840 50 68</td>
+  <td>Ecz. Buse Uluçay</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">354</td>
+  <td>ERDEM SURURİ ECZANESİ</td>
+  <td>İSKELE</td>
+  <td>Şht. Günay Bey Caddesi No: 13/C, İskele</td>
+  <td>(0548) 844 12 78</td>
+  <td>Ecz. Erdem Sururi Ayhan</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">355</td>
+  <td>ERSU ADAN ECZANESİ</td>
+  <td>İSKELE</td>
+  <td>Dr.Fazıl Küçük Bulvarı Noyanlar Sitesi 8 Dük.No:4 Ötüken
+  İskele</td>
+  <td>(0392) 378 88 87</td>
+  <td>Ecz. Ersu Adan</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">356</td>
+  <td>GÖKBERK ALP YAKAR ECZANESİ</td>
+  <td>İSKELE</td>
+  <td>Mekanizi Cad. Royal Sun Residance İskele</td>
+  <td>(0539) 109 95 77</td>
+  <td>Ecz. Gökberk Alp Yakar</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">357</td>
+  <td>İSKELE ECZANESİ</td>
+  <td>İSKELE</td>
+  <td>Şht. İlker Karter Cad. Cevizli, 11 nolu sokak No: 3/A,
+  İskele</td>
+  <td>(0533) 831 45 13</td>
+  <td>Ecz. Arzu Baysal</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">358</td>
+  <td>MEHMET İLBAN ECZANESİ</td>
+  <td>İSKELE</td>
+  <td>Atatürk Cad. Ada Karanfil Sok. No: 9D, Harup Fabrikası
+  karşısı, Boğaz, İskele</td>
+  <td>(0533) 834 82 51</td>
+  <td>Ecz. Mehmet İlban</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">359</td>
+  <td>MEVLÜT KAÇMAZ ECZANESİ</td>
+  <td>İSKELE</td>
+  <td>Makenzi Cad. Ezgi Sok. Dumika Const.Ltd. Dük. No: 10, Cevizli,
+  İskele</td>
+  <td>(0548) 860 55 54</td>
+  <td>Ecz. Mevlüt Kaçmaz</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">360</td>
+  <td>NALAN ECZANESİ</td>
+  <td>İSKELE</td>
+  <td>Kordonboyu Cad.N0:35/B Bahçeler İskele</td>
+  <td>(0392) 371 40 06</td>
+  <td>Ecz. Nalan İzzigil</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">361</td>
+  <td>ÖZBİRTAN ECZANESİ</td>
+  <td>İSKELE</td>
+  <td>Dt.Temel Zeki Cad. Arken B 2 Apt. N0:3 İskele</td>
+  <td>(0392) 371 22 24</td>
+  <td>Ecz. Pembe Özbirtan</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">362</td>
+  <td>SELİN ECZANESİ</td>
+  <td>İSKELE</td>
+  <td>Şht.Mustafa Orhan Cad.No:5 iskele</td>
+  <td>(0533) 884 86 59</td>
+  <td>Ecz. Hasan Yorgancı</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">363</td>
+  <td>SEVİLAY PIRLANTA ECZANESİ</td>
+  <td>İSKELE</td>
+  <td>Şht. Davut Sadık Sok., İskele</td>
+  <td>(0392) 371 35 02</td>
+  <td>Ecz. Sevilay Pırtanta</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">364</td>
+  <td>SULTAN TOPEL ECZANESİ</td>
+  <td>İSKELE</td>
+  <td>Makenzi Cad. Dük. No: 6, Ziraat Bankası yanı, İskele</td>
+  <td>(0392) 330 17 20</td>
+  <td>Ecz. Sultan Topel</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">365</td>
+  <td>BESİM SEVİNDİK ECZANESİ</td>
+  <td>KARPAZ</td>
+  <td>8 Ağustos Cad. Dük.No:3 Yeni Erenköy</td>
+  <td>(0533) 855 72 12</td>
+  <td>Ecz. Besim Sevindik</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">366</td>
+  <td>FATMA KAHYAOĞLU ECZANESİ</td>
+  <td>KARPAZ</td>
+  <td>Livadya Apt.N0:3 Çayırova İskele</td>
+  <td>(0533) 821 96 06</td>
+  <td>Ecz. İbrahim Kahyaoğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">367</td>
+  <td>GÜRSEL 2 ECZANESİ</td>
+  <td>KARPAZ</td>
+  <td>Kanuni Sultan Süleyman Sok. Polatpaşa Dış Kapı No: 4,
+  Dipkarpaz</td>
+  <td>(0392) 372 21 11</td>
+  <td>Ecz. Cengiz Bereket</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">368</td>
+  <td>KARPAZIN ECZANESİ</td>
+  <td>KARPAZ</td>
+  <td>Şht.Mustafa H.Akdeniz Sokak No:4 YeniErenköy</td>
+  <td>(0539) 112 38 02</td>
+  <td>Ecz. İbrahim Avcı</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">369</td>
+  <td>MELEK İBRAHİM ECZANESİ</td>
+  <td>KARPAZ</td>
+  <td>Öztürk Cad.N0:10 Mehmetçik İskele</td>
+  <td>(0392) 375 53 66</td>
+  <td>Ecz. Şifa Cömert</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">370</td>
+  <td>OLGUN KAHYAOĞLU ECZANESİ</td>
+  <td>KARPAZ</td>
+  <td>Ada Cad. Bafra No: 37 / E Mehmetçik - Karpaz</td>
+  <td>(0533) 849 99 46</td>
+  <td>Ecz. Melek Kahyaoğlu</td>
+ </tr>
+ <tr height="20" style="height:15.0pt">
+  <td height="20" align="right" style="height:15.0pt">371</td>
+  <td>SAKİNER ECZANESİ</td>
+  <td>KARPAZ</td>
+  <td>Yeni Erenköy, Karpaz, Gazimağusa</td>
+  <td>(0392) 374 43 56</td>
+  <td>Ecz. Nuran Coşkun</td>
+ </tr>
+ <!--[if supportMisalignedColumns]-->
+ <tr height="0" style="display:none">
+  <td width="28" style="width:21pt"></td>
+  <td width="257" style="width:193pt"></td>
+  <td width="93" style="width:70pt"></td>
+  <td width="983" style="width:737pt"></td>
+  <td width="104" style="width:78pt"></td>
+  <td width="198" style="width:149pt"></td>
+ </tr>
+ <!--[endif]-->
+</tbody>
 </table>
-
-
-	<div class="copyright" ><i class="fa-regular fa-copyright"></i>2024 Farshid Ryahi. ALL RIGHTS RESERVED.</div>		  		  
+ 
+ <div class="copyright" ><i class="fa-regular fa-copyright"></i>2024 Farshid Ryahi. ALL RIGHTS RESERVED.</div>		  		  
    <!-- End footer -->
 </footer>
 </div>

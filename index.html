@@ -48,59 +48,7 @@
     </style>
   </head>
 <body class="w3-light-grey" >
-<div>#Task 1
 
-
-user_input_list = []
-user_input_list = list(map(int, input("Enter 5 integers separated by space: ").split()))
-result = 1
-for item in user_input_list:
-    result *= item
-print("The result of multiplying all items in the list is" ,result)
-
-------------------------------------------------<br>
-#Task 2
-
-
-list1 = input("Enter 5 items for List 1 separated by space: ").split() 
-# apple banana cherry lemon watermelon
-list2 = input("Enter 5 items for List 2 separated by space: ").split()
-# banana cherry apple grape strawberry
-difference_list = []
-for item in list1:
-    if item not in list2:
-        difference_list.append(item)
-for item in list2:
-    if item not in list1:
-        difference_list.append(item)
-print("Items unique to both lists:", difference_list)
-
---------------------------------------<br>
-#other option Task 2
-
-list1 = input("Enter 5 items for List 1 separated by space: ").split()
-list2 = input("Enter 5 items for List 2 separated by space: ").split()
-
-# Convert lists to sets and find symmetric difference
-difference_list = list(set(list1) ^ set(list2))
-
-print("Items unique to both lists:", difference_list)
------------------------<br>
-
-# Task 3
-original_list = [[1], [1, 3], [5, 7], [9, 11], [13, 15, 17]]
-
-max_length_list = max(original_list, key=len)
-min_length_list = min(original_list, key=len)
-
-print("List with maximum length:", max_length_list)
-print("List with minimum length:", min_length_list)
-
-result_list = [x + min_length_list[0] for x in max_length_list ]
-
-print("Result after adding each element of min list to max list:", result_list)
-
-</div>
 <!-- Page Container -->
 <div class="w3-content w3-margin-top" style="max-width:1000px;">
 

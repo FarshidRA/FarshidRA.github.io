@@ -285,7 +285,7 @@ async function gptchat(){
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer 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'
+      'Authorization': 'Bearer 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'
     },
     body: JSON.stringify({
       model: 'gpt-4',

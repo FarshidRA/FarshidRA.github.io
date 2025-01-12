@@ -272,3 +272,33 @@ function filterTable() {
                 }
             }
         }
+function gptchat(){
+	document.getElementById('send-button').addEventListener('click', async () => {
+  const userMessage = document.getElementById('user-input').value;
+
+  // نمایش پیام کاربر
+  const messagesDiv = document.getElementById('messages');
+  messagesDiv.innerHTML += `<div>${userMessage}</div>`;
+  
+  // ارسال پیام به OpenAI API
+  const response = await fetch('https://api.openai.com/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer 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'
+    },
+    body: JSON.stringify({
+      model: 'gpt-4',
+      messages: [{ role: 'user', content: userMessage }]
+    })
+  });
+
+  const data = await response.json();
+  const botMessage = data.choices[0].message.content;
+
+  // نمایش پاسخ
+  messagesDiv.innerHTML += `<div>${botMessage}</div>`;
+  document.getElementById('user-input').value = '';
+});
+
+}

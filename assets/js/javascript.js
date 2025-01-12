@@ -272,7 +272,7 @@ function filterTable() {
                 }
             }
         }
-function gptchat(){
+async function gptchat(){
 	document.getElementById('send-button').addEventListener('click', async () => {
   const userMessage = document.getElementById('user-input').value;
 

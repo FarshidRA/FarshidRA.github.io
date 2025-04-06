@@ -352,7 +352,7 @@ a:active { text-decoration: underline; }
 	appearance: none;  -webkit-appearance: none; 	-moz-appearance: none; outline: none; box-shadow: none; border-radius:0; border:0;}
 #myInputAddress{ margin:0 0 0 0.5rem  ; position: absolute;  left: 27rem;  color:#444;}
 
-#myTable {margin:3rem 0 0.5rem  ;  border-collapse: collapse;  width: 100%;  border: 1px solid #ddd;  font-size: 1rem;}
+#myTable {margin:3rem 0 2rem  ;  border-collapse: collapse;  width: 100%;  border: 1px solid #ddd;  font-size: 1rem;}
 
 #myTable th, #myTable td {  text-align: left;  padding: 0.1rem;}
 #myTable tr {  border-bottom: 1px solid #ddd;}

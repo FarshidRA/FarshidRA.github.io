@@ -79,6 +79,44 @@
     cursor: pointer;
   }
 
+		.portfolio-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 1rem;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+}
+
+.item {
+  min-width: 180px;
+  flex-shrink: 0;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.item img {
+  width: 180px;
+  height: 180px;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.item:hover {
+  transform: scale(1.05);
+}
+
+.item:hover img {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+.item p {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #333;
+}
 		
     </style>
   </head>
@@ -160,7 +198,33 @@ I am passionate about technology and committed to delivering high-quality soluti
     
   <!-- End Grid -->
   </div>
+
+	  
+  <div><section id="portfolio">
+  <h2 style="text-align: center; font-size: 1.8rem; margin-bottom: 1rem;">My Jobs</h2>
+  <div class="portfolio-container">
+    <div class="item">
+      <a href="https://farshidra.github.io/snake-Game/" target="_blank">
+	      <img src="images/snake.png" alt="snake">
+      </a>
+      
+    </div>
+    <div class="item">
+      <img src="icons/project2.png" alt="Calculator">
+      
+    </div>
+    <div class="item">
+      <img src="icons/project3.png" alt="Squash">
+      
+    </div>
+    <!-- نمونه‌های بیشتر همینجا -->
+  </div>
+</section>
   
+  </div>
+
+
+	  
   <!-- End Page Container -->
 </div>
 

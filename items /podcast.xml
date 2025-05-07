@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+     xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>نام پادکست</title>
+    <link>https://example.com</link>
+    <description>توضیح کوتاه درباره پادکست</description>
+    <language>fa</language>
+    <itunes:author>نام سازنده</itunes:author>
+    <itunes:summary>خلاصه‌ای از پادکست</itunes:summary>
+    <itunes:image href="https://example.com/images/podcast-cover.jpg"/>
+    <itunes:category text="Society & Culture"/>
+    <itunes:explicit>no</itunes:explicit>
+
+    <item>
+      <title>عنوان اپیزود اول</title>
+      <enclosure url="https://example.com/audio/episode1.mp3" length="12345678" type="audio/mpeg"/>
+      <guid>https://example.com/audio/episode1.mp3</guid>
+      <pubDate>Mon, 06 May 2024 10:00:00 +0000</pubDate>
+      <description>توضیح این اپیزود</description>
+      <itunes:duration>12:34</itunes:duration>
+    </item>
+
+    <!-- می‌تونی آیتم‌های بعدی رو به همین شکل اضافه کنی -->
+
+  </channel>
+</rss>

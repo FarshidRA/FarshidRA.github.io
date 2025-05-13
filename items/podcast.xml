@@ -12,7 +12,10 @@
     <itunes:image href="https://farshidra.github.io/items/cover.jpg"/>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
-
+     <itunes:owner>
+     <itunes:name>آدرنیس</itunes:name>
+     <itunes:email>adernis@yahoo.com</itunes:email>
+     </itunes:owner>
     <item>
       <title>نفتی که با سیاست شعله‌ور شد: پشت پرده تحریم‌ها و فروش شِل</title>
       <enclosure url="https://farshidra.github.io/items/episods/episod1.mp3" length="62" type="audio/mp3"/>

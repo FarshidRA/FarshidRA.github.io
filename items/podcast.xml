@@ -5,21 +5,27 @@
   <channel>
     <title>رادیو آدرنیس</title>
     <link>https://farshidra.github.io/items/episods/episod1.mp3</link>
-    <description>توضیح کوتاه درباره پادکست</description>
+    <description>تبه آدرنیس خوش اومدین؛ جایی که سعی می‌کنیم بین اتفاقات پراکنده، خط‌هایی بکشیم که شاید قبلاً کسی بهشون دقت نکرده.</description>
     <language>fa</language>
-    <itunes:author>فرشید</itunes:author>
-    <itunes:summary>خلاصه‌ای از پادکست</itunes:summary>
+    <itunes:author>آدرنیس</itunes:author>
+    <itunes:summary>در رابطه با موضوعاتی که کمتر بحث شده تحلیل خواهیم داشت</itunes:summary>
     <itunes:image href="https://farshidra.github.io/items/cover.jpg"/>
     <itunes:category text="Society &amp; Culture"/>
     <itunes:explicit>no</itunes:explicit>
 
     <item>
-      <title>معرفی رادیو آدرنیس</title>
+      <title>نفتی که با سیاست شعله‌ور شد: پشت پرده تحریم‌ها و فروش شِل</title>
       <enclosure url="https://farshidra.github.io/items/episods/episod1.mp3" length="62" type="audio/mp3"/>
       <guid>https://farshidra.github.io/items/episods/episod1.mp3</guid>
-      <pubDate>Mon, 06 May 2025 10:00:00 +0000</pubDate>
-      <description>توضیح این اپیزود</description>
-      <itunes:duration>01:01</itunes:duration>
+      <pubDate>Mon, 13 May 2025 10:00:00 +0000</pubDate>
+      <description>امروز قراره با هم نگاهی بندازیم به نقشه‌ای که شاید فقط چند نفر اون رو از اول کامل می‌دیدن... اما ما حالا داریم ردّش رو تو گذشته می‌گیریم.
+فرض کن نفتی داری که ارزشش از نظر بازار جهانی پایینه. استخراجش گرونه. خریداری هم براش پیدا نمی‌شه،
+ چون کشورهای دیگه نفت با کیفیت‌تر و ارزون‌تر دارن.
+اما تو  رئیس‌جمهور آمریکا هستی... و اون نفت دست توئه.
+چطوری می‌تونی این نفت رو بفروشی؟
+جواب ساده‌ست: رقبای اصلی‌ت رو از بازی حذف کن.
+</description>
+      <itunes:duration>5=05:36</itunes:duration>
     </item>
 
     <!--  -->

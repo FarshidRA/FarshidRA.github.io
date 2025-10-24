@@ -18,27 +18,22 @@
     width:360px;
     height:480px; /* 3:4 aspect ratio */
     background:#000;
-    overflow:hidden;
-    display:flex;
-    justify-content:center;
-    align-items:center;
   }
   video#cam {
-    display:block;
     position:absolute;
     top:0;
     left:0;
     width:100%;
     height:100%;
-    object-fit:cover; /* fill container without stretching */
+    object-fit:contain; /* ویدیو کامل داخل container بدون برش */
   }
   canvas#overlay {
     position:absolute;
     top:0;
     left:0;
-    touch-action: none;
     width:100%;
     height:100%;
+    touch-action: none;
   }
 </style>
 </head>
@@ -56,9 +51,9 @@ const video = document.getElementById('cam');
 const canvas = document.getElementById('overlay');
 const ctx = canvas.getContext('2d');
 let model;
-let boxes = []; // persistent boxes
+let boxes = []; // جعبه‌ها برای drag
 
-// camera access
+// دسترسی به دوربین
 try {
   const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false });
   video.srcObject = stream;
@@ -68,7 +63,7 @@ try {
   return;
 }
 
-// adjust canvas size to container
+// هماهنگ کردن canvas با ویدیو واقعی
 function resizeCanvas() {
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
@@ -76,15 +71,15 @@ function resizeCanvas() {
 video.addEventListener('loadedmetadata', resizeCanvas);
 window.addEventListener('resize', resizeCanvas);
 
-// load model
+// بارگذاری مدل
 model = await cocoSsd.load();
 console.log('Model loaded');
 
-// dragging state
+// وضعیت drag
 let dragging = null;
 let offset = {x:0, y:0};
 
-// pointer events
+// رویدادهای pointer
 canvas.addEventListener('pointerdown', e => {
   const rect = canvas.getBoundingClientRect();
   const x = (e.clientX - rect.left) * (canvas.width/rect.width);
@@ -114,32 +109,27 @@ canvas.addEventListener('pointermove', e => {
 canvas.addEventListener('pointerup', e => { dragging = null; });
 canvas.addEventListener('pointerleave', e => { dragging = null; });
 
-// detection loop
+// حلقه تشخیص
 async function detectLoop(){
   if(video.readyState === 4){
     const predictions = await model.detect(video);
 
-    // update boxes but keep dragged positions
-    for(const p of predictions){
-      const exists = boxes.find(b => b.class === p.class && b.score === p.score);
-      if(!exists){
-        boxes.push({
-          x: p.bbox[0],
-          y: p.bbox[1],
-          w: p.bbox[2],
-          h: p.bbox[3],
-          class: p.class,
-          score: p.score
-        });
-      }
-    }
+    // بروزرسانی جعبه‌ها (جدیدها اضافه می‌شوند)
+    boxes = predictions.map(p => ({
+      x: p.bbox[0],
+      y: p.bbox[1],
+      w: p.bbox[2],
+      h: p.bbox[3],
+      class: p.class,
+      score: p.score
+    }));
 
-    // clear canvas
+    // پاک کردن canvas
     ctx.clearRect(0,0,canvas.width,canvas.height);
 
-    // draw boxes
+    // رسم جعبه‌ها
     for(const b of boxes){
-      if(b.w<=0 || b.h<=0) continue; // safety
+      if(b.w<=0 || b.h<=0) continue; // ایمنی
       let color;
       if(b.score<0.5) color='red';
       else if(b.score<0.8) color='yellow';

@@ -3,40 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>متر با دوربین - نمونه وب</title>
+<title>دوربین خالی</title>
 <style>
-  body{margin:0;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial;}
-  #container{position:relative;height:100vh;display:flex;flex-direction:column;}
-  video#cam{width:100%;height:auto;}
-  canvas#overlay{position:absolute;left:0;top:0;}
-  .controls{padding:8px;background:#fff;display:flex;gap:8px;align-items:center;}
-  input{width:120px}
+  body{margin:0;overflow:hidden;}
+  #container{position:relative;width:100vw;height:100vh;}
+  video#cam{width:100%;height:100%;object-fit:cover;}
+  canvas#overlay{position:absolute;top:0;left:0;width:100%;height:100%;}
 </style>
 </head>
 <body>
 <div id="container">
   <video id="cam" autoplay playsinline></video>
   <canvas id="overlay"></canvas>
-  <div class="controls">
-    <button id="calBtn">شروع کالیبراسیون (انتخاب دو نقطه مرجع)</button>
-    <label>مرجع واقعی (mm): <input id="realRef" type="number" placeholder="مثلاً 85.6"></label>
-    <span id="status">آماده</span>
-    <button id="clearPts">پاک‌کردن نقاط</button>
-  </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.7.0/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.2/dist/coco-ssd.min.js"></script>
 <script>
 (async ()=>{
-
 const video = document.getElementById('cam');
 const canvas = document.getElementById('overlay');
 const ctx = canvas.getContext('2d');
-const status = document.getElementById('status');
 let model;
-let points=[]; // کلیک‌های کاربر برای اندازه‌گیری / کالیبراسیون
-let pixelPerMM = null; // نسبت تبدیل
 
 // دریافت دوربین
 try {
@@ -57,9 +45,8 @@ video.addEventListener('loadeddata', resize);
 window.addEventListener('resize', resize);
 
 // بارگذاری مدل
-status.textContent = 'بارگذاری مدل...';
 model = await cocoSsd.load();
-status.textContent = 'مدل آماده';
+console.log('مدل آماده');
 
 // رسم فریم‌ها و تشخیص
 async function detectLoop(){
@@ -77,62 +64,10 @@ async function detectLoop(){
       ctx.font = '16px sans-serif';
       ctx.fillText(p.class + ' ' + Math.round(p.score*100)+'%', x+4, y+18);
     }
-
-    // رسم نقاط انتخابی و خط بینشان
-    if(points.length>0){
-      ctx.fillStyle='red';
-      for(const pt of points){
-        ctx.beginPath(); ctx.arc(pt.x,pt.y,6,0,Math.PI*2); ctx.fill();
-      }
-      if(points.length===2){
-        ctx.strokeStyle='red'; ctx.lineWidth=2;
-        ctx.beginPath(); ctx.moveTo(points[0].x,points[0].y); ctx.lineTo(points[1].x,points[1].y); ctx.stroke();
-        const dx=points[0].x-points[1].x, dy=points[0].y-points[1].y;
-        const pixels = Math.hypot(dx,dy);
-        let msg = 'پیکسل: '+pixels.toFixed(1);
-        if(pixelPerMM){
-          const mm = pixels / pixelPerMM;
-          msg += ' — طول: '+mm.toFixed(1)+' mm';
-        } else {
-          msg += ' — کالیبره نشده';
-        }
-        ctx.fillStyle='white';
-        ctx.fillRect((points[0].x+points[1].x)/2 - 70, (points[0].y+points[1].y)/2 - 28, 140, 24);
-        ctx.fillStyle='black';
-        ctx.fillText(msg, (points[0].x+points[1].x)/2 - 64, (points[0].y+points[1].y)/2 - 12);
-      }
-    }
   }
   requestAnimationFrame(detectLoop);
 }
 detectLoop();
-
-// انتخاب نقاط با کلیک/لمس
-canvas.addEventListener('pointerdown', e=>{
-  const rect = canvas.getBoundingClientRect();
-  const x = (e.clientX - rect.left) * (canvas.width / rect.width);
-  const y = (e.clientY - rect.top) * (canvas.height / rect.height);
-  if(points.length<2) points.push({x,y});
-  else { points = [{x,y}]; } // اگر دوباره کلیک شد، نقاط جدید
-});
-
-// دکمه کالیبراسیون
-document.getElementById('calBtn').addEventListener('click', ()=>{
-  if(points.length!==2){
-    alert('دو نقطه مرجع را روی تصویر انتخاب کن (مثلاً دو لبه کارت).');
-    return;
-  }
-  const real = parseFloat(document.getElementById('realRef').value);
-  if(!real || real<=0){ alert('اندازه مرجع واقعی (میلی‌متر) را وارد کن.'); return; }
-  const dx = points[0].x - points[1].x, dy = points[0].y - points[1].y;
-  const pixelDist = Math.hypot(dx,dy);
-  pixelPerMM = pixelDist / real; // پیکسل در هر میلی‌متر
-  status.textContent = 'کالیبره شد: '+pixelPerMM.toFixed(3)+' پیکسل/مم';
-});
-
-// پاک کردن نقاط
-document.getElementById('clearPts').addEventListener('click', ()=>{ points = []; pixelPerMM = null; status.textContent='آماده'; });
-
 })();
 </script>
 </body>

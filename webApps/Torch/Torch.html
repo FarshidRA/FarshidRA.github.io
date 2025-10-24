@@ -24,14 +24,21 @@
     align-items:center;
   }
   video#cam {
-    /* video displayed in its natural size */
     display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover; /* fill container without stretching */
   }
   canvas#overlay {
     position:absolute;
     top:0;
     left:0;
-    touch-action: none; /* allow drag on mobile */
+    touch-action: none;
+    width:100%;
+    height:100%;
   }
 </style>
 </head>
@@ -49,9 +56,9 @@ const video = document.getElementById('cam');
 const canvas = document.getElementById('overlay');
 const ctx = canvas.getContext('2d');
 let model;
-let boxes = []; // store detected boxes for dragging
+let boxes = []; // persistent boxes
 
-// access camera
+// camera access
 try {
   const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false });
   video.srcObject = stream;
@@ -61,18 +68,15 @@ try {
   return;
 }
 
-// set canvas to video size
-video.addEventListener('loadedmetadata', ()=>{
+// adjust canvas size to container
+function resizeCanvas() {
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
+}
+video.addEventListener('loadedmetadata', resizeCanvas);
+window.addEventListener('resize', resizeCanvas);
 
-  // center video in container (3:4)
-  const container = document.getElementById('container');
-  video.style.width = video.videoWidth + 'px';
-  video.style.height = video.videoHeight + 'px';
-});
-
-// load ML model
+// load model
 model = await cocoSsd.load();
 console.log('Model loaded');
 
@@ -80,6 +84,7 @@ console.log('Model loaded');
 let dragging = null;
 let offset = {x:0, y:0};
 
+// pointer events
 canvas.addEventListener('pointerdown', e => {
   const rect = canvas.getBoundingClientRect();
   const x = (e.clientX - rect.left) * (canvas.width/rect.width);
@@ -113,28 +118,35 @@ canvas.addEventListener('pointerleave', e => { dragging = null; });
 async function detectLoop(){
   if(video.readyState === 4){
     const predictions = await model.detect(video);
+
+    // update boxes but keep dragged positions
+    for(const p of predictions){
+      const exists = boxes.find(b => b.class === p.class && b.score === p.score);
+      if(!exists){
+        boxes.push({
+          x: p.bbox[0],
+          y: p.bbox[1],
+          w: p.bbox[2],
+          h: p.bbox[3],
+          class: p.class,
+          score: p.score
+        });
+      }
+    }
+
+    // clear canvas
     ctx.clearRect(0,0,canvas.width,canvas.height);
 
-    boxes = predictions.map(p => {
-      let [x,y,w,h] = p.bbox;
-      return {
-        x: x,
-        y: y,
-        w: w,
-        h: h,
-        class: p.class,
-        score: p.score
-      };
-    });
-
+    // draw boxes
     for(const b of boxes){
+      if(b.w<=0 || b.h<=0) continue; // safety
       let color;
       if(b.score<0.5) color='red';
       else if(b.score<0.8) color='yellow';
       else color='lime';
 
       ctx.strokeStyle=color;
-      ctx.lineWidth=2; // thinner line
+      ctx.lineWidth=2;
       ctx.strokeRect(b.x,b.y,b.w,b.h);
 
       ctx.fillStyle=color;

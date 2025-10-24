@@ -365,9 +365,9 @@ margin-right:auto;}.w3-content{max-width:980px}.w3-auto{max-width:1140px}
 		border-radius: 5px;	
 		cursor: pointer;
 	}
-	.w3-card{
-		height:72.45rem;
-	}
+	.w3-card {
+  height: auto;
+}
 }
 .mypara{
 	font-family:calibri;

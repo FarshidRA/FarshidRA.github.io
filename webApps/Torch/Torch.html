@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>دوربین خالی</title>
+<title>DETECTION</title>
 <style>
   body{margin:0;overflow:hidden;}
   #container{position:relative;width:100vw;height:100vh;}
@@ -32,7 +32,7 @@ try {
   video.srcObject = stream;
   await video.play();
 } catch(e){
-  alert('دسترسی به دوربین امکان‌پذیر نیست.');
+  alert('NOT SUPPORT.');
   return;
 }
 
@@ -46,7 +46,7 @@ window.addEventListener('resize', resize);
 
 // بارگذاری مدل
 model = await cocoSsd.load();
-console.log('مدل آماده');
+console.log('READY');
 
 // رسم فریم‌ها و تشخیص
 async function detectLoop(){

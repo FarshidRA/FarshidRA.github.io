@@ -15,9 +15,8 @@
   }
   #container {
     position:relative;
-    width:300px;       /* adjustable */
-    aspect-ratio:3/4;  /* 3:4 ratio */
-    background:#222;
+    width:360px;
+    height:480px; /* 3:4 aspect ratio */
   }
   video#cam {
     width:100%;
@@ -48,35 +47,43 @@ const canvas = document.getElementById('overlay');
 const ctx = canvas.getContext('2d');
 let model;
 
-// get camera access
+// access camera
 try {
   const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false });
   video.srcObject = stream;
   await video.play();
 } catch(e){
-  alert('Camera access denied or not supported.');
+  alert('Camera access not available.');
   return;
 }
 
-// resize canvas
+// resize canvas to video
 function resize(){
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
+  const vw = video.videoWidth;
+  const vh = video.videoHeight;
+  canvas.width = vw;
+  canvas.height = vh;
+  video.style.width = '360px';
+  video.style.height = '480px';
 }
 video.addEventListener('loadeddata', resize);
-window.addEventListener('resize', resize);
 
-// load model
+// load ML model
 model = await cocoSsd.load();
-console.log('Model ready');
+console.log('Model loaded');
 
 // detection loop
 async function detectLoop(){
   if(video.readyState === 4){
     const predictions = await model.detect(video);
     ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    const scaleX = canvas.width / 360;
+    const scaleY = canvas.height / 480;
+
     for(const p of predictions){
-      const [x,y,w,h] = p.bbox;
+      let [x,y,w,h] = p.bbox;
+      x *= scaleX; y *= scaleY; w *= scaleX; h *= scaleY;
       ctx.strokeStyle = 'lime';
       ctx.lineWidth = 3;
       ctx.strokeRect(x,y,w,h);

@@ -128,19 +128,18 @@ async function detectLoop(){
     });
 
     for(const b of boxes){
-      let color;
-      if(b.score<0.5) color='red';
-      else if(b.score<0.8) color='yellow';
-      else color='lime';
+  let color = b.score < 0.5 ? 'red' : b.score < 0.8 ? 'yellow' : 'lime';
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 2;
 
-      ctx.strokeStyle=color;
-      ctx.lineWidth=2; // thinner line
-      ctx.strokeRect(b.x,b.y,b.w,b.h);
+  const scaleX = canvas.width / video.videoWidth;
+  const scaleY = canvas.height / video.videoHeight;
 
-      ctx.fillStyle=color;
-      ctx.font='14px sans-serif';
-      ctx.fillText(b.class + ' ' + Math.round(b.score*100)+'%', b.x+4, b.y+16);
-    }
+  ctx.strokeRect(b.x * scaleX, b.y * scaleY, b.w * scaleX, b.h * scaleY);
+  ctx.fillStyle = color;
+  ctx.font = '14px sans-serif';
+  ctx.fillText(b.class + ' ' + Math.round(b.score*100)+'%', b.x*scaleX +4, b.y*scaleY +16);
+}
   }
   requestAnimationFrame(detectLoop);
 }

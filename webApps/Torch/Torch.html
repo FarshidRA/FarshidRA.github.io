@@ -24,14 +24,17 @@
     align-items:center;
   }
   video#cam {
-    /* video displayed in its natural size */
     display:block;
+    max-width:100%;
+    max-height:100%;
   }
   canvas#overlay {
     position:absolute;
     top:0;
     left:0;
-    touch-action: none; /* allow drag on mobile */
+    width:100%;
+    height:100%;
+    touch-action: none;
   }
 </style>
 </head>
@@ -61,17 +64,6 @@ try {
   return;
 }
 
-// set canvas to video size
-video.addEventListener('loadedmetadata', ()=>{
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
-
-  // center video in container (3:4)
-  const container = document.getElementById('container');
-  video.style.width = video.videoWidth + 'px';
-  video.style.height = video.videoHeight + 'px';
-});
-
 // load ML model
 model = await cocoSsd.load();
 console.log('Model loaded');
@@ -80,69 +72,85 @@ console.log('Model loaded');
 let dragging = null;
 let offset = {x:0, y:0};
 
+// handle pointer drag
 canvas.addEventListener('pointerdown', e => {
   const rect = canvas.getBoundingClientRect();
-  const x = (e.clientX - rect.left) * (canvas.width/rect.width);
-  const y = (e.clientY - rect.top) * (canvas.height/rect.height);
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
 
   for(let i=boxes.length-1;i>=0;i--){
     const b = boxes[i];
-    if(x>=b.x && x<=b.x+b.w && y>=b.y && y<=b.y+b.h){
+    if(x>=b.screenX && x<=b.screenX+b.screenW && y>=b.screenY && y<=b.screenY+b.screenH){
       dragging = b;
-      offset.x = x - b.x;
-      offset.y = y - b.y;
+      offset.x = x - b.screenX;
+      offset.y = y - b.screenY;
       return;
     }
   }
 });
-
 canvas.addEventListener('pointermove', e => {
   if(dragging){
     const rect = canvas.getBoundingClientRect();
-    const x = (e.clientX - rect.left) * (canvas.width/rect.width);
-    const y = (e.clientY - rect.top) * (canvas.height/rect.height);
-    dragging.x = x - offset.x;
-    dragging.y = y - offset.y;
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    dragging.screenX = x - offset.x;
+    dragging.screenY = y - offset.y;
   }
 });
-
 canvas.addEventListener('pointerup', e => { dragging = null; });
 canvas.addEventListener('pointerleave', e => { dragging = null; });
 
-// detection loop
+// detection & drawing loop
 async function detectLoop(){
   if(video.readyState === 4){
     const predictions = await model.detect(video);
     ctx.clearRect(0,0,canvas.width,canvas.height);
 
+    // calculate video scaling inside container
+    const container = document.getElementById('container');
+    const videoRatio = video.videoWidth / video.videoHeight;
+    const containerRatio = container.clientWidth / container.clientHeight;
+
+    let scale = 1, offsetX = 0, offsetY = 0;
+    if(videoRatio > containerRatio){
+      scale = container.clientWidth / video.videoWidth;
+      offsetY = (container.clientHeight - video.videoHeight*scale)/2;
+    } else {
+      scale = container.clientHeight / video.videoHeight;
+      offsetX = (container.clientWidth - video.videoWidth*scale)/2;
+    }
+
     boxes = predictions.map(p => {
       let [x,y,w,h] = p.bbox;
       return {
-        x: x,
-        y: y,
-        w: w,
-        h: h,
-        class: p.class,
-        score: p.score
+        x, y, w, h, class: p.class, score: p.score,
+        screenX: x*scale + offsetX,
+        screenY: y*scale + offsetY,
+        screenW: w*scale,
+        screenH: h*scale
       };
     });
 
     for(const b of boxes){
-  let color = b.score < 0.5 ? 'red' : b.score < 0.8 ? 'yellow' : 'lime';
-  ctx.strokeStyle = color;
-  ctx.lineWidth = 2;
-
-  const scaleX = canvas.width / video.videoWidth;
-  const scaleY = canvas.height / video.videoHeight;
-
-  ctx.strokeRect(b.x * scaleX, b.y * scaleY, b.w * scaleX, b.h * scaleY);
-  ctx.fillStyle = color;
-  ctx.font = '14px sans-serif';
-  ctx.fillText(b.class + ' ' + Math.round(b.score*100)+'%', b.x*scaleX +4, b.y*scaleY +16);
-}
+      let color = b.score<0.5 ? 'red' : b.score<0.8 ? 'yellow' : 'lime';
+      ctx.strokeStyle=color;
+      ctx.lineWidth=2;
+      ctx.strokeRect(b.screenX, b.screenY, b.screenW, b.screenH);
+      ctx.fillStyle=color;
+      ctx.font='14px sans-serif';
+      ctx.fillText(b.class + ' ' + Math.round(b.score*100)+'%', b.screenX +4, b.screenY +16);
+    }
   }
   requestAnimationFrame(detectLoop);
 }
+
+// resize canvas to container
+function resizeCanvas(){
+  canvas.width = container.clientWidth;
+  canvas.height = container.clientHeight;
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
 
 detectLoop();
 })();

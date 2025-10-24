@@ -1,35 +1,20 @@
-let stream;
-let track;
-let torchOn = false;
+for(const p of predictions){
+  let [x,y,w,h] = p.bbox;
 
-async function toggleFlash() {
-  if (!stream) {
-    try {
-      stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
-      track = stream.getVideoTracks()[0];
-    } catch (e) {
-      alert("NOT SUPPORT.");
-      return;
-    }
-  }
+  // scale to canvas size
+  x *= scaleX; y *= scaleY; w *= scaleX; h *= scaleY;
 
-  const imageCapture = new ImageCapture(track);
-  const capabilities = await imageCapture.getPhotoCapabilities();
+  // choose color based on score
+  let color;
+  if(p.score < 0.5) color = 'red';
+  else if(p.score < 0.8) color = 'yellow';
+  else color = 'lime';
 
-  if (capabilities.torch) {
-    torchOn = !torchOn;
-    await track.applyConstraints({ advanced: [{ torch: torchOn }] });
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 3;
+  ctx.strokeRect(x,y,w,h);
 
-    // تغییر رنگ آیکون دکمه
-    const btn = document.getElementById("toggleBtn");
-    if (torchOn) btn.classList.add("on");
-    else btn.classList.remove("on");
-
-    // تغییر favicon
-    document.getElementById("favicon").href = torchOn ? "on.ico" : "off.ico";
-  } else {
-    alert("NOT SUPPORT.");
-  }
+  ctx.fillStyle = color;
+  ctx.font = '16px sans-serif';
+  ctx.fillText(p.class + ' ' + Math.round(p.score*100)+'%', x+4, y+18);
 }
-
-document.getElementById("toggleBtn").addEventListener("click", toggleFlash);

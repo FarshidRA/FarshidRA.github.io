@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Interactive Object Detection</title>
+<title>Interactive Object Detection 3:4</title>
 <style>
   body {
     margin:0;
@@ -17,11 +17,12 @@
     position:relative;
     width:360px;
     height:480px; /* 3:4 aspect ratio */
+    background:#000;
   }
   video#cam {
     width:100%;
     height:100%;
-    object-fit:cover;
+    object-fit:contain; /* keep aspect ratio, may add black bars */
   }
   canvas#overlay {
     position:absolute;
@@ -59,12 +60,10 @@ try {
   return;
 }
 
-// resize canvas to video
+// resize canvas to video dimensions
 function resize(){
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
-  video.style.width = '360px';
-  video.style.height = '480px';
 }
 video.addEventListener('loadeddata', resize);
 
@@ -112,10 +111,10 @@ async function detectLoop(){
     const predictions = await model.detect(video);
     ctx.clearRect(0,0,canvas.width,canvas.height);
 
-    const scaleX = canvas.width / 360;
-    const scaleY = canvas.height / 480;
+    // scale based on actual video dimensions
+    const scaleX = canvas.width / video.videoWidth;
+    const scaleY = canvas.height / video.videoHeight;
 
-    // update boxes array
     boxes = predictions.map(p => {
       let [x,y,w,h] = p.bbox;
       return {
@@ -128,21 +127,20 @@ async function detectLoop(){
       };
     });
 
-    // draw boxes
     for(const b of boxes){
-      // choose color based on score
+      // color based on confidence
       let color;
       if(b.score<0.5) color='red';
       else if(b.score<0.8) color='yellow';
       else color='lime';
 
       ctx.strokeStyle=color;
-      ctx.lineWidth=3;
+      ctx.lineWidth=4; // thicker line
       ctx.strokeRect(b.x,b.y,b.w,b.h);
 
       ctx.fillStyle=color;
-      ctx.font='16px sans-serif';
-      ctx.fillText(b.class + ' ' + Math.round(b.score*100)+'%', b.x+4, b.y+18);
+      ctx.font='18px sans-serif';
+      ctx.fillText(b.class + ' ' + Math.round(b.score*100)+'%', b.x+4, b.y+22);
     }
   }
   requestAnimationFrame(detectLoop);

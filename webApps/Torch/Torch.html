@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Camera 3:4</title>
-  <script src="flash.js"></script><style>
+<title>Interactive Object Detection</title>
+<style>
   body {
     margin:0;
     display:flex;
@@ -29,6 +29,7 @@
     left:0;
     width:100%;
     height:100%;
+    touch-action: none; /* allow drag on mobile */
   }
 </style>
 </head>
@@ -46,6 +47,7 @@ const video = document.getElementById('cam');
 const canvas = document.getElementById('overlay');
 const ctx = canvas.getContext('2d');
 let model;
+let boxes = []; // store detected boxes for dragging
 
 // access camera
 try {
@@ -59,10 +61,8 @@ try {
 
 // resize canvas to video
 function resize(){
-  const vw = video.videoWidth;
-  const vh = video.videoHeight;
-  canvas.width = vw;
-  canvas.height = vh;
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
   video.style.width = '360px';
   video.style.height = '480px';
 }
@@ -71,6 +71,40 @@ video.addEventListener('loadeddata', resize);
 // load ML model
 model = await cocoSsd.load();
 console.log('Model loaded');
+
+// dragging state
+let dragging = null;
+let offset = {x:0, y:0};
+
+canvas.addEventListener('pointerdown', e => {
+  const rect = canvas.getBoundingClientRect();
+  const x = (e.clientX - rect.left) * (canvas.width/rect.width);
+  const y = (e.clientY - rect.top) * (canvas.height/rect.height);
+
+  // check if pointer is on a box
+  for(let i=boxes.length-1;i>=0;i--){
+    const b = boxes[i];
+    if(x>=b.x && x<=b.x+b.w && y>=b.y && y<=b.y+b.h){
+      dragging = b;
+      offset.x = x - b.x;
+      offset.y = y - b.y;
+      return;
+    }
+  }
+});
+
+canvas.addEventListener('pointermove', e => {
+  if(dragging){
+    const rect = canvas.getBoundingClientRect();
+    const x = (e.clientX - rect.left) * (canvas.width/rect.width);
+    const y = (e.clientY - rect.top) * (canvas.height/rect.height);
+    dragging.x = x - offset.x;
+    dragging.y = y - offset.y;
+  }
+});
+
+canvas.addEventListener('pointerup', e => { dragging = null; });
+canvas.addEventListener('pointerleave', e => { dragging = null; });
 
 // detection loop
 async function detectLoop(){
@@ -81,19 +115,39 @@ async function detectLoop(){
     const scaleX = canvas.width / 360;
     const scaleY = canvas.height / 480;
 
-    for(const p of predictions){
+    // update boxes array
+    boxes = predictions.map(p => {
       let [x,y,w,h] = p.bbox;
-      x *= scaleX; y *= scaleY; w *= scaleX; h *= scaleY;
-      ctx.strokeStyle = 'lime';
-      ctx.lineWidth = 3;
-      ctx.strokeRect(x,y,w,h);
-      ctx.fillStyle = 'lime';
-      ctx.font = '16px sans-serif';
-      ctx.fillText(p.class + ' ' + Math.round(p.score*100)+'%', x+4, y+18);
+      return {
+        x: x*scaleX,
+        y: y*scaleY,
+        w: w*scaleX,
+        h: h*scaleY,
+        class: p.class,
+        score: p.score
+      };
+    });
+
+    // draw boxes
+    for(const b of boxes){
+      // choose color based on score
+      let color;
+      if(b.score<0.5) color='red';
+      else if(b.score<0.8) color='yellow';
+      else color='lime';
+
+      ctx.strokeStyle=color;
+      ctx.lineWidth=3;
+      ctx.strokeRect(b.x,b.y,b.w,b.h);
+
+      ctx.fillStyle=color;
+      ctx.font='16px sans-serif';
+      ctx.fillText(b.class + ' ' + Math.round(b.score*100)+'%', b.x+4, b.y+18);
     }
   }
   requestAnimationFrame(detectLoop);
 }
+
 detectLoop();
 })();
 </script>

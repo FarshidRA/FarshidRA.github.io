@@ -18,18 +18,19 @@
     width:360px;
     height:480px; /* 3:4 aspect ratio */
     background:#000;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
   }
   video#cam {
-    width:100%;
-    height:100%;
-    object-fit:contain; /* keep aspect ratio, may add black bars */
+    /* video displayed in its natural size */
+    display:block;
   }
   canvas#overlay {
     position:absolute;
     top:0;
     left:0;
-    width:100%;
-    height:100%;
     touch-action: none; /* allow drag on mobile */
   }
 </style>
@@ -60,12 +61,16 @@ try {
   return;
 }
 
-// resize canvas to video dimensions
-function resize(){
+// set canvas to video size
+video.addEventListener('loadedmetadata', ()=>{
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
-}
-video.addEventListener('loadeddata', resize);
+
+  // center video in container (3:4)
+  const container = document.getElementById('container');
+  video.style.width = video.videoWidth + 'px';
+  video.style.height = video.videoHeight + 'px';
+});
 
 // load ML model
 model = await cocoSsd.load();
@@ -80,7 +85,6 @@ canvas.addEventListener('pointerdown', e => {
   const x = (e.clientX - rect.left) * (canvas.width/rect.width);
   const y = (e.clientY - rect.top) * (canvas.height/rect.height);
 
-  // check if pointer is on a box
   for(let i=boxes.length-1;i>=0;i--){
     const b = boxes[i];
     if(x>=b.x && x<=b.x+b.w && y>=b.y && y<=b.y+b.h){
@@ -111,36 +115,31 @@ async function detectLoop(){
     const predictions = await model.detect(video);
     ctx.clearRect(0,0,canvas.width,canvas.height);
 
-    // scale based on actual video dimensions
-    const scaleX = canvas.width / video.videoWidth;
-    const scaleY = canvas.height / video.videoHeight;
-
     boxes = predictions.map(p => {
       let [x,y,w,h] = p.bbox;
       return {
-        x: x*scaleX,
-        y: y*scaleY,
-        w: w*scaleX,
-        h: h*scaleY,
+        x: x,
+        y: y,
+        w: w,
+        h: h,
         class: p.class,
         score: p.score
       };
     });
 
     for(const b of boxes){
-      // color based on confidence
       let color;
       if(b.score<0.5) color='red';
       else if(b.score<0.8) color='yellow';
       else color='lime';
 
       ctx.strokeStyle=color;
-      ctx.lineWidth=2; // thicker line
+      ctx.lineWidth=2; // thinner line
       ctx.strokeRect(b.x,b.y,b.w,b.h);
 
       ctx.fillStyle=color;
-      ctx.font='12px sans-serif';
-      ctx.fillText(b.class + ' ' + Math.round(b.score*100)+'%', b.x + 4, b.y + 18);
+      ctx.font='14px sans-serif';
+      ctx.fillText(b.class + ' ' + Math.round(b.score*100)+'%', b.x+4, b.y+16);
     }
   }
   requestAnimationFrame(detectLoop);

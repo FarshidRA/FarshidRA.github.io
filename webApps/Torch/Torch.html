@@ -1,1 +1,52 @@
-<button onclick="toggleFlash()">Torch</button>
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>چراغ‌قوه وب</title>
+
+  <!-- Favicon پیش‌فرض خاموش -->
+  <link id="favicon" rel="icon" href="off.ico" type="image/x-icon">
+
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #f0f0f0;
+    }
+
+    #toggleBtn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 100px;
+      height: 100px;
+      outline: none;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+      fill: #000; /* رنگ آیکون خاموش */
+      transition: fill 0.3s;
+    }
+
+    .on svg {
+      fill: #ffd700; /* رنگ آیکون روشن */
+    }
+  </style>
+</head>
+<body>
+
+  <button id="toggleBtn">
+    <svg viewBox="0 0 24 24">
+      <path d="M13 3h-2v10h2V3zm-1 18c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9z"/>
+    </svg>
+  </button>
+
+  <script src="flash.js"></script>
+</body>
+</html>

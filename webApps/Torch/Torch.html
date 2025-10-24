@@ -18,22 +18,20 @@
     width:360px;
     height:480px; /* 3:4 aspect ratio */
     background:#000;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
   }
   video#cam {
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    object-fit:contain; /* ویدیو کامل داخل container بدون برش */
+    /* video displayed in its natural size */
+    display:block;
   }
   canvas#overlay {
     position:absolute;
     top:0;
     left:0;
-    width:100%;
-    height:100%;
-    touch-action: none;
+    touch-action: none; /* allow drag on mobile */
   }
 </style>
 </head>
@@ -51,9 +49,9 @@ const video = document.getElementById('cam');
 const canvas = document.getElementById('overlay');
 const ctx = canvas.getContext('2d');
 let model;
-let boxes = []; // جعبه‌ها برای drag
+let boxes = []; // store detected boxes for dragging
 
-// دسترسی به دوربین
+// access camera
 try {
   const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false });
   video.srcObject = stream;
@@ -63,23 +61,25 @@ try {
   return;
 }
 
-// هماهنگ کردن canvas با ویدیو واقعی
-function resizeCanvas() {
+// set canvas to video size
+video.addEventListener('loadedmetadata', ()=>{
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
-}
-video.addEventListener('loadedmetadata', resizeCanvas);
-window.addEventListener('resize', resizeCanvas);
 
-// بارگذاری مدل
+  // center video in container (3:4)
+  const container = document.getElementById('container');
+  video.style.width = video.videoWidth + 'px';
+  video.style.height = video.videoHeight + 'px';
+});
+
+// load ML model
 model = await cocoSsd.load();
 console.log('Model loaded');
 
-// وضعیت drag
+// dragging state
 let dragging = null;
 let offset = {x:0, y:0};
 
-// رویدادهای pointer
 canvas.addEventListener('pointerdown', e => {
   const rect = canvas.getBoundingClientRect();
   const x = (e.clientX - rect.left) * (canvas.width/rect.width);
@@ -109,34 +109,32 @@ canvas.addEventListener('pointermove', e => {
 canvas.addEventListener('pointerup', e => { dragging = null; });
 canvas.addEventListener('pointerleave', e => { dragging = null; });
 
-// حلقه تشخیص
+// detection loop
 async function detectLoop(){
   if(video.readyState === 4){
     const predictions = await model.detect(video);
-
-    // بروزرسانی جعبه‌ها (جدیدها اضافه می‌شوند)
-    boxes = predictions.map(p => ({
-      x: p.bbox[0],
-      y: p.bbox[1],
-      w: p.bbox[2],
-      h: p.bbox[3],
-      class: p.class,
-      score: p.score
-    }));
-
-    // پاک کردن canvas
     ctx.clearRect(0,0,canvas.width,canvas.height);
 
-    // رسم جعبه‌ها
+    boxes = predictions.map(p => {
+      let [x,y,w,h] = p.bbox;
+      return {
+        x: x,
+        y: y,
+        w: w,
+        h: h,
+        class: p.class,
+        score: p.score
+      };
+    });
+
     for(const b of boxes){
-      if(b.w<=0 || b.h<=0) continue; // ایمنی
       let color;
       if(b.score<0.5) color='red';
       else if(b.score<0.8) color='yellow';
       else color='lime';
 
       ctx.strokeStyle=color;
-      ctx.lineWidth=2;
+      ctx.lineWidth=2; // thinner line
       ctx.strokeRect(b.x,b.y,b.w,b.h);
 
       ctx.fillStyle=color;

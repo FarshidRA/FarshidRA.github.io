@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Live OCR Translator</title>
+<style>
+  video, canvas { 
+    border: 1px solid black; 
+    width: 640px; 
+    height: 480px; 
+  }
+  #overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px black;
+  }
+  #container {
+    position: relative;
+    display: inline-block;
+  }
+</style>
+</head>
+<body>
+<h2>Live OCR Translator</h2>
+<div id="container">
+  <video autoplay></video>
+  <canvas id="canvas" style="display:none;"></canvas>
+  <div id="overlay"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
+<script>
+const video = document.querySelector('video');
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const overlay = document.getElementById('overlay');
+
+async function startCamera() {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+    video.srcObject = stream;
+  } catch (err) {
+    console.error("Cannot access camera:", err);
+  }
+}
+
+async function processFrame() {
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+  try {
+    const { data: { text } } = await Tesseract.recognize(canvas, 'eng'); // زبان OCR رو انتخاب کن
+    if (text.trim()) {
+      // ترجمه متن
+      const res = await fetch('https://libretranslate.de/translate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          q: text,
+          source: 'en',  // متن ورودی
+          target: 'fa'   // زبان خروجی
+        })
+      });
+      const translated = await res.json();
+      overlay.innerText = translated.translatedText;
+    } else {
+      overlay.innerText = "";
+    }
+  } catch (err) {
+    console.error(err);
+  }
+
+  // دوباره بعد از 2 ثانیه فریم بعدی
+  setTimeout(processFrame, 2000);
+}
+
+startCamera().then(() => {
+  video.addEventListener('playing', processFrame);
+});
+</script>
+</body>
+</html>

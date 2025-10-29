@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Live OCR Translator</title>
+<title>Live OCR Translator2</title>
 <style>
   html, body {
     margin: 0;
@@ -12,13 +12,18 @@
     height: 100%;
     width: 100%;
     background: black;
+    font-family: sans-serif;
   }
-  #langSelect {
+  #controls {
     position: absolute;
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
+    display: flex;
+    gap: 10px;
+  }
+  select {
     font-size: 16px;
     background: rgba(0,0,0,0.5);
     color: #fff;
@@ -61,16 +66,28 @@
 </head>
 <body>
 
-<select id="langSelect">
-  <option value="fa">Persian</option>
-  <option value="en">English</option>
-  <option value="es">Spanish</option>
-  <option value="de">German</option>
-  <option value="fr">French</option>
-  <option value="it">Italian</option>
-  <option value="tr">Turkish</option>
-  <option value="ar">Arabic</option>
-</select>
+<div id="controls">
+  <select id="ocrLang">
+    <option value="eng">English</option>
+    <option value="fas">Persian</option>
+    <option value="spa">Spanish</option>
+    <option value="deu">German</option>
+    <option value="fra">French</option>
+    <option value="ita">Italian</option>
+    <option value="tur">Turkish</option>
+    <option value="ara">Arabic</option>
+  </select>
+  <select id="translateLang">
+    <option value="fa">Persian</option>
+    <option value="en">English</option>
+    <option value="es">Spanish</option>
+    <option value="de">German</option>
+    <option value="fr">French</option>
+    <option value="it">Italian</option>
+    <option value="tr">Turkish</option>
+    <option value="ar">Arabic</option>
+  </select>
+</div>
 
 <div id="container">
   <video autoplay playsinline></video>
@@ -84,7 +101,8 @@ const video = document.querySelector('video');
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const overlay = document.getElementById('overlay');
-const langSelect = document.getElementById('langSelect');
+const ocrLangSelect = document.getElementById('ocrLang');
+const translateLangSelect = document.getElementById('translateLang');
 
 async function startCamera() {
   try {
@@ -97,33 +115,40 @@ async function startCamera() {
   }
 }
 
+let processing = false;
+
 async function processFrame() {
-  if(video.videoWidth === 0) return setTimeout(processFrame, 500);
+  if(video.videoWidth === 0) return requestAnimationFrame(processFrame);
 
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
   ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-  try {
-    const { data: { text } } = await Tesseract.recognize(canvas, 'eng');
-    if (text.trim()) {
-      const targetLang = langSelect.value;
-      const res = await fetch('https://libretranslate.de/translate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          q: text,
-          source: 'en',
-          target: targetLang
-        })
-      });
-      const translated = await res.json();
-      overlay.innerText = translated.translatedText;
-    } else {
-      overlay.innerText = "";
+  if(!processing) {
+    processing = true;
+    try {
+      const ocrLang = ocrLangSelect.value;
+      const { data: { text } } = await Tesseract.recognize(canvas, ocrLang);
+      if (text.trim()) {
+        const targetLang = translateLangSelect.value;
+        const res = await fetch('https://libretranslate.de/translate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            q: text,
+            source: ocrLang === 'eng' ? 'en' : 'auto',
+            target: targetLang
+          })
+        });
+        const translated = await res.json();
+        overlay.innerText = translated.translatedText;
+      } else {
+        overlay.innerText = "";
+      }
+    } catch (err) {
+      console.error(err);
     }
-  } catch (err) {
-    console.error(err);
+    processing = false;
   }
 
   requestAnimationFrame(processFrame);
@@ -133,5 +158,6 @@ startCamera().then(() => {
   video.addEventListener('playing', processFrame);
 });
 </script>
+
 </body>
 </html>

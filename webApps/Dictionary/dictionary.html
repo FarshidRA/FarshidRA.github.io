@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Live OCR Translator2</title>
+<title>Snapshot OCR Translator</title>
 <style>
   html, body {
     margin: 0;
@@ -23,7 +23,7 @@
     display: flex;
     gap: 10px;
   }
-  select {
+  select, button {
     font-size: 16px;
     background: rgba(0,0,0,0.5);
     color: #fff;
@@ -42,9 +42,13 @@
     object-fit: cover;
   }
   canvas {
-    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
-  #overlay {
+  #overlayText {
     position: absolute;
     top: 0;
     left: 0;
@@ -87,12 +91,13 @@
     <option value="tr">Turkish</option>
     <option value="ar">Arabic</option>
   </select>
+  <button id="snapshotBtn">Snapshot</button>
 </div>
 
 <div id="container">
   <video autoplay playsinline></video>
   <canvas id="canvas"></canvas>
-  <div id="overlay"></div>
+  <div id="overlayText"></div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
@@ -100,9 +105,10 @@
 const video = document.querySelector('video');
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
-const overlay = document.getElementById('overlay');
+const overlayText = document.getElementById('overlayText');
 const ocrLangSelect = document.getElementById('ocrLang');
 const translateLangSelect = document.getElementById('translateLang');
+const snapshotBtn = document.getElementById('snapshotBtn');
 
 async function startCamera() {
   try {
@@ -115,48 +121,55 @@ async function startCamera() {
   }
 }
 
-let processing = false;
-
-async function processFrame() {
-  if(video.videoWidth === 0) return requestAnimationFrame(processFrame);
+snapshotBtn.addEventListener('click', async () => {
+  if(video.videoWidth === 0) return;
 
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
   ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-  if(!processing) {
-    processing = true;
-    try {
-      const ocrLang = ocrLangSelect.value;
-      const { data: { text } } = await Tesseract.recognize(canvas, ocrLang);
-      if (text.trim()) {
-        const targetLang = translateLangSelect.value;
-        const res = await fetch('https://libretranslate.de/translate', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            q: text,
-            source: ocrLang === 'eng' ? 'en' : 'auto',
-            target: targetLang
-          })
+  const ocrLang = ocrLangSelect.value;
+  try {
+    const { data: { blocks } } = await Tesseract.recognize(canvas, ocrLang, { logger: m => console.log(m) });
+    
+    // هایلایت متن با شفافیت 20%
+    ctx.fillStyle = 'rgba(255,255,255,0.2)';
+    blocks.forEach(block => {
+      block.paragraphs.forEach(p => {
+        p.lines.forEach(line => {
+          line.words.forEach(word => {
+            const { x0, y0, x1, y1 } = word.bbox;
+            ctx.fillRect(x0, y0, x1-x0, y1-y0);
+          });
         });
-        const translated = await res.json();
-        overlay.innerText = translated.translatedText;
-      } else {
-        overlay.innerText = "";
-      }
-    } catch (err) {
-      console.error(err);
+      });
+    });
+
+    // ترجمه متن کل
+    const text = blocks.map(b => b.text).join(' ');
+    if(text.trim()) {
+      const targetLang = translateLangSelect.value;
+      const res = await fetch('https://libretranslate.de/translate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          q: text,
+          source: ocrLang==='eng'?'en':'auto',
+          target: targetLang
+        })
+      });
+      const translated = await res.json();
+      overlayText.innerText = translated.translatedText;
+    } else {
+      overlayText.innerText = "";
     }
-    processing = false;
+
+  } catch(err) {
+    console.error(err);
   }
-
-  requestAnimationFrame(processFrame);
-}
-
-startCamera().then(() => {
-  video.addEventListener('playing', processFrame);
 });
+
+startCamera();
 </script>
 
 </body>

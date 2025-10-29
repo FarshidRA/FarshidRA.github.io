@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Camera Narrator - GitHub Pages Demo</title>
 <style>
-  body{font-family:system-ui, "Tahoma", sans-serif; padding:12px; direction:rtl}
+  body{font-family:system-ui, "Tahoma", sans-serif; padding:12px;}
   video, canvas{width:100%; max-width:560px; border-radius:8px; background:#000}
   .controls{margin-top:10px; display:flex; gap:8px; flex-wrap:wrap}
   button{padding:8px 12px; border-radius:6px; cursor:pointer}
@@ -15,28 +15,27 @@
 </style>
 </head>
 <body>
-<h2>Camera Narrator — نسخهٔ بدون سرور</h2>
-<p class="small">این نسخه تصاویر را روی دستگاه شما تشخیص می‌دهد (MobileNet) و نیاز به کلید API ندارد.</p>
+<h2>Camera Narrator — No Server Version</h2>
+<p class="small">This version detects images directly on your device using MobileNet. No API key required.</p>
 
 <video id="video" autoplay playsinline></video>
 <canvas id="canvas" style="display:none;"></canvas>
 
 <div class="controls">
-  <button id="capture">عکس بگیر و توضیح بده</button>
-  <button id="auto">حالت خودکار (هر 3 ثانیه)</button>
-  <button id="stopAuto" disabled>توقف خودکار</button>
+  <button id="capture">Capture & Describe</button>
+  <button id="auto">Auto Mode (every 3 sec)</button>
+  <button id="stopAuto" disabled>Stop Auto</button>
   <select id="languages">
     <option value="en-US">English (US)</option>
     <option value="en-GB">English (UK)</option>
     <option value="fr-FR">Français</option>
     <option value="de-DE">Deutsch</option>
     <option value="es-ES">Español</option>
-    <option value="fa-IR">فارسی (اگر مرورگر داشته باشه)</option>
   </select>
-  <label class="small" style="align-self:center">پخش صوتی</label>
+  <label class="small" style="align-self:center">Speech</label>
 </div>
 
-<div id="description">وضعیت: درحال بارگذاری مدل...</div>
+<div id="description">Status: Loading model...</div>
 
 <!-- Libraries -->
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.21.0/dist/tf.min.js"></script>

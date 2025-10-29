@@ -2,32 +2,56 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Live OCR Translator</title>
 <style>
-  video, canvas { 
-    border: 1px solid black; 
-    width: 640px; 
-    height: 480px; 
+  body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #000;
+    color: #fff;
+    font-family: sans-serif;
+  }
+  #langSelect {
+    margin: 10px;
+    font-size: 16px;
+  }
+  #container {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+  }
+  video {
+    width: 100%;
+    height: auto;
+    border: 1px solid black;
+  }
+  canvas {
+    display: none;
   }
   #overlay {
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
     color: red;
-    font-size: 20px;
+    font-size: 4vw;
     font-weight: bold;
     text-shadow: 1px 1px 2px black;
-  }
-  #container {
-    position: relative;
-    display: inline-block;
-  }
-  #langSelect {
-    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 5px;
+    word-break: break-word;
   }
 </style>
 </head>
 <body>
+
 <h2>Live OCR Translator</h2>
 <select id="langSelect">
   <option value="fa">Persian</option>
@@ -42,7 +66,7 @@
 
 <div id="container">
   <video autoplay playsinline></video>
-  <canvas id="canvas" style="display:none;"></canvas>
+  <canvas id="canvas"></canvas>
   <div id="overlay"></div>
 </div>
 
@@ -66,6 +90,8 @@ async function startCamera() {
 }
 
 async function processFrame() {
+  if(video.videoWidth === 0) return setTimeout(processFrame, 500);
+
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
   ctx.drawImage(video, 0, 0, canvas.width, canvas.height);

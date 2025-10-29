@@ -22,10 +22,24 @@
     position: relative;
     display: inline-block;
   }
+  #langSelect {
+    margin-bottom: 10px;
+  }
 </style>
 </head>
 <body>
 <h2>Live OCR Translator</h2>
+<select id="langSelect">
+  <option value="fa">Persian</option>
+  <option value="en">English</option>
+  <option value="es">Spanish</option>
+  <option value="de">German</option>
+  <option value="fr">French</option>
+  <option value="it">Italian</option>
+  <option value="tr">Turkish</option>
+  <option value="ar">Arabic</option>
+</select>
+
 <div id="container">
   <video autoplay playsinline></video>
   <canvas id="canvas" style="display:none;"></canvas>
@@ -38,6 +52,7 @@ const video = document.querySelector('video');
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const overlay = document.getElementById('overlay');
+const langSelect = document.getElementById('langSelect');
 
 async function startCamera() {
   try {
@@ -58,13 +73,14 @@ async function processFrame() {
   try {
     const { data: { text } } = await Tesseract.recognize(canvas, 'eng');
     if (text.trim()) {
+      const targetLang = langSelect.value;
       const res = await fetch('https://libretranslate.de/translate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           q: text,
           source: 'en',
-          target: 'fa'
+          target: targetLang
         })
       });
       const translated = await res.json();

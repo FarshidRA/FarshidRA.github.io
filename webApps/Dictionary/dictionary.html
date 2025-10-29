@@ -2,31 +2,39 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Live OCR Translator</title>
 <style>
-  body {
+  html, body {
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #000;
-    color: #fff;
-    font-family: sans-serif;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    background: black;
   }
   #langSelect {
-    margin: 10px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
     font-size: 16px;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
   }
   #container {
     position: relative;
     width: 100%;
-    max-width: 640px;
+    height: 100%;
   }
   video {
     width: 100%;
-    height: auto;
-    border: 1px solid black;
+    height: 100%;
+    object-fit: cover;
   }
   canvas {
     display: none;
@@ -38,21 +46,21 @@
     width: 100%;
     height: 100%;
     color: red;
-    font-size: 4vw;
+    font-size: 5vw;
     font-weight: bold;
-    text-shadow: 1px 1px 2px black;
+    text-shadow: 2px 2px 4px black;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 5px;
+    padding: 10px;
     word-break: break-word;
+    z-index: 5;
   }
 </style>
 </head>
 <body>
 
-<h2>Live OCR Translator</h2>
 <select id="langSelect">
   <option value="fa">Persian</option>
   <option value="en">English</option>
@@ -118,7 +126,7 @@ async function processFrame() {
     console.error(err);
   }
 
-  setTimeout(processFrame, 2000);
+  requestAnimationFrame(processFrame);
 }
 
 startCamera().then(() => {

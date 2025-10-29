@@ -9,77 +9,78 @@ const stopAutoBtn = document.getElementById('stopAuto');
 let classifier = null;
 let autoInterval = null;
 
-// دوربین پشت
-async function startCamera(){
-  try{
+// Start camera (rear)
+async function startCamera() {
+  try {
     const stream = await navigator.mediaDevices.getUserMedia({
       video: { facingMode: "environment" },
       audio: false
     });
     video.srcObject = stream;
-  }catch(err){
-    descriptionEl.textContent = "خطا در دسترسی به دوربین: " + err.message;
+  } catch (err) {
+    descriptionEl.textContent = "Camera access error: " + err.message;
   }
 }
 
-// بارگذاری مدل ml5 (MobileNet)
+// Load ml5 MobileNet model
 ml5.imageClassifier('MobileNet')
-.then(c => {
-  classifier = c;
-  descriptionEl.textContent = "مدل بارگذاری شد — آماده‌اید.";
-})
-.catch(err => {
-  descriptionEl.textContent = "بارگذاری مدل شکست: " + err.message;
-});
+  .then(c => {
+    classifier = c;
+    descriptionEl.textContent = "Model loaded — ready to capture!";
+  })
+  .catch(err => {
+    descriptionEl.textContent = "Error loading model: " + err.message;
+  });
 
-// گرفتن فریم و تشخیص
-async function captureAndDescribe(){
-  if (!classifier){
-    descriptionEl.textContent = "منتظر بارگذاری مدل باش...";
+// Capture frame and describe
+async function captureAndDescribe() {
+  if (!classifier) {
+    descriptionEl.textContent = "Please wait for the model to load...";
     return;
   }
-  // اندازه بوم برابر ویدیو
+
+  // Draw video frame on canvas
   canvas.width = video.videoWidth || 640;
   canvas.height = video.videoHeight || 480;
   const ctx = canvas.getContext('2d');
   ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-  descriptionEl.textContent = "در حال تحلیل تصویر...";
+  descriptionEl.textContent = "Analyzing image...";
 
-  // classify از ml5: ورودی می‌تواند ویدیو/عکس/کَنواس باشد
+  // Classify using ml5
   classifier.classify(canvas)
-  .then(results => {
-    if (!results || results.length === 0){
-      descriptionEl.textContent = "چیزی شناسایی نشد.";
-      return;
-    }
-    // استفاده از ۳ نتیجهٔ برتر
-    const top = results.slice(0,3).map((r,i) =>
-      `${i+1}. ${r.label} — ${(r.confidence*100).toFixed(1)}%`).join("\n");
+    .then(results => {
+      if (!results || results.length === 0) {
+        descriptionEl.textContent = "Nothing detected.";
+        return;
+      }
 
-    const sentence = `من این‌ها رو دیدم:\n${top}`;
-    descriptionEl.textContent = sentence;
-    speak(sentence);
-  })
-  .catch(err => {
-    descriptionEl.textContent = "خطا در تشخیص: " + err.message;
-  });
+      // Top 3 results
+      const top = results.slice(0, 3).map((r, i) =>
+        `${i + 1}. ${r.label} — ${(r.confidence * 100).toFixed(1)}%`
+      ).join("\n");
+
+      const sentence = `I see:\n${top}`;
+      descriptionEl.textContent = sentence;
+      speak(sentence);
+    })
+    .catch(err => {
+      descriptionEl.textContent = "Error detecting: " + err.message;
+    });
 }
 
-// TTS
-function speak(text){
+// Text-to-Speech
+function speak(text) {
   if (!('speechSynthesis' in window)) return;
   const utter = new SpeechSynthesisUtterance(text);
-  // تنظیم زبان بر اساس انتخاب کاربر (ممکنه مرورگر صدا نداشته باشه)
   utter.lang = languages.value || 'en-US';
-  // سرعت و حجم معقول
   utter.rate = 1;
   utter.pitch = 1;
-  speechSynthesis.cancel(); // قطع هر پخش قبلی
+  speechSynthesis.cancel(); // stop previous
   speechSynthesis.speak(utter);
 }
 
-// اتصالات
+// Event listeners
 captureBtn.addEventListener('click', captureAndDescribe);
 
 autoBtn.addEventListener('click', () => {
@@ -97,5 +98,5 @@ stopAutoBtn.addEventListener('click', () => {
   stopAutoBtn.disabled = true;
 });
 
-// استارت
+// Initialize
 startCamera();

@@ -1,62 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 <head>
-<meta charset="UTF-8">
-<title>Camera Narrator</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Camera Narrator - GitHub Pages Demo</title>
 <style>
-  video, canvas { width: 100%; max-width: 400px; }
+  body{font-family:system-ui, "Tahoma", sans-serif; padding:12px; direction:rtl}
+  video, canvas{width:100%; max-width:560px; border-radius:8px; background:#000}
+  .controls{margin-top:10px; display:flex; gap:8px; flex-wrap:wrap}
+  button{padding:8px 12px; border-radius:6px; cursor:pointer}
+  #description{margin-top:12px; white-space:pre-wrap}
+  #languages{min-width:150px}
+  .small{font-size:0.9rem; color:#666}
 </style>
 </head>
 <body>
+<h2>Camera Narrator — نسخهٔ بدون سرور</h2>
+<p class="small">این نسخه تصاویر را روی دستگاه شما تشخیص می‌دهد (MobileNet) و نیاز به کلید API ندارد.</p>
 
 <video id="video" autoplay playsinline></video>
-<button id="capture">Capture & Describe</button>
 <canvas id="canvas" style="display:none;"></canvas>
-<p id="description"></p>
 
-<script>
-const video = document.getElementById('video');
-const canvas = document.getElementById('canvas');
-const descriptionEl = document.getElementById('description');
-const captureBtn = document.getElementById('capture');
+<div class="controls">
+  <button id="capture">عکس بگیر و توضیح بده</button>
+  <button id="auto">حالت خودکار (هر 3 ثانیه)</button>
+  <button id="stopAuto" disabled>توقف خودکار</button>
+  <select id="languages">
+    <option value="en-US">English (US)</option>
+    <option value="en-GB">English (UK)</option>
+    <option value="fr-FR">Français</option>
+    <option value="de-DE">Deutsch</option>
+    <option value="es-ES">Español</option>
+    <option value="fa-IR">فارسی (اگر مرورگر داشته باشه)</option>
+  </select>
+  <label class="small" style="align-self:center">پخش صوتی</label>
+</div>
 
-// دسترسی به دوربین پشت
-navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" }, audio: false })
-.then(stream => {
-  video.srcObject = stream;
-})
-.catch(err => {
-  console.error("Camera error:", err);
-});
+<div id="description">وضعیت: درحال بارگذاری مدل...</div>
 
-captureBtn.addEventListener('click', async () => {
-  // گرفتن فریم از ویدیو
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
-  const ctx = canvas.getContext('2d');
-  ctx.drawImage(video, 0, 0);
-
-  // تبدیل به base64
-  const dataURL = canvas.toDataURL('image/jpeg');
-
-  // ارسال به سرور / API برای توضیح
-  // اینجا باید API خودت رو صدا بزنی
-  const prompt = "Describe this image in simple sentences.";
-  const description = await fakeAI(dataURL, prompt); // نمونه
-
-  descriptionEl.textContent = description;
-
-  // خواندن متن با TTS
-  const utterance = new SpeechSynthesisUtterance(description);
-  speechSynthesis.speak(utterance);
-});
-
-// نمونه تابع شبیه‌سازی AI
-async function fakeAI(image, prompt) {
-  // جایگزین با call به OpenAI یا Google Vision API
-  return "This is a sample description of the scene.";
-}
-</script>
-
+<!-- Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.21.0/dist/tf.min.js"></script>
+<script src="https://unpkg.com/ml5@0.12.2/dist/ml5.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

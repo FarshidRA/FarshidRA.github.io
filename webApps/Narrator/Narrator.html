@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Camera Narrator</title>
+<style>
+  video, canvas { width: 100%; max-width: 400px; }
+</style>
+</head>
+<body>
+
+<video id="video" autoplay playsinline></video>
+<button id="capture">Capture & Describe</button>
+<canvas id="canvas" style="display:none;"></canvas>
+<p id="description"></p>
+
+<script>
+const video = document.getElementById('video');
+const canvas = document.getElementById('canvas');
+const descriptionEl = document.getElementById('description');
+const captureBtn = document.getElementById('capture');
+
+// دسترسی به دوربین پشت
+navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" }, audio: false })
+.then(stream => {
+  video.srcObject = stream;
+})
+.catch(err => {
+  console.error("Camera error:", err);
+});
+
+captureBtn.addEventListener('click', async () => {
+  // گرفتن فریم از ویدیو
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  const ctx = canvas.getContext('2d');
+  ctx.drawImage(video, 0, 0);
+
+  // تبدیل به base64
+  const dataURL = canvas.toDataURL('image/jpeg');
+
+  // ارسال به سرور / API برای توضیح
+  // اینجا باید API خودت رو صدا بزنی
+  const prompt = "Describe this image in simple sentences.";
+  const description = await fakeAI(dataURL, prompt); // نمونه
+
+  descriptionEl.textContent = description;
+
+  // خواندن متن با TTS
+  const utterance = new SpeechSynthesisUtterance(description);
+  speechSynthesis.speak(utterance);
+});
+
+// نمونه تابع شبیه‌سازی AI
+async function fakeAI(image, prompt) {
+  // جایگزین با call به OpenAI یا Google Vision API
+  return "This is a sample description of the scene.";
+}
+</script>
+
+</body>
+</html>

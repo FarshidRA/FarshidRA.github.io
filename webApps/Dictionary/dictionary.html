@@ -27,7 +27,7 @@
 <body>
 <h2>Live OCR Translator</h2>
 <div id="container">
-  <video autoplay></video>
+  <video autoplay playsinline></video>
   <canvas id="canvas" style="display:none;"></canvas>
   <div id="overlay"></div>
 </div>
@@ -41,7 +41,9 @@ const overlay = document.getElementById('overlay');
 
 async function startCamera() {
   try {
-    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+    const stream = await navigator.mediaDevices.getUserMedia({ 
+      video: { facingMode: { exact: "environment" } } 
+    });
     video.srcObject = stream;
   } catch (err) {
     console.error("Cannot access camera:", err);
@@ -54,16 +56,15 @@ async function processFrame() {
   ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
   try {
-    const { data: { text } } = await Tesseract.recognize(canvas, 'eng'); // زبان OCR رو انتخاب کن
+    const { data: { text } } = await Tesseract.recognize(canvas, 'eng');
     if (text.trim()) {
-      // ترجمه متن
       const res = await fetch('https://libretranslate.de/translate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           q: text,
-          source: 'en',  // متن ورودی
-          target: 'fa'   // زبان خروجی
+          source: 'en',
+          target: 'fa'
         })
       });
       const translated = await res.json();
@@ -75,7 +76,6 @@ async function processFrame() {
     console.error(err);
   }
 
-  // دوباره بعد از 2 ثانیه فریم بعدی
   setTimeout(processFrame, 2000);
 }
 
